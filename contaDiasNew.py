@@ -10,7 +10,10 @@ from datetime import timedelta
 
 def checkHoliday(listDate, date):
     dateStr =  date.strftime("%d/%m/%Y")
-    return listDate.index(dateStr)    
+    try:
+        return listDate.index(dateStr)
+    except:
+        return ""
 
 def dateFullLang(date):
     dateStr = date.strftime("%d/%m/%Y")
