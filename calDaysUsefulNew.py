@@ -100,7 +100,11 @@ def countCurUseFul(dateTuple):
                         obs = 'feriado nacional'
                     else:
                         status = 'conta'
-                        obs = 'dia normal'
+                        if count == num - 1:
+                            obs = 'final do prazo'
+                        else:
+                            status = 'conta'
+                            obs = 'dia normal'
                         count += 1                    
         if status == 'conta': 
             countStr = f'{str(count)}.°'
