@@ -172,7 +172,8 @@ def exibHoliday():
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
-        st.session_state.holonly = holOnly        
+        st.session_state.holonly = holOnly 
+    st.write(st.session_state)
     nData = len(dateOnly ) 
     dateAlpha = dateOnly[0]
     dateOmega = dateOnly[nData-1]
