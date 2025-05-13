@@ -330,7 +330,7 @@ def main():
         countCurUseFul(arg)
         df = pd.DataFrame(dateCurrUse)
         #['dia do mês', 'dias da semana', 
-        #'condição', 'sequencial', 'contador geral']
+        #'condição', 'obs', 'sequencial', 'contador geral']
         for f in [1, 2]: 
             field = keyCurrent[f]
             title = f"Binômio '{field} x frequência' no período da contagem"
