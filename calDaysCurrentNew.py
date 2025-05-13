@@ -74,7 +74,7 @@ def countCurUseFul(dateTuple):
                             obs = 'feriado nacional'
                         else:
                             status = 'conta'
-                            obs = ''
+                            obs = 'final do prazo'
                             count += 1
                 else:
                     if any ([weekNum == 5 or weekNum == 6]):
