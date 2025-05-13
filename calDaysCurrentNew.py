@@ -110,8 +110,8 @@ def countCurUseFul(dateTuple):
             countStr = f'{str(count)}.°'
             if count == 1:
                 obs = 'início do prazo'
-            elif count == num - 1:
-                obs = 'final do prazo'
+            elif count == num:
+                obs = 'término do prazo'
         else: 
             countStr = ''        
         infoCombo = [f'{dateFormat} ({dateName})', weekName, status, obs, countStr, n + 1]
