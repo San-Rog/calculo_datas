@@ -163,7 +163,7 @@ def exibHoliday():
     nData = len(onlyData) 
     dateAlpha = onlyData['Data'][0]
     dateOmega = onlyData['Data'][nData-1]
-    formato = '%d-%m-%Y"
+    formato = '%d-%m-%Y'
     st.write(dateAlpha)
     st.write(dateOmega)
     @st.dialog(' ')
