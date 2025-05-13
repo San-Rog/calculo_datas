@@ -343,10 +343,16 @@ def main():
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
         st.bar_chart(chartData, y="frequência", x=field)      
-        output = BytesIO() 
+        output = BytesIO()
+    try:
+        dateMin = st.session_state.datemin
+        dateMax = st.session_state.datemax  
+    except: 
+        dateMin = ""
+        dateMax = ""
     textIni = f"✳️ Os feriados nacionais (apenas eles e não outros de qualquer natureza) são os catalogados para o período "
-    textIni += f" de {st.session_state
-    st.markdown(f"✳️ Os feriados nacionais (apenas eles e não outros de qualquer natureza) são os catalogados para o período "  
+    textIni += f" de {dateMin} a {dateMax}"
+    st.markdown(textIni)  
     iniVars()
 
 if __name__ == '__main__':
