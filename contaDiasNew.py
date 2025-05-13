@@ -117,7 +117,7 @@ def checkDate(dateSel, nDays):
     time.sleep(timeDay*1.1)    
     if nDays <= 0:
         blockTwo = "⚠️ (junto com os arquivos de download) e os gráficos não exibirão dados numéricos representativos!"
-        blockOne = f"⚠️ A rotina baseou-se em {nDays} dia {sing}, de modo que as tabelas "
+        blockOne = f"⚠️ A rotina baseou-se em {nDays} dia, de modo que as tabelas "
         endor = False
     else:
         novaData = dateSel + datetime.timedelta(days=nDays)
