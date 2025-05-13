@@ -184,7 +184,7 @@ def exibHoliday():
         st.write(f'{nData} feriado(s) - período de {dateAlpha} a {dateOmega}')
         stDf = st.dataframe(data=dfHoliday, use_container_width=True, hide_index=True, 
                     selection_mode="multi-column") 
-        st.write(dstDf)
+        st.write(stDf)
     holid()
     
 def readHoliday():
