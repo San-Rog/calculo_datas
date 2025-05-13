@@ -8,6 +8,10 @@ from datetime import date
 import pandas as pd
 from datetime import timedelta
 
+def checkHoliday(listHoliday, date):
+    dateStr =  date.strftime("%d/%m/%Y")
+    listHoliday
+
 def dateFullLang(date):
     dateStr = date.strftime("%d/%m/%Y")
     weekNum = date.weekday()
@@ -16,7 +20,8 @@ def dateFullLang(date):
     return dateFull
 
 def findCurFul():
-    st.write(st.session_state.dateonly.tolist())
+    listData = st.session_state.dateonly.tolist()
+    listHoli = st.session_state.holonly.tolist()
     colorIni = st.session_state.color
     @st.dialog(' ')
     def config():
@@ -42,15 +47,17 @@ def findCurFul():
                 pass
             else: 
                 if mode == 0:
-                    if count == num - 1: 
-                        if any ([weekNum == 5 or weekNum == 6]):
+                    if count == num - 1:
+                        index = checkHoliday(listHoliday, dateNew)
+                        st.write(index)
+                        if any ([weekNum == 5, weekNum == 6]):
                             pass
                         else:
                             count += 1
                     else:
                         count += 1
                 else:
-                    if any ([weekNum == 5 or weekNum == 6]):
+                    if any ([weekNum == 5, weekNum == 6]):
                         pass
                     else:
                         count += 1
@@ -161,8 +168,11 @@ def exibInfo():
 def exibHoliday():
     dfClean = dfHoliday.dropna()
     dateOnly = dfHoliday['Data']
+    holOnly = dfHoliday['Feriado']
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
+    if 'holonly' not in st.session_state:
+        st.session_state.holonly = holOnly        
     nData = len(dateOnly ) 
     dateAlpha = dateOnly[0]
     dateOmega = dateOnly[nData-1]
