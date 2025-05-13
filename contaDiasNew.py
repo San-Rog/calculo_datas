@@ -221,7 +221,25 @@ def main():
                           on_click=exibHoliday, help="Verifique os feriados dos últimos anos.")
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
-            
+
+def configDf():
+    dfHoliday = readHoliday()
+    dfHoliday = dfHoliday.dropna()
+    dateOnly = dfHoliday['Data']
+    holOnly = dfHoliday['Feriado']
+    if 'dateonly' not in st.session_state:
+        st.session_state.dateonly = dateOnly
+    if 'holonly' not in st.session_state:
+        st.session_state.holonly = holOnly 
+    dateMin = date(2001, 1, 1)
+    dateMax = date(2099, 12, 31)
+    st.write(dateOnly[0]) 
+    st.write(type(dateOnly[0]))
+    if 'acesso' not in st.session_state:
+        st.session_state['acesso'] = []
+    if 'files' not in st.session_state:
+        st.session_state['files'] = [] 
+
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
@@ -241,21 +259,6 @@ if __name__ == '__main__':
     weeks = {6: 'domingo', 0: 'segunda-feira', 1: 'terça-feira', 
              2: 'quarta-feira', 3: 'quinta-feira', 4: 'sexta-feira', 
              5: 'sábado'}
-    dfHoliday = readHoliday()
-    dfHoliday = dfHoliday.dropna()
-    dateOnly = dfHoliday['Data']
-    holOnly = dfHoliday['Feriado']
-    if 'dateonly' not in st.session_state:
-        st.session_state.dateonly = dateOnly
-    if 'holonly' not in st.session_state:
-        st.session_state.holonly = holOnly 
-    dateMin = date(2001, 1, 1)
-    dateMax = date(2099, 12, 31)
-    st.write(dateOnly[0]) 
-    st.write(type(dateOnly[0]))
-    if 'acesso' not in st.session_state:
-        st.session_state['acesso'] = []
-    if 'files' not in st.session_state:
-        st.session_state['files'] = [] 
+    configDf()
     iniFinally(0)
     main()
