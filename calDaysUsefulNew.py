@@ -60,7 +60,7 @@ def countCurUseFul(dateTuple):
         weekName = dateResp[1]
         if n == 0:
             status = 'não conta'
-            obs = ''
+            obs = 'dia selecionado'
         else: 
             if mode == 0:
                 if count == num - 1: 
@@ -74,12 +74,21 @@ def countCurUseFul(dateTuple):
                             obs = 'feriado nacional'
                         else:
                             status = 'conta'
-                            obs = ''
+                            obs = 'final do prazo'
                             count += 1
                 else:
-                    status = 'conta'
-                    obs = ''
-                    count += 1
+                    if any ([weekNum == 5 or weekNum == 6]):
+                        status = 'conta'
+                        obs = 'fim de semana'
+                    else:
+                        index = checkHoliday(listDate, listHoli, dateNew)
+                        if index != '':    
+                            status = 'conta'
+                            obs = 'feriado nacional'
+                        else:
+                            status = 'conta'
+                            obs = 'dia normal'
+                            count += 1
             else:
                 if any ([weekNum == 5 or weekNum == 6]):
                     status = 'não conta'
@@ -91,7 +100,7 @@ def countCurUseFul(dateTuple):
                         obs = 'feriado nacional'
                     else:
                         status = 'conta'
-                        obs = ''
+                        obs = 'dia normal'
                         count += 1                    
         if status == 'conta': 
             countStr = f'{str(count)}.°'
@@ -319,7 +328,7 @@ def main():
     dateNow = datetime.date.today()
     dayFirst = st.session_state['acesso'][0]
     nDays = st.session_state['acesso'][1]
-    arg = (dayFirst, nDays, 1, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+    arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
     #['dia do mês', 'dias da semana', 
@@ -339,7 +348,7 @@ def main():
 if __name__ == '__main__':
     global timeDay
     global sing, plur, symb
-    global symbToast, color     
+    global symbToast, color   
     timeDay = 0.5
     sing = 'útil'
     plur = 'úteis'
