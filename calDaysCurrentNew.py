@@ -326,8 +326,9 @@ def main():
     #'condição', 'obs', 'sequencial', 'contador geral']
     for f in [1, 2]: 
         field = keyCurrent[f]
-        title = f"Binômio '{field} x frequência' no período da contagem"
-        #st.dataframe(data=df, hide_index=True, use_container_width=True)
+        if f == 1:
+            title = f"Binômio '{field} x frequência' no período da contagem"
+            st.dataframe(data=df, hide_index=True, use_container_width=True)
         dfCount = treatmentDf(title, field)
         st.write('$#$#$#$#$#$#$Q#$#$Q#$$#')
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
