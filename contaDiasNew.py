@@ -22,6 +22,7 @@ def dateFullLang(date):
 def findCurFul():
     listData = st.session_state.dateonly.tolist()
     listHoli = st.session_state.holonly.tolist()
+    st.write(listData)
     colorIni = st.session_state.color
     @st.dialog(' ')
     def config():
