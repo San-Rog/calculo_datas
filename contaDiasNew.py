@@ -164,12 +164,9 @@ def exibHoliday():
     dateAlpha = onlyData['Data'][0]
     dateOmega = onlyData['Data'][nData-1]
     formato = '%d-%m-%Y'
-    date_obj = datetime.strptime(dateAlpha, formato)
-    st.write(dateAlpha)
-    st.write(dateOmega)
     @st.dialog(' ')
     def holid():
-        st.write(f'{nData} feriado(s) - intervalo de {')
+        st.write(f'{nData} feriado(s) - intervalo de {dateAlpha} a {dateOmega}')
         st.dataframe(dfHoliday) 
     holid()
 def readHoliday():
