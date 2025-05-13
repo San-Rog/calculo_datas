@@ -222,19 +222,25 @@ def main():
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
 
+def defineLim(dateStr):
+    dateMod = dateStr.replace('/', '-').strip()
+    dateObj = datetime.strptime(dateMod, '%d-%m-%Y')
+    return dateObj
+    #st.write(dateOnly[0]) 
+    #st.write(type(dateOnly[0]))
+
 def configDf():
     dfHoliday = readHoliday()
     dfHoliday = dfHoliday.dropna()
     dateOnly = dfHoliday['Data']
+    nOnly = len(dateOnly)
     holOnly = dfHoliday['Feriado']
+    dateMin = defineLim(dateOnly[0])
+    dateMax = defineLim(dateOnly[nOnly - 1])
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
         st.session_state.holonly = holOnly 
-    dateMin = date(2001, 1, 1)
-    dateMax = date(2099, 12, 31)
-    st.write(dateOnly[0]) 
-    st.write(type(dateOnly[0]))
     if 'acesso' not in st.session_state:
         st.session_state['acesso'] = []
     if 'files' not in st.session_state:
