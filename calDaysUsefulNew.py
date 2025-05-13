@@ -344,6 +344,7 @@ if __name__ == '__main__':
     sing = 'útil'
     plur = 'úteis'
     symb = '📙'
+    symbToast = '⚠️'
     color = st.session_state.color
     st.markdown(f"# Prazo em dias {plur} {symb}")
     main()
