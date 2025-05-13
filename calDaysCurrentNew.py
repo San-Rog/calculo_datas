@@ -46,7 +46,7 @@ def countCurUseFul(dateTuple):
     count = 0 
     n = 0 
     if 'dateonly' in st.session_state:
-        listData = st.session_state.dateonly.tolist()
+        listDate = st.session_state.dateonly.tolist()
     if 'holonly' in st.session_state:
         listHoli = st.session_state.holonly.tolist()
     while count < num:
