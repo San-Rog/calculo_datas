@@ -32,6 +32,7 @@ def findCurFul():
     val = checkDate(dateIni, num)
     if not val:
         return
+    time.sleep(0.5)
     @st.dialog(' ')
     def config():
         colOne, colTwo = st.columns(spec=([3.5, 1]), gap="small", vertical_alignment="top", border=True)
