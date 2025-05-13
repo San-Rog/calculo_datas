@@ -25,7 +25,14 @@ def dateFullLang(date, mode):
     if mode == 0:
         return dateFull
     else:
-        return (dateFull, weekStr)   
+        return (dateFull, weekStr)
+
+def checkHoliday(listDate, listHoli, date):
+    dateStr =  date.strftime("%d/%m/%Y")
+    try:
+        return listDate.index(dateStr)
+    except:
+        return ""
     
 def countCurUseFul(dateTuple):
     title = dateTuple[-1]
@@ -56,21 +63,28 @@ def countCurUseFul(dateTuple):
         else: 
             if mode == 0:
                 if count == num - 1: 
-                    index 
                     if any ([weekNum == 5 or weekNum == 6]):
-                        status = 'não conta'
+                        status = 'não conta (final de semana)'
                     else:
-                        status = 'conta'
-                        count += 1
+                        index = checkHoliday(listDate, listHoli, dateNew)
+                        if index != '':    
+                            status = 'não conta (feriado)'
+                        else:
+                            status = 'conta'
+                            count += 1
                 else:
                     status = 'conta'
                     count += 1
             else:
                 if any ([weekNum == 5 or weekNum == 6]):
-                    status = 'não conta'
+                    status = 'não conta (final de semana)'
                 else:
-                    status = 'conta'
-                    count += 1
+                    index = checkHoliday(listDate, listHoli, dateNew)
+                    if index != '':    
+                        status = 'não conta (feriado)'
+                    else:
+                        status = 'conta'
+                        count += 1                    
         if status == 'conta': 
             countStr = f'{str(count)}.°'
         else: 
