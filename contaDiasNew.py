@@ -11,9 +11,11 @@ from datetime import timedelta
 def checkHoliday(listDate, date):
     dateStr =  date.strftime("%d/%m/%Y")
     try:
-        return listDate.index(dateStr)
+        ind = listDate.index(dateStr)
     except:
-        return ""
+        ind = ""
+    st.write (ind)
+    return ind
 
 def dateFullLang(date):
     dateStr = date.strftime("%d/%m/%Y")
