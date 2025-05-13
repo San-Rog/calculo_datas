@@ -1,4 +1,4 @@
-import pickle
+ãimport pickle
 import locale
 import pandas as pd
 import streamlit as st
@@ -60,36 +60,44 @@ def countCurUseFul(dateTuple):
         weekName = dateResp[1]
         if n == 0:
             status = 'não conta'
+            obs = ''
         else: 
             if mode == 0:
                 if count == num - 1: 
                     if any ([weekNum == 5 or weekNum == 6]):
-                        status = 'não conta (final de semana)'
+                        status = 'não conta'
+                        obs = 'fim de semana'
                     else:
                         index = checkHoliday(listDate, listHoli, dateNew)
                         if index != '':    
-                            status = 'não conta (feriado)'
+                            status = 'não conta'
+                            obs = 'feriado nacional'
                         else:
                             status = 'conta'
+                            obs = ''
                             count += 1
                 else:
                     status = 'conta'
+                    obs = ''
                     count += 1
             else:
                 if any ([weekNum == 5 or weekNum == 6]):
-                    status = 'não conta (final de semana)'
+                    status = 'não conta'
+                    obs = 'fim de semana'
                 else:
                     index = checkHoliday(listDate, listHoli, dateNew)
                     if index != '':    
-                        status = 'não conta (feriado)'
+                        status = 'não conta'
+                        obs = 'feriado nacional'
                     else:
                         status = 'conta'
+                        obs = ''
                         count += 1                    
         if status == 'conta': 
             countStr = f'{str(count)}.°'
         else: 
             countStr = ''        
-        infoCombo = [f'{dateFormat} ({dateName})', weekName, status, countStr, n + 1]
+        infoCombo = [f'{dateFormat} ({dateName})', weekName, status, obs, countStr, n + 1]
         for i, info in enumerate(infoCombo):
             key = keyCurrent[i]
             dateCurrUse[key].append(info)    
@@ -302,8 +310,8 @@ def main():
     global keyCurrent, keyUseFul
     global dateCurrUse, df, dfCount 
     global months, weeks
-    keyCurrent = ['dia do mês', 'dias da semana', 
-                  'condição', 'sequencial', 'contador geral']
+    keyCurrent = ['dia do mês', 'dia da semana', 
+                  'condição', 'nota', 'ordem', 'acumulador']
     dateCurrUse = {key:[] for key in keyCurrent}
     months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
               7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
