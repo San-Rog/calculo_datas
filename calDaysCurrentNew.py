@@ -60,7 +60,7 @@ def countCurUseFul(dateTuple):
         weekName = dateResp[1]
         if n == 0:
             status = 'não conta'
-            obs = ''
+            obs = 'início do prazo'
         else: 
             if mode == 0:
                 if count == num - 1: 
@@ -77,9 +77,18 @@ def countCurUseFul(dateTuple):
                             obs = ''
                             count += 1
                 else:
-                    status = 'conta'
-                    obs = ''
-                    count += 1
+                    if any ([weekNum == 5 or weekNum == 6]):
+                        status = 'conta'
+                        obs = 'fim de semana'
+                    else:
+                        index = checkHoliday(listDate, listHoli, dateNew)
+                        if index != '':    
+                            status = 'conta'
+                            obs = 'feriado nacional'
+                        else:
+                            status = 'conta'
+                            obs = 'dia normal'
+                            count += 1
             else:
                 if any ([weekNum == 5 or weekNum == 6]):
                     status = 'não conta'
@@ -91,7 +100,7 @@ def countCurUseFul(dateTuple):
                         obs = 'feriado nacional'
                     else:
                         status = 'conta'
-                        obs = ''
+                        obs = 'dia normal'
                         count += 1                    
         if status == 'conta': 
             countStr = f'{str(count)}.°'
