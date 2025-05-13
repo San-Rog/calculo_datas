@@ -240,6 +240,10 @@ def configDf():
     holOnly = dfHoliday['Feriado']
     dateMin = defineLim(dateOnly[0])
     dateMax = defineLim(dateOnly[nOnly - 1])
+    if 'datemin' not in st.session_state: 
+        st.session_state.datemin = dateMin
+    if 'datemax' not in st.session_state:
+        st.session_state.datemax = dateMax    
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
