@@ -166,15 +166,8 @@ def exibInfo():
     config()
 
 def exibHoliday():
-    dfClean = dfHoliday.dropna()
-    dateOnly = dfHoliday['Data']
-    holOnly = dfHoliday['Feriado']
-    if 'dateonly' not in st.session_state:
-        st.session_state.dateonly = dateOnly
-    if 'holonly' not in st.session_state:
-        st.session_state.holonly = holOnly 
-    st.write(st.session_state)
-    nData = len(dateOnly ) 
+    dateOnly = st.session_state.dateonly = dateOnly
+    nData = len(dateOnly) 
     dateAlpha = dateOnly[0]
     dateOmega = dateOnly[nData-1]
     @st.dialog(' ')
@@ -240,6 +233,13 @@ if __name__ == '__main__':
              2: 'quarta-feira', 3: 'quinta-feira', 4: 'sexta-feira', 
              5: 'sábado'}
     dfHoliday = readHoliday()
+    dfHoliday = dfHoliday.dropna()
+    dateOnly = dfHoliday['Data']
+    holOnly = dfHoliday['Feriado']
+    if 'dateonly' not in st.session_state:
+        st.session_state.dateonly = dateOnly
+    if 'holonly' not in st.session_state:
+        st.session_state.holonly = holOnly 
     dateMin = date(1960, 1, 1)
     dateMax = date(2100, 12, 31)
     if 'acesso' not in st.session_state:
