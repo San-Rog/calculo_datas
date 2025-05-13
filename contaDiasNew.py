@@ -1,4 +1,4 @@
-import streamlit as st 
+ch streamlit as st 
 import streamlit.components.v1 as components
 import datetime
 import time
@@ -26,6 +26,12 @@ def findCurFul():
     listData = st.session_state.dateonly.tolist()
     listHoli = st.session_state.holonly.tolist()
     colorIni = st.session_state.color
+    time.sleep(timeDay*1.1)
+    dateIni = st.session_state[listKeys[0]]
+    num = int(st.session_state[listKeys[1]])
+    val = checkDate(dateIni, num)
+    if not val:
+        return
     @st.dialog(' ')
     def config():
         colOne, colTwo = st.columns(spec=([3.5, 1]), gap="small", vertical_alignment="top", border=True)
@@ -33,12 +39,6 @@ def findCurFul():
         colorSel = colTwo.color_picker("Cor inicial", colorIni)
         st.session_state.color = colorSel            
     config()
-    time.sleep(timeDay*1.1)
-    dateIni = st.session_state[listKeys[0]]
-    num = int(st.session_state[listKeys[1]])
-    val = checkDate(dateIni, num)
-    if not val:
-        return
     for mode in [0, 1]:
         daySeq = []
         count = 0 
