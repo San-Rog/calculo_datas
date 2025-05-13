@@ -8,9 +8,9 @@ from datetime import date
 import pandas as pd
 from datetime import timedelta
 
-def checkHoliday(listHoliday, date):
+def checkHoliday(listDate, date):
     dateStr =  date.strftime("%d/%m/%Y")
-    listHoliday
+    st.write(listDate.index(dateStr))    
 
 def dateFullLang(date):
     dateStr = date.strftime("%d/%m/%Y")
@@ -48,7 +48,7 @@ def findCurFul():
             else: 
                 if mode == 0:
                     if count == num - 1:
-                        index = checkHoliday(listHoliday, dateNew)
+                        index = checkHoliday(listData, dateNew)
                         st.write(index)
                         if any ([weekNum == 5, weekNum == 6]):
                             pass
