@@ -126,7 +126,7 @@ def checkDate(dateSel, nDays):
         endor = True
     msg = st.toast(blockTwo)
     time.sleep(0.15)
-    msg.toast(blockTwo)
+    msg.toast(blockOne)
     time.sleep(0.15)
     return endor
 
