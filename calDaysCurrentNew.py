@@ -298,10 +298,10 @@ def iniVars():
             
 def checkDate(dateSel, nDays):
     if nDays <= 0:
-        st.toast("⚠️ e os gráficos não exibirão dados representativos da contagem!")
-        time.sleep(0.1)
-        toast(f"⚠️ A rotina baseou-se em {nDays} dia {sing}, de modo que as tabelas (junto com os arquivos de download) ")
-        time.sleep(0.1)
+        st.toast(f"{symbToast} e os gráficos não exibirão dados representativos da contagem!")
+        time.sleep(timeDay)
+        toast(f"{symbToast} A rotina baseou-se em {nDays} dia {sing}, de modo que as tabelas (junto com os arquivos de download) ")
+        time.sleep(timeDay)
         
 def main():
     global output, dirRoot
@@ -338,12 +338,13 @@ def main():
 
 if __name__ == '__main__':
     global timeDay
-    global cliks
-    global sing, plur, symb, color   
+    global sing, plur, symb
+    global symbToast, color   
     timeDay = 0.5
     sing = 'corrido'
     plur = 'corridos'
     symb = '📑'
+    symbToast = '⚠️'
     color = st.session_state.color
     st.markdown(f"# Prazo em dias {plur} {symb}")
     main()
