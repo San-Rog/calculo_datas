@@ -157,7 +157,7 @@ def exibInfo():
         st.markdown(f'⏳ **Tempo de uso deste app**: {tempus} segundo(s).')
     config()
     
- def exibHoliday():
+def exibHoliday():
     @st.dialog(' ')
     def config():        
         st.dataframe(dfHoliday)
