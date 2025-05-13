@@ -356,7 +356,8 @@ def main():
 if __name__ == '__main__':
     global timeDay
     global sing, plur, symb
-    global symbToast, color   
+    global symbToast, color
+    st.write(st.session_state)
     timeDay = 0.5
     sing = 'corrido'
     plur = 'corridos'
