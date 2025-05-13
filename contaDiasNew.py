@@ -158,6 +158,7 @@ def exibInfo():
     config()
 
 def exibHoliday():
+    onlyData = dfHoliday.dropna()
     @st.dialog(' ')
     def holid():
         st.write(f'{len(dfHoliday)} feriado(s)')
