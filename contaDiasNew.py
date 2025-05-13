@@ -225,10 +225,10 @@ def main():
 def defineLim(dateStr):
     dateMod = dateStr.replace('/', '-').strip()
     dateObj = datetime.strptime(dateMod, '%d-%m-%Y')
+    for index, row in dfHoliday.iterrows():
+        df.loc[index,' # '] =  index + 1 
     return dateObj
-    #st.write(dateOnly[0]) 
-    #st.write(type(dateOnly[0]))
-
+    
 def configDf():
     global dateMin, dateMax
     global dfHoliday
