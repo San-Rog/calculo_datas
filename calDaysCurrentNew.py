@@ -312,14 +312,7 @@ def iniVars():
             icon=labels[keys[7]][2]
         ):
             toInClip(1)
-            
-def checkDate(dateSel, nDays):
-    if nDays <= 0:
-        st.toast(f"{symbToast} e os gráficos não exibirão dados representativos da contagem!")
-        time.sleep(timeDay)
-        toast(f"{symbToast} A rotina baseou-se em {nDays} dia {sing}, de modo que as tabelas (junto com os arquivos de download) ")
-        time.sleep(timeDay)
-        
+
 def main():
     global output, dirRoot
     global keyCurrent, keyUseFul
@@ -356,13 +349,12 @@ def main():
 if __name__ == '__main__':
     global timeDay
     global sing, plur, symb
-    global symbToast, color
+    global color
     st.write(st.session_state)
     timeDay = 0.5
     sing = 'corrido'
     plur = 'corridos'
     symb = '📑'
-    symbToast = '⚠️'
     color = st.session_state.color
     st.markdown(f"# Prazo em dias {plur} {symb}")
     main()
