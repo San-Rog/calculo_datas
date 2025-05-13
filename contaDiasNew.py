@@ -156,12 +156,9 @@ def exibInfo():
         st.markdown(f'**⏲️ Hora de início**: {info[infoKeys[2]]}')
         st.markdown(f'⏳ **Tempo de uso deste app**: {tempus} segundo(s).')
     config()
-    
+
 def exibHoliday():
-    @st.dialog(' ')
-    def holid():        
-        st.dataframe(dfHoliday)
-    holid() 
+    st.dataframe(dfHoliday) 
 
 def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
