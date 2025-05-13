@@ -10,6 +10,7 @@ from datetime import timedelta
 
 def checkHoliday(listDate, date):
     dateStr =  date.strftime("%d/%m/%Y")
+    st.write(date)
     try:
         ind = listDate.index(dateStr)
     except:
@@ -55,7 +56,6 @@ def findCurFul():
                 if mode == 0:
                     if count == num - 1:
                         index = checkHoliday(listData, dateNew)
-                        st.write(index)
                         if any ([weekNum == 5, weekNum == 6]):
                             pass
                         else:
@@ -63,6 +63,7 @@ def findCurFul():
                     else:
                         count += 1
                 else:
+                    index = checkHoliday(listData, dateNew)
                     if any ([weekNum == 5, weekNum == 6]):
                         pass
                     else:
