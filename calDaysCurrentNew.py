@@ -301,7 +301,7 @@ def checkDate(dateSel, nDays):
         msg = st.toast("⚠️ e os gráficos não exibirão dados representativos da contagem!")
         time.sleep(0.1)
         msg.toast(f"⚠️ A rotina baseou-se em {nDays} dia {sing}, de modo que as tabelas (junto com os arquivos de download) ")
-        time.sleep(0.2)
+        time.sleep(0.1)
         
 def main():
     global output, dirRoot
