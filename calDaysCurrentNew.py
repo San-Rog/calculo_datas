@@ -38,6 +38,10 @@ def countCurUseFul(dateTuple):
     data_atual = datetime.datetime.today()
     count = 0 
     n = 0 
+    if 'dateonly' in st.session_state:
+        listData = st.session_state.dateonly.tolist()
+    if 'holonly' in st.session_state:
+        listHoli = st.session_state.holonly.tolist()
     while count < num:
         dateNew = dateIni + datetime.timedelta(days=n)
         weekNum = dateNew.weekday()
@@ -52,6 +56,7 @@ def countCurUseFul(dateTuple):
         else: 
             if mode == 0:
                 if count == num - 1: 
+                    index 
                     if any ([weekNum == 5 or weekNum == 6]):
                         status = 'não conta'
                     else:
