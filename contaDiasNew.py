@@ -14,7 +14,7 @@ def checkHoliday(listDate, date):
     try:
         ind = listDate.index(dateStr)
         st.write(listDate[ind])
-        st.write(list
+        st.write(listHoli[ind])
     except:
         ind = ""
     return ind
