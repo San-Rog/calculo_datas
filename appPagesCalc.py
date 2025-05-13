@@ -5,9 +5,9 @@ import time
 def main():
     #Define the pages
     pages = {
-    "Opções": [st.Page("contaDiasNew.py", title="Entrada de dados", icon="📆", help='mmm'), 
-              st.Page("calDaysCurrentNew.py", title="Dias corridos", icon="📑"), 
-              st.Page("calDaysUsefulNew.py", title="Dias úteis", icon="📙")]   
+    "Opções": [st.Page("contaDiasNew.py", title="Entrada de dados", icon="📆"), 
+              st.Page("calDaysCurrentNew.py", title="Tabelas/gráficos dias corridos", icon="📑"), 
+              st.Page("calDaysUsefulNew.py", title="Tabelas/gráficos dias úteis", icon="📙")]   
     }
     pg = st.navigation(pages)
     pg.run()   
