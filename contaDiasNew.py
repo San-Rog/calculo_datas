@@ -194,7 +194,7 @@ def main():
         colInfo.button(label='Usuário', use_container_width=True, icon=":material/calculate:", 
                         on_click=exibInfo, help="Verifique as informações registradas durante esta sessão de uso do aplicativo.")
         colHoliday.button(label='Feriados', use_container_width=True, icon=":material/calculate:", 
-                          on_click=exibHoliday, help="Verifique os feriados dos últimos anos.")
+                          on_click=exibInfo, help="Verifique os feriados dos últimos anos.")
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
             
