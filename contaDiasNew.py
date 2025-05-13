@@ -223,7 +223,7 @@ if __name__ == '__main__':
     weeks = {6: 'domingo', 0: 'segunda-feira', 1: 'terça-feira', 
              2: 'quarta-feira', 3: 'quinta-feira', 4: 'sexta-feira', 
              5: 'sábado'}
-    #dfHoliday = readHoliday()
+    dfHoliday = readHoliday()
     dateMin = date(1960, 1, 1)
     dateMax = date(2100, 12, 31)
     if 'acesso' not in st.session_state:
