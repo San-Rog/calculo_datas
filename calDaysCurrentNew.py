@@ -315,9 +315,9 @@ def iniVars():
             
 def checkDate(dateSel, nDays):
     if nDays <= 0:
-        st.toast(f"e os gráficos não exibirão dados representativos da contagem!")
+        st.toast(f"{symbToast} e os gráficos não exibirão dados representativos da contagem!")
         time.sleep(timeDay)
-        toast(f"A rotina baseou-se em {nDays} dia {sing}, de modo que as tabelas (junto com os arquivos de download) ")
+        toast(f"{symbToast} A rotina baseou-se em {nDays} dia {sing}, de modo que as tabelas (junto com os arquivos de download) ")
         time.sleep(timeDay)
         
 def main():
