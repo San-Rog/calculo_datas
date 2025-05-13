@@ -5,6 +5,7 @@ import time
 import os
 import datetime
 from datetime import date
+from datetime import datetime
 import pandas as pd
 from datetime import timedelta
 
@@ -162,7 +163,9 @@ def exibHoliday():
     nData = len(onlyData) 
     dateAlpha = onlyData['Data'][0]
     dateOmega = onlyData['Data'][nData-1]
+    formato = '%d-%m-%Y"
     st.write(dateAlpha)
+    st.write(datetime.strptime(dateAlpha))
     st.write(dateOmega)
     @st.dialog(' ')
     def holid():
