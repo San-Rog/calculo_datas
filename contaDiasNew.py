@@ -248,8 +248,9 @@ if __name__ == '__main__':
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
         st.session_state.holonly = holOnly 
-    dateMin = date(1960, 1, 1)
-    dateMax = date(2100, 12, 31)
+    dateMin = date(2001, 1, 1)
+    dateMax = date(2099, 12, 31)
+    st.write(dateOnly[0], type(dateOnly[0])
     if 'acesso' not in st.session_state:
         st.session_state['acesso'] = []
     if 'files' not in st.session_state:
