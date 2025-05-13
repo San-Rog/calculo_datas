@@ -125,10 +125,10 @@ def checkDate(dateSel, nDays):
         blockTwo = "🧮 (junto com os arquivos de download) e gráficos exibam dados numéricos representativos!" 
         blockOne = f"🧮 O cálculo levou em conta data de {dateSel.strftime('%d/%m/%Y')} e {nDays} dia(s), propiciando que tabelas"
         endor = True
-    msg = st.toast(blockTwo)
-    time.sleep(0.30)
+    msg = st.toast(blockOne)
+    time.sleep(1)
     msg.toast(blockOne)
-    time.sleep(0.10)
+    time.sleep(0.5)
     return endor
 
 def changeSlCalend():
