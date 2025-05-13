@@ -116,13 +116,17 @@ def changeDate():
 def checkDate(dateSel, nDays):
     time.sleep(timeDay*1.1)    
     if nDays <= 0:
-        block = f"Não se fará cálculo de datas, pois o número de dias é igual a {nDays}!"
+        blockTwo = "⚠️ e os gráficos não exibirão dados representativos da contagem!"
+        blockOne = f"⚠️ A rotina baseou-se em {nDays} dia {sing}, de modo que as tabelas (junto com os arquivos de download) "
         endor = False
     else:
         novaData = dateSel + datetime.timedelta(days=nDays)
-        block = f"O cálculo leva em conta data de {dateSel.strftime('%d/%m/%Y')} e {nDays} dia(s)!"
+        blockTwo = "propiciando que tabelas e gráficos exibam dados representativos da contagem!" 
+        blockOne = f"O cálculo levou em conta data de {dateSel.strftime('%d/%m/%Y')} e {nDays} dia(s), "
         endor = True
-    st.toast(f"⚠️ {block}")
+    msg = st.toast(blockTwo)
+    time.sleep(0.15)
+    msg.toast(blockTwo)
     time.sleep(0.15)
     return endor
 
