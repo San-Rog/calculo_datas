@@ -344,6 +344,9 @@ def main():
         chartData = graphicDf(title)
         st.bar_chart(chartData, y="frequência", x=field)      
         output = BytesIO() 
+    textIni = f"✳️ Os feriados nacionais (apenas eles e não outros de qualquer natureza) são os catalogados para o período "
+    textIni += f" de {st.session_state
+    st.markdown(f"✳️ Os feriados nacionais (apenas eles e não outros de qualquer natureza) são os catalogados para o período "  
     iniVars()
 
 if __name__ == '__main__':
