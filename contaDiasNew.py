@@ -159,8 +159,7 @@ def exibInfo():
     
  def exibHoliday():
     @st.dialog(' ')
-    def config():
-        info = st.session_state.info
+    def config():        
         st.dataframe(dfHoliday)
     config() 
 
