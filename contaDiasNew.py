@@ -16,7 +16,7 @@ def dateFullLang(date):
     return dateFull
 
 def findCurFul():
-    st.write(df.values.tolist(st.session_state.dateonly))
+    st.write(st.session_state.dateonly.tolist())
     colorIni = st.session_state.color
     @st.dialog(' ')
     def config():
