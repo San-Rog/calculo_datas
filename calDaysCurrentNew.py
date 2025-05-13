@@ -319,25 +319,20 @@ def main():
     dateNow = datetime.date.today()
     dayFirst = st.session_state['acesso'][0]
     nDays = st.session_state['acesso'][1]
-    args =  [(dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')]
-    for a, arg in enumerate(args):
-        #st.divider()
-        if a == (len(args) - 1): 
-            st.write('')
-            st.write('')
-        countCurUseFul(arg)
-        df = pd.DataFrame(dateCurrUse)
-        #['dia do mês', 'dias da semana', 
-        #'condição', 'obs', 'sequencial', 'contador geral']
-        for f in [1, 2]: 
-            field = keyCurrent[f]
-            title = f"Binômio '{field} x frequência' no período da contagem"
-            st.dataframe(data=df, hide_index=True, use_container_width=True)
-            dfCount = treatmentDf(title, field)
-            st.write('$#$#$#$#$#$#$Q#$#$Q#$$#')
-            st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
-            chartData = graphicDf(title)
-            st.bar_chart(chartData, y="frequência", x=field)      
+    arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+    countCurUseFul(arg)
+    df = pd.DataFrame(dateCurrUse)
+    #['dia do mês', 'dias da semana', 
+    #'condição', 'obs', 'sequencial', 'contador geral']
+    for f in [1, 2]: 
+        field = keyCurrent[f]
+        title = f"Binômio '{field} x frequência' no período da contagem"
+        st.dataframe(data=df, hide_index=True, use_container_width=True)
+        dfCount = treatmentDf(title, field)
+        st.write('$#$#$#$#$#$#$Q#$#$Q#$$#')
+        st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
+        chartData = graphicDf(title)
+        st.bar_chart(chartData, y="frequência", x=field)      
         output = BytesIO() 
     iniVars()
 
