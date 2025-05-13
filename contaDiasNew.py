@@ -182,7 +182,7 @@ def exibHoliday():
     @st.dialog(' ')
     def holid():
         st.write(f'{nData} feriado(s) - período de {dateAlpha} a {dateOmega}')
-        st.dataframe(dfHoliday) 
+        st.dataframe(data=dfHoliday, use_container_width=True, hide_index=True) 
     holid()
 def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
@@ -226,7 +226,7 @@ def defineLim(dateStr):
     dateMod = dateStr.replace('/', '-').strip()
     dateObj = datetime.strptime(dateMod, '%d-%m-%Y')
     for index, row in dfHoliday.iterrows():
-        dfHoliday.loc[index,' # '] =  index + 1 
+        dfHoliday.loc[index, ' #️⃣'] =  index + 1 
     return dateObj
     
 def configDf():
