@@ -169,7 +169,7 @@ def exibInfo():
     config()
 
 def exibHoliday():
-    dateOnly = st.session_state.dateonly = dateOnly
+    dateOnly = st.session_state.dateonly
     nData = len(dateOnly) 
     dateAlpha = dateOnly[0]
     dateOmega = dateOnly[nData-1]
