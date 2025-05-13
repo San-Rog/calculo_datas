@@ -60,7 +60,7 @@ def countCurUseFul(dateTuple):
         weekName = dateResp[1]
         if n == 0:
             status = 'não conta'
-            obs = 'início do prazo'
+            obs = ''
         else: 
             if mode == 0:
                 if count == num - 1: 
