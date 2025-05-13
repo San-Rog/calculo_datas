@@ -159,9 +159,14 @@ def exibInfo():
 
 def exibHoliday():
     onlyData = dfHoliday.dropna()
+    nData = len(onlyData) 
+    dateAlpha = onlyData['Data'][0]
+    dateOmega = onlyData['Data'][nData-1]
+    st.write(dateAlpha)
+    st.write(dateOmega)
     @st.dialog(' ')
     def holid():
-        st.write(f'{len(dfHoliday)} feriado(s)')
+        st.write(f'{nData} feriado(s) - intervalo de ')
         st.dataframe(dfHoliday) 
     holid()
 def readHoliday():
