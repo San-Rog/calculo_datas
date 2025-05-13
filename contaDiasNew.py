@@ -29,7 +29,6 @@ def dateFullLang(date):
 def findCurFul():
     listData = st.session_state.dateonly.tolist()
     listHoli = st.session_state.holonly.tolist()
-    st.write(listData)
     colorIni = st.session_state.color
     @st.dialog(' ')
     def config():
@@ -57,7 +56,7 @@ def findCurFul():
                 if mode == 0:
                     if count == num - 1:
                         index = checkHoliday(listData, listHoli, dateNew)
-                        if any ([weekNum == 5, weekNum == 6]):
+                        if any ([weekNum == 5, weekNum == 6, index != '']):
                             pass
                         else:
                             count += 1
@@ -65,7 +64,7 @@ def findCurFul():
                         count += 1
                 else:
                     index = checkHoliday(listData, listHoli, dateNew)
-                    if any ([weekNum == 5, weekNum == 6]):
+                    if any ([weekNum == 5, weekNum == 6, index != '']):
                         pass
                     else:
                         count += 1
