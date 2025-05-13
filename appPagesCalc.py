@@ -5,7 +5,7 @@ import time
 def main():
     #Define the pages
     pages = {
-    "Opções": [st.Page("contaDiasNew.py", title="Entrada de dados", icon="📆"), 
+    "Opções": [st.Page("contaDiasNew.py", title="Entrada de dados", icon="📆", help='mmm'), 
               st.Page("calDaysCurrentNew.py", title="Dias corridos", icon="📑"), 
               st.Page("calDaysUsefulNew.py", title="Dias úteis", icon="📙")]   
     }
