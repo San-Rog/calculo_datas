@@ -14,6 +14,13 @@ from datetime import date
 from datetime import timedelta
 import time
 
+def checkHoliday(listDate, listHoli, date):
+    dateStr =  date.strftime("%d/%m/%Y")
+    try:
+        return listDate.index(dateStr)
+    except:
+        return ""
+
 def dateFullLang(date, mode):
     dayStr = date.day
     monthNum = date.month
