@@ -323,10 +323,6 @@ if __name__ == '__main__':
     sing = 'útil'
     plur = 'úteis'
     symb = '📙'
-    dateSel = st.session_state.acesso[0]
-    nDays = st.session_state.acesso[1]
-    val = checkDate(dateSel, nDays)
-    st.spinner('Confecção do demonstrativo de dias corridos em andamento. Aguarde...', show_time=True)
     color = st.session_state.color
     st.markdown(f"# Prazo em dias {plur} {symb}")
     main()
