@@ -74,7 +74,7 @@ def countCurUseFul(dateTuple):
                             obs = 'feriado nacional'
                         else:
                             status = 'conta'
-                            obs = 'final do prazo'
+                            obs = ''
                             count += 1
                 else:
                     if any ([weekNum == 5 or weekNum == 6]):
@@ -101,13 +101,17 @@ def countCurUseFul(dateTuple):
                     else:
                         status = 'conta'
                         if count == num - 1:
-                            obs = 'final do prazo'
+                            obs = ''
                         else:
                             status = 'conta'
                             obs = 'dia normal'
-                        count += 1                    
+                        count += 1   
         if status == 'conta': 
             countStr = f'{str(count)}.°'
+            if count == 1:
+                obs = 'início do prazo'
+            elif count == num - 1:
+                obs = 'final do prazo'
         else: 
             countStr = ''        
         infoCombo = [f'{dateFormat} ({dateName})', weekName, status, obs, countStr, n + 1]
