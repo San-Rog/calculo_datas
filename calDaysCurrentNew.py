@@ -1,4 +1,4 @@
-ãimport pickle
+import pickle
 import locale
 import pandas as pd
 import streamlit as st
