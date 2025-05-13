@@ -338,8 +338,8 @@ def main():
 
 if __name__ == '__main__':
     global timeDay
-    global cliks
-    global sing, plur, symb, color   
+    global sing, plur, symb
+    global symbToast, color     
     timeDay = 0.5
     sing = 'útil'
     plur = 'úteis'
