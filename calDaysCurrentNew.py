@@ -134,9 +134,7 @@ def graphicDf(title):
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
-    colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)
-    
-    #colEstat.markdown(f":bar_chart: **:blue[{title}]**")
+    colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
     return chartData
     
 # Function to convert DataFrame to Excel file in memory
