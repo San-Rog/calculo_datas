@@ -5,7 +5,6 @@ import time
 import os
 import datetime
 from datetime import date
-from datetime import datetime
 import pandas as pd
 from datetime import timedelta
 
