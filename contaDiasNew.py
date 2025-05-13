@@ -8,7 +8,7 @@ from datetime import date
 import pandas as pd
 from datetime import timedelta
 
-def checkHoliday(listDate, date):
+def checkHoliday(listDate, listHoli, date):
     dateStr =  date.strftime("%d/%m/%Y")
     st.write(date)
     try:
