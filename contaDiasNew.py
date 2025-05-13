@@ -231,6 +231,7 @@ def defineLim(dateStr):
 
 def configDf():
     global dateMin, dateMax
+    global dfHoliday
     dfHoliday = readHoliday()
     dfHoliday = dfHoliday.dropna()
     dateOnly = dfHoliday['Data']
@@ -251,7 +252,6 @@ if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
     global months, weeks
-    global dfHoliday
     keyNames = {'calendar': date.today(), 
                 'days': 0, 
                 'plus': 0, 
