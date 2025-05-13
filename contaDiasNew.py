@@ -159,9 +159,9 @@ def exibInfo():
     
 def exibHoliday():
     @st.dialog(' ')
-    def config():        
+    def holid():        
         st.dataframe(dfHoliday)
-    config() 
+    holid() 
 
 def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
