@@ -329,12 +329,12 @@ def main():
         if f == 1:
             title = f"Binômio '{field} x frequência' no período da contagem"
             st.dataframe(data=df, hide_index=True, use_container_width=True)
-        dfCount = treatmentDf(title, field)
-        st.write('$#$#$#$#$#$#$Q#$#$Q#$$#')
-        st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
-        chartData = graphicDf(title)
-        st.bar_chart(chartData, y="frequência", x=field)      
-        output = BytesIO() 
+        else:
+            dfCount = treatmentDf(title, field)        
+            st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
+            chartData = graphicDf(title)
+            st.bar_chart(chartData, y="frequência", x=field)      
+            output = BytesIO() 
     iniVars()
 
 if __name__ == '__main__':
