@@ -13,9 +13,10 @@ def checkHoliday(listDate, date):
     st.write(date)
     try:
         ind = listDate.index(dateStr)
+        st.write(listDate[ind])
+        st.write(list
     except:
         ind = ""
-    st.write (ind)
     return ind
 
 def dateFullLang(date):
@@ -55,7 +56,7 @@ def findCurFul():
             else: 
                 if mode == 0:
                     if count == num - 1:
-                        index = checkHoliday(listData, dateNew)
+                        index = checkHoliday(listData, listHoli, dateNew)
                         if any ([weekNum == 5, weekNum == 6]):
                             pass
                         else:
@@ -63,7 +64,7 @@ def findCurFul():
                     else:
                         count += 1
                 else:
-                    index = checkHoliday(listData, dateNew)
+                    index = checkHoliday(listData, listHoli, dateNew)
                     if any ([weekNum == 5, weekNum == 6]):
                         pass
                     else:
