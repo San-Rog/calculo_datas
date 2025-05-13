@@ -7,8 +7,6 @@ import datetime
 from datetime import date
 import pandas as pd
 from datetime import timedelta
-import warnings
-warnings.filterwarnings("ignore")
 
 def dateFullLang(date):
     dateStr = date.strftime("%d/%m/%Y")
