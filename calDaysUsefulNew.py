@@ -14,13 +14,6 @@ from datetime import date
 from datetime import timedelta
 import time
 
-def checkHoliday(listDate, listHoli, date):
-    dateStr =  date.strftime("%d/%m/%Y")
-    try:
-        return listDate.index(dateStr)
-    except:
-        return ""
-
 def dateFullLang(date, mode):
     dayStr = date.day
     monthNum = date.month
@@ -32,7 +25,14 @@ def dateFullLang(date, mode):
     if mode == 0:
         return dateFull
     else:
-        return (dateFull, weekStr)   
+        return (dateFull, weekStr)
+
+def checkHoliday(listDate, listHoli, date):
+    dateStr =  date.strftime("%d/%m/%Y")
+    try:
+        return listDate.index(dateStr)
+    except:
+        return ""
     
 def countCurUseFul(dateTuple):
     title = dateTuple[-1]
@@ -45,6 +45,10 @@ def countCurUseFul(dateTuple):
     data_atual = datetime.datetime.today()
     count = 0 
     n = 0 
+    if 'dateonly' in st.session_state:
+        listDate = st.session_state.dateonly.tolist()
+    if 'holonly' in st.session_state:
+        listHoli = st.session_state.holonly.tolist()
     while count < num:
         dateNew = dateIni + datetime.timedelta(days=n)
         weekNum = dateNew.weekday()
@@ -56,28 +60,44 @@ def countCurUseFul(dateTuple):
         weekName = dateResp[1]
         if n == 0:
             status = 'não conta'
+            obs = ''
         else: 
             if mode == 0:
                 if count == num - 1: 
                     if any ([weekNum == 5 or weekNum == 6]):
                         status = 'não conta'
+                        obs = 'fim de semana'
                     else:
-                        status = 'conta'
-                        count += 1
+                        index = checkHoliday(listDate, listHoli, dateNew)
+                        if index != '':    
+                            status = 'não conta'
+                            obs = 'feriado nacional'
+                        else:
+                            status = 'conta'
+                            obs = ''
+                            count += 1
                 else:
                     status = 'conta'
+                    obs = ''
                     count += 1
             else:
                 if any ([weekNum == 5 or weekNum == 6]):
                     status = 'não conta'
+                    obs = 'fim de semana'
                 else:
-                    status = 'conta'
-                    count += 1
+                    index = checkHoliday(listDate, listHoli, dateNew)
+                    if index != '':    
+                        status = 'não conta'
+                        obs = 'feriado nacional'
+                    else:
+                        status = 'conta'
+                        obs = ''
+                        count += 1                    
         if status == 'conta': 
             countStr = f'{str(count)}.°'
         else: 
             countStr = ''        
-        infoCombo = [f'{dateFormat} ({dateName})', weekName, status, countStr, n + 1]
+        infoCombo = [f'{dateFormat} ({dateName})', weekName, status, obs, countStr, n + 1]
         for i, info in enumerate(infoCombo):
             key = keyCurrent[i]
             dateCurrUse[key].append(info)    
@@ -114,9 +134,7 @@ def graphicDf(title):
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
-    colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)
-    
-    #colEstat.markdown(f":bar_chart: **:blue[{title}]**")
+    colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
     return chartData
     
 # Function to convert DataFrame to Excel file in memory
@@ -290,8 +308,8 @@ def main():
     global keyCurrent, keyUseFul
     global dateCurrUse, df, dfCount 
     global months, weeks
-    keyCurrent = ['dia do mês', 'dias da semana', 
-                  'condição', 'sequencial', 'contador geral']
+    keyCurrent = ['dia do mês', 'dia da semana', 
+                  'condição', 'nota', '#', 'contador']
     dateCurrUse = {key:[] for key in keyCurrent}
     months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
               7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
@@ -301,24 +319,20 @@ def main():
     dateNow = datetime.date.today()
     dayFirst = st.session_state['acesso'][0]
     nDays = st.session_state['acesso'][1]
-    args =  [(dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')]
-    for a, arg in enumerate(args):
-        #st.divider()
-        if a == (len(args) - 1): 
-            st.write('')
-            st.write('')
-        countCurUseFul(arg)
-        df = pd.DataFrame(dateCurrUse)
-        #['dia do mês', 'dias da semana', 
-        #'condição', 'sequencial', 'contador geral']
-        for f in [1, 2]: 
-            field = keyCurrent[f]
-            title = f"Binômio '{field} x frequência' no período da contagem"
+    arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+    countCurUseFul(arg)
+    df = pd.DataFrame(dateCurrUse)
+    #['dia do mês', 'dias da semana', 
+    #'condição', 'obs', 'sequencial', 'contador geral']
+    for f in [1, 2]: 
+        field = keyCurrent[f]
+        title = f"Binômio '{field} x frequência' no período da contagem"
+        if f == 1:
             st.dataframe(data=df, hide_index=True, use_container_width=True)
-            dfCount = treatmentDf(title, field)
-            st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
-            chartData = graphicDf(title)
-            st.bar_chart(chartData, y="frequência", x=field)        
+        dfCount = treatmentDf(title, field)        
+        st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
+        chartData = graphicDf(title)
+        st.bar_chart(chartData, y="frequência", x=field)      
         output = BytesIO() 
     iniVars()
 
