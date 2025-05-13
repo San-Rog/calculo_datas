@@ -226,7 +226,7 @@ def defineLim(dateStr):
     dateMod = dateStr.replace('/', '-').strip()
     dateObj = datetime.strptime(dateMod, '%d-%m-%Y')
     for index, row in dfHoliday.iterrows():
-        dfHoliday.loc[index, ' #️⃣'] =  index + 1 
+        dfHoliday.loc[index, '   #️⃣'] =  index + 1 
     return dateObj
     
 def configDf():
