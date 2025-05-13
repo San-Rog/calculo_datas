@@ -123,7 +123,7 @@ def checkDate(dateSel, nDays):
         block = f"O cálculo leva em conta data de {dateSel.strftime('%d/%m/%Y')} e {nDays} dia(s)!"
         endor = True
     st.toast(f"⚠️ {block}")
-    time.sleep(0.2)
+    time.sleep(0.15)
     return endor
 
 def changeSlCalend():
