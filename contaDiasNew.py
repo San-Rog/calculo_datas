@@ -222,7 +222,7 @@ def defineLim():
     dateMinStr = dateOnly[0]
     dateMaxStr = dateOnly[nOnly-1]
     listDate.append(dateMinStr)
-    listDate.append)dateMaxStr)
+    listDate.append(dateMaxStr)
     st.write(listDate)
     #for dateStr in [dateMinStr, dateMaxStr]:
     #    dateSplit = [int(dat) for dat in list(reversed(dateStr.split('/')))]
