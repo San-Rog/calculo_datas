@@ -171,8 +171,8 @@ def exibInfo():
 def exibHoliday():
     dateOnly = st.session_state.dateonly
     nData = len(dateOnly) 
-    dateAlpha = dateOnly[0]
-    dateOmega = dateOnly[nData-1]
+    dateAlpha = st.sessiont_state.dateminstr
+    dateOmega = st.sessiont_state.datemaxstr
     @st.dialog(' ')
     def holid():
         st.write(f'{nData} feriado(s) - período de {dateAlpha} a {dateOmega}')
@@ -223,7 +223,6 @@ def defineLim():
     dateMaxStr = dateOnly[nOnly-1]
     listDate.append(dateMinStr)
     listDate.append(dateMaxStr)
-    st.write(listDate)
     for dateStr in [dateMinStr, dateMaxStr]:
         dateSplit = [int(dat) for dat in list(reversed(dateStr.split('/')))]
         dateObj = date(dateSplit[0], dateSplit[1], dateSplit[2])
