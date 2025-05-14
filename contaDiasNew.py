@@ -1,13 +1,13 @@
 import streamlit as st 
 import streamlit.components.v1 as components
-from datetime import *
+from datetime import datetime, date, timedelta 
 import time
 import os
 import datetime
 #from datetime import date
 import pandas as pd
-from datetime import timedelta
-from datetime import datetime
+#from datetime import timedelta
+#from datetime import datetime
 
 def checkHoliday(listDate, listHoli, date):
     dateStr =  date.strftime("%d/%m/%Y")
