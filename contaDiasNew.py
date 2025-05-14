@@ -219,7 +219,7 @@ def main():
 def configDf():
     nOnly = len(dateOnly)
     dateMin = dateOnly[0]
-    dateMax = dateOnly[nOlny-1]
+    dateMax = dateOnly[nOnly-1]
     st.write(dateMin)
     st.write(dateMax) 
     
