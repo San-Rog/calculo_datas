@@ -215,13 +215,22 @@ def main():
                           on_click=exibHoliday, help="Verifique os feriados dos últimos anos.")
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
-            
+
+def configDf():
+    st.write(dfHoliday['Data'][0])
+    st.write(dfHoliday['Data'][0].split('/'))
+    dateObj = list(reversed(dateOnly.split('/')))
+    holObj = list(reversed(holOnly.split('/')))
+    st.write(dateObj)
+    st.write(holObj)
+
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
     global months, weeks
     global dateMin, dateMax
     global dfHoliday
+    global dateOnly, holOnly
     keyNames = {'calendar': date.today(), 
                 'days': 0, 
                 'plus': 0, 
@@ -242,9 +251,8 @@ if __name__ == '__main__':
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
-        st.session_state.holonly = holOnly 
-    st.write(dfHoliday['Data'][0])
-    st.write(dfHoliday['Data'][0].split('/'))
+        st.session_state.holonly = holOnly
+    configDf()
     dateMin = date(1960, 1, 1)
     dateMax = date(2100, 12, 31)
     if 'acesso' not in st.session_state:
