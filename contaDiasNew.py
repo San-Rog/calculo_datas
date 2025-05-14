@@ -215,7 +215,9 @@ def main():
                           on_click=exibHoliday, help="Verifique os feriados dos últimos anos.")
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
-    st.expander('mmmm')
+    with st.expander('Sobre esta aplicação'):
+        st.write('Esta aplicação demonstra diversas maneiras de como você pode definir o layout da sua aplicação Streamlit')
+        st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
 
 def configDbHol():
     newCol = ' # '
