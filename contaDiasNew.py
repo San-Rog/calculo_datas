@@ -175,7 +175,7 @@ def exibHoliday():
     dateOmega = dateOnly[nData-1]
     @st.dialog(' ')
     def holid():
-        st.write(f'{nData} feriado(s) - intervalo de {dateAlpha} a {dateOmega}')
+        st.write(f'{nData} feriado(s) - período de {dateAlpha} a {dateOmega}')
         st.dataframe(dfHoliday) 
     holid()
 def readHoliday():
