@@ -312,7 +312,7 @@ def iniVars():
             icon=labels[keys[7]][2]
         ):
             toInClip(1)
-        
+
 def main():
     global output, dirRoot
     global keyCurrent, keyUseFul
@@ -329,27 +329,35 @@ def main():
     dateNow = datetime.date.today()
     dayFirst = st.session_state['acesso'][0]
     nDays = st.session_state['acesso'][1]
-    arg = (dayFirst, nDays, 1, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+    arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
     #['dia do mês', 'dias da semana', 
     #'condição', 'obs', 'sequencial', 'contador geral']
+    try:
+        dateMin = st.session_state.datemin
+        dateMax = st.session_state.datemax  
+    except: 
+        dateMin = ""
+        dateMax = ""
     for f in [1, 2]: 
         field = keyCurrent[f]
         title = f"Binômio '{field} x frequência' no período da contagem"
         if f == 1:
             st.dataframe(data=df, hide_index=True, use_container_width=True)
+            textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
+            st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)        
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
         st.bar_chart(chartData, y="frequência", x=field)      
-        output = BytesIO() 
+        output = BytesIO()
     iniVars()
 
 if __name__ == '__main__':
     global timeDay
     global sing, plur, symb
-    global color   
+    global color
     timeDay = 0.5
     sing = 'útil'
     plur = 'úteis'
