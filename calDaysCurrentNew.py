@@ -344,10 +344,11 @@ def main():
         field = keyCurrent[f]
         title = f"Binômio '{field} x frequência' no período da contagem"
         if f == 1:
+            colObs, = st.columns(spec=1, vertical_alignment="top", border=False)
             st.dataframe(data=df, hide_index=True, use_container_width=True)
             textIni = f"✳️ Os feriados nacionais (apenas eles e não outros de qualquer natureza) são os catalogados para o período "
             textIni += f" de {dateMin} a {dateMax}!"
-            st.markdown(textIni, unsafe_allow_html=True)  
+            colObs.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)        
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
