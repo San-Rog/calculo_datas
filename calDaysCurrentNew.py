@@ -335,8 +335,8 @@ def main():
     #['dia do mês', 'dias da semana', 
     #'condição', 'obs', 'sequencial', 'contador geral']
     try:
-        dateMin = st.session_state.datemin
-        dateMax = st.session_state.datemax  
+        dateMin = st.session_state.dateminstr
+        dateMax = st.session_state.datemaxstr  
     except: 
         dateMin = ""
         dateMax = ""
