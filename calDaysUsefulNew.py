@@ -343,7 +343,7 @@ def main():
     for f in [1, 2]: 
         field = keyCurrent[f]
         title = f"Binômio '{field} x frequência' no período da contagem"
-        if all([f == 1, nDays == 0]):
+        if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)  
