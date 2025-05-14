@@ -217,16 +217,16 @@ def main():
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
     with st.expander('Sobre esta aplicação'):
         textHelp = """
-            Esta aplicação permite calcular prazos em dias corridos ou dias úteis. Parte de data data e números de dias
+        Esta aplicação permite calcular prazos em dias corridos ou dias úteis. Parte de data data e números de dias
         de interesse do usuário. No caso do período em dias corridos, entram sábados, domingos e feriados, desde que 
         nenhum deles esteja no início ou término da contagem. Já na contagem em dias úteis, sábados, domingos e feriados
         não entram, esteja no meio ou nas datas extremas (começo ou final) da contagem.
-            Esta ferramenta não é um aplicativo rigoroso ou oficial, especialmente porque não leva em consideração datas em que, 
-        por diferentes motivos, não houve expediente público ou privado. Mesmo em relação aos feriados nacionais, a relação 
-        está baseada em planilha disponível na internet na data de 13 de maio de 2025.                      
+        Esta ferramenta não é um aplicativo rigoroso ou oficial, especialmente porque não leva em consideração datas em que, 
+        por diferentes motivos, não houver expediente público ou privado. 
+        Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam em planilha disponível na internet 
+        e copiada pelo em 13 de maio de 2025 pelo desenvolver.                      
         """
         st.text(textHelp)
-        st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
 
 def configDbHol():
     newCol = ' # '
