@@ -171,7 +171,7 @@ def exibInfo():
 def exibHoliday():
     dateOnly = st.session_state.dateonly
     nData = len(dateOnly) 
-    dateAlpha = st.sessiont_state.dateminstr
+    dateAlpha = st.session_state.dateminstr
     dateOmega = st.sessiont_state.datemaxstr
     @st.dialog(' ')
     def holid():
