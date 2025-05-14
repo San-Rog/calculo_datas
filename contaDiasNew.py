@@ -1,7 +1,9 @@
 import streamlit as st 
 import streamlit.components.v1 as components
+import datetime
 import time
 import os
+import datetime
 from datetime import date
 import pandas as pd
 from datetime import timedelta
@@ -24,13 +26,6 @@ def findCurFul():
     listData = st.session_state.dateonly.tolist()
     listHoli = st.session_state.holonly.tolist()
     colorIni = st.session_state.color
-    time.sleep(timeDay*1.1)
-    dateIni = st.session_state[listKeys[0]]
-    num = int(st.session_state[listKeys[1]])
-    val = checkDate(dateIni, num)
-    if not val:
-        return
-    time.sleep(0.5)
     @st.dialog(' ')
     def config():
         colOne, colTwo = st.columns(spec=([3.5, 1]), gap="small", vertical_alignment="top", border=True)
@@ -38,6 +33,12 @@ def findCurFul():
         colorSel = colTwo.color_picker("Cor inicial", colorIni)
         st.session_state.color = colorSel            
     config()
+    time.sleep(timeDay*1.1)
+    dateIni = st.session_state[listKeys[0]]
+    num = int(st.session_state[listKeys[1]])
+    val = checkDate(dateIni, num)
+    if not val:
+        return
     for mode in [0, 1]:
         daySeq = []
         count = 0 
@@ -115,18 +116,14 @@ def changeDate():
 def checkDate(dateSel, nDays):
     time.sleep(timeDay*1.1)    
     if nDays <= 0:
-        blockTwo = "⚠️ (junto com os arquivos de download) e os gráficos não exibirão dados numéricos representativos!"
-        blockOne = f"⚠️ A rotina baseou-se em {nDays} dia, de modo que as tabelas "
+        block = f"Não se fará cálculo de datas, pois o número de dias é igual a {nDays}!"
         endor = False
     else:
         novaData = dateSel + datetime.timedelta(days=nDays)
-        blockTwo = "🧮 (junto com os arquivos de download) e gráficos exibam dados numéricos representativos!" 
-        blockOne = f"🧮 O cálculo levou em conta data de {dateSel.strftime('%d/%m/%Y')} e {nDays} dia(s), propiciando que tabelas"
+        block = f"O cálculo leva em conta data de {dateSel.strftime('%d/%m/%Y')} e {nDays} dia(s)!"
         endor = True
-    msg = st.toast(blockOne)
-    time.sleep(1)
-    msg.toast(blockTwo)
-    time.sleep(0.5)
+    st.toast(f"⚠️ {block}")
+    time.sleep(0.2)
     return endor
 
 def changeSlCalend():
@@ -178,10 +175,9 @@ def exibHoliday():
     dateOmega = dateOnly[nData-1]
     @st.dialog(' ')
     def holid():
-        st.write(f'{nData} feriado(s) - período de {dateAlpha} a {dateOmega}')
-        st.dataframe(data=dfHoliday, use_container_width=True, hide_index=True) 
+        st.write(f'{nData} feriado(s) - intervalo de {dateAlpha} a {dateOmega}')
+        st.dataframe(dfHoliday) 
     holid()
-    
 def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
     return dtf
@@ -219,38 +215,9 @@ def main():
                           on_click=exibHoliday, help="Verifique os feriados dos últimos anos.")
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
-
-def defineLim(dateStr):
-    dateMod = dateStr.replace('/', '-').strip(0
-    dateObj = datetime.strptime(dateMod, '%d-%m-%Y')
-    for index, row in dfHoliday.iterrows():
-        dfHoliday.loc[index, '   #️⃣'] =  index + 1 
-    return dateObj
-    
-def configDf():
-    global dateMin, dateMax
-    global dfHoliday
-    dfHoliday = readHoliday()
-    dfHoliday = dfHoliday.dropna()
-    dateOnly = dfHoliday['Data']
-    nOnly = len(dateOnly)
-    holOnly = dfHoliday['Feriado']
-    dateMin = dateOnly[0]
-    dateMax = dateOnly[nOnly - 1]
-    if 'datemin' not in st.session_state: 
-        st.session_state.datemin = dateOnly[0]
-    if 'datemax' not in st.session_state:
-        st.session_state.datemax = dateOnly[nOnly - 1]   
-    if 'dateonly' not in st.session_state:
-        st.session_state.dateonly = dateOnly
-    if 'holonly' not in st.session_state:
-        st.session_state.holonly = holOnly 
-    if 'acesso' not in st.session_state:
-        st.session_state['acesso'] = []
-    if 'files' not in st.session_state:
-        st.session_state['files'] = [] 
-
-st.markdown("# Tela de entrada de dados 📆")
+            
+if __name__ == '__main__':
+    st.markdown("# Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
     global months, weeks
     global dateMin, dateMax
