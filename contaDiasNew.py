@@ -172,7 +172,7 @@ def exibHoliday():
     dateOnly = st.session_state.dateonly
     nData = len(dateOnly) 
     dateAlpha = st.session_state.dateminstr
-    dateOmega = st.sessiont_state.datemaxstr
+    dateOmega = st.session_state.datemaxstr
     @st.dialog(' ')
     def holid():
         st.write(f'{nData} feriado(s) - período de {dateAlpha} a {dateOmega}')
