@@ -176,7 +176,7 @@ def exibHoliday():
     @st.dialog(' ')
     def holid():
         st.write(f'{nData} feriado(s) - período de {dateAlpha} a {dateOmega}')
-        st.dataframe(dfHoliday) 
+        st.dataframe(data=dfHoliday, use_container_width=True, hide_index=True) 
     holid()
 def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
