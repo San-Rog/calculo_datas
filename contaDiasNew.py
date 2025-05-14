@@ -218,10 +218,11 @@ def main():
 
 def configDf():
     nOnly = len(dateOnly)
-    dateMin = dateOnly[0]
-    dateMax = dateOnly[nOnly-1]
-    st.write(dateMin)
-    st.write(dateMax) 
+    dateMinStr = dateOnly[0]
+    dateMaxStre = dateOnly[nOnly-1]
+    dateMinSplit = list(reversed(dateMinStr.split('/')))
+    st.write(dateMinSplit)
+                        
     
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
