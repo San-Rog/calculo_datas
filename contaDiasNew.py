@@ -223,7 +223,7 @@ def main():
 
 def defineLim(dateStr):
     dateMod = dateStr.replace('/', '-').strip()
-    dateObj = datetime.strptime(dateMod, '%d-%m-%Y')
+    dateObj = date.strptime(dateMod, '%d-%m-%Y')
     for index, row in dfHoliday.iterrows():
         dfHoliday.loc[index, '   #️⃣'] =  index + 1 
     return dateObj
@@ -236,8 +236,8 @@ def configDf():
     dateOnly = dfHoliday['Data']
     nOnly = len(dateOnly)
     holOnly = dfHoliday['Feriado']
-    dateMin = dateOnly[0]
-    dateMax = dateOnly[nOnly - 1]
+    dateMin = defineLim(dateOnly[0])
+    dateMax = defineLim(dateOnly[nOnly - 1])
     if 'datemin' not in st.session_state: 
         st.session_state.datemin = dateOnly[0]
     if 'datemax' not in st.session_state:
