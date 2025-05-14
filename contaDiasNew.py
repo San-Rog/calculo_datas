@@ -222,8 +222,8 @@ def main():
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
 
 def defineLim(dateStr):
-    dateMod = dateStr.replace('/', '-').strip()
-    dateObj = date.strptime(dateMod, '%d-%m-%Y')
+    dateMod = dateStr.split('/')
+    dateObj = date(dateMod[0], dateMod[1], dateMod[2])
     for index, row in dfHoliday.iterrows():
         dfHoliday.loc[index, '   #️⃣'] =  index + 1 
     return dateObj
