@@ -218,8 +218,7 @@ def main():
 
 def configDbHol():
     newCol = ' # '
-    for r, row in enumerate(dfHoliday.iterrows()):
-        dfHoliday[newCol] = r + 1  
+    dfHoliday[newCol] = [row + 1 for row in dfHoliday.iterrows()]  
         
 def defineLim():
     listDate = []
