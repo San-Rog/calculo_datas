@@ -217,13 +217,9 @@ def main():
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
 
 def configDf():
-    st.write(dfHoliday['Data'][0])
-    st.write(dfHoliday['Data'][0].split('/'))
-    dateObj = list(reversed(dateOnly.split('/')))
-    holObj = list(reversed(holOnly.split('/')))
-    st.write(dateObj)
-    st.write(holObj)
-
+    st.write(dateOnly.split('/'))
+    st.write(holOnly.split('/'))
+        
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
