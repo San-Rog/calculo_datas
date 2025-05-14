@@ -217,9 +217,12 @@ def main():
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
 
 def configDf():
-    st.write(dateOnly.split('/'))
-    st.write(holOnly.split('/'))
-        
+    nOnly = len(dateOnly)
+    dateMin = dateOnly[0]
+    dateMax = dateOnly[nOlny-1]
+    st.write(dateMin)
+    st.write(dateMax) 
+    
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
