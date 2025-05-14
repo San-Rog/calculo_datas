@@ -218,7 +218,7 @@ def main():
 
 def configDbHol():
     newCol = ' # '
-    dfHoliday = dfHoliday[[newCol] + list(dfHoliday.columns)]
+    dfHoliday = dfHoliday[newCol]
     for index, row in dfHoliday.iterrows():
         row[newCol] = index + 1 
         
