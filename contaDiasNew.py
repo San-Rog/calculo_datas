@@ -216,6 +216,12 @@ def main():
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
 
+def configDbHol():
+    newCol = ' # '
+    dfHoliday = dfHoliday[[newCol] + list(dfHoliday.columns)]
+    for index, row in dfHoliday.iterrows():
+        row[newCol] = index + 1 
+        
 def defineLim():
     listDate = []
     nOnly = len(dateOnly)
