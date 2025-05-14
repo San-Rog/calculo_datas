@@ -40,7 +40,6 @@ if __name__ == '__main__':
         }
         </script>
         <button onclick="triggerPrint()">Print this page</button>
-        """,
-        unsafe_allow_html=True,
+        """
     )
     main()
