@@ -220,6 +220,7 @@ def main():
                       de interesse do usuário. No caso do período em dias corridos, entram sábados, domingos e feriados, desde que 
                       nenhum deles esteja no início ou término da contagem. Já na contagem em dias úteis, sábados, domingos e feriados
                       não entram, esteja no meio ou nas datas extremas (começo ou final) da contagem.
+                    """
         st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
 
 def configDbHol():
