@@ -31,7 +31,6 @@ def supplyState():
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
     supplyState()    
-    import streamlit as st
     st.markdown(
         """
         <script>
@@ -43,5 +42,4 @@ if __name__ == '__main__':
         """,
         unsafe_allow_html=True,
     )
-    
     main()
