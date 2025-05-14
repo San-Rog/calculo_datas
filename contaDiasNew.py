@@ -216,7 +216,10 @@ def main():
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
     with st.expander('Sobre esta aplicação'):
-        st.write('Esta aplicação demonstra diversas maneiras de como você pode definir o layout da sua aplicação Streamlit')
+        textHelp = """Esta aplicação permite calcular prazos em dias corridos ou dias úteis. Parte de data data e números de dias
+                      de interesse do usuário. No caso do período em dias corridos, entram sábados, domingos e feriados, desde que 
+                      nenhum deles esteja no início ou término da contagem. Já na contagem em dias úteis, sábados, domingos e feriados
+                      não entram, esteja no meio ou nas datas extremas (começo ou final) da contagem.
         st.image('https://streamlit.io/images/brand/streamlit-logo-secondary-colormark-darktext.png', width=250)
 
 def configDbHol():
