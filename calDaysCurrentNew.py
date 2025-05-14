@@ -334,6 +334,12 @@ def main():
     df = pd.DataFrame(dateCurrUse)
     #['dia do mês', 'dias da semana', 
     #'condição', 'obs', 'sequencial', 'contador geral']
+    try:
+        dateMin = st.session_state.datemin
+        dateMax = st.session_state.datemax  
+    except: 
+        dateMin = ""
+        dateMax = ""
     for f in [1, 2]: 
         field = keyCurrent[f]
         title = f"Binômio '{field} x frequência' no período da contagem"
@@ -347,12 +353,6 @@ def main():
         chartData = graphicDf(title)
         st.bar_chart(chartData, y="frequência", x=field)      
         output = BytesIO()
-    try:
-        dateMin = st.session_state.datemin
-        dateMax = st.session_state.datemax  
-    except: 
-        dateMin = ""
-        dateMax = ""
     iniVars()
 
 if __name__ == '__main__':
