@@ -261,7 +261,7 @@ if __name__ == '__main__':
     if 'dateminstr' not in st.session_state:
         st.session_state.dateminstr = dateMinStr
     if 'datemaxstr' not in st.session_state:
-        st.session_state.dateminstr = dateMaxStr
+        st.session_state.datemaxstr = dateMaxStr
     if 'acesso' not in st.session_state:
         st.session_state['acesso'] = []
     if 'files' not in st.session_state:
