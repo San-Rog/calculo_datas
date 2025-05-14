@@ -191,7 +191,7 @@ def main():
         colCalendar, sldDate, colDays, sldDays = st.columns([2.8, 2.5, 2.8, 2.5], gap='medium', 
                                                             vertical_alignment="center")
         dateSel = colCalendar.date_input(label='Data inicial', value='today', key=listKeys[0], 
-                                         format="DD/MM/YYYY", on_change=changeDate, 
+                                         format="DD/MM/YYYY", on_change=changeDate, min_value=dateMin, max_value=dateMax
                                          help="Digite ou selecione a data de início da contagem de prazo. Para incrementá-la, deslize o comando ao lado.")
         nSlDate = sldDate.slider(label='Incremento de data', min_value=0, max_value=6000, key=listKeys[5], 
                                  step=1, on_change=changeSlCalend, label_visibility="hidden")                         
@@ -228,7 +228,7 @@ def defineLim():
         dateSplit = [int(dat) for dat in list(reversed(dateStr.split('/')))]
         dateObj = date(dateSplit[0], dateSplit[1], dateSplit[2])
         listDate.append(dateObj)
-    st.write(listDate)
+    return listDate
     
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
@@ -254,13 +254,13 @@ if __name__ == '__main__':
     dfHoliday = dfHoliday.dropna()
     dateOnly = dfHoliday['Data']
     holOnly = dfHoliday['Feriado']
+    dateMinStr, dateMaxStr, dateMin, dateMax = defineLim()
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
         st.session_state.holonly = holOnly
-    defineLim()
-    dateMin = date(1960, 1, 1)
-    dateMax = date(2100, 12, 31)
+    #dateMin = date(1960, 1, 1)
+    #dateMax = date(2100, 12, 31)
     if 'acesso' not in st.session_state:
         st.session_state['acesso'] = []
     if 'files' not in st.session_state:
