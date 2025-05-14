@@ -259,6 +259,7 @@ if __name__ == '__main__':
     dfHoliday = dfHoliday.dropna()
     dateOnly = dfHoliday['Data']
     holOnly = dfHoliday['Feriado']
+    configDbHol()
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
