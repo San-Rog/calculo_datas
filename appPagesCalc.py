@@ -1,7 +1,6 @@
 import streamlit as st
 import datetime
 import time
-import streamlit.components.v1 as components
 
 def main():
     #Define the pages
@@ -32,14 +31,4 @@ def supplyState():
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
     supplyState()    
-    components.html(
-        """
-        <script>
-        function triggerPrint() {
-            window.print();
-        }
-        </script>
-        <button onclick="triggerPrint()">Print this page</button>
-        """
-    )
     main()
