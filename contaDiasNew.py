@@ -250,10 +250,11 @@ def configDf():
     if 'files' not in st.session_state:
         st.session_state['files'] = [] 
 
-if __name__ == '__main__':
-    st.markdown("# Tela de entrada de dados 📆")
+st.markdown("# Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
     global months, weeks
+    global dateMin, dateMax
+    global dfHoliday
     keyNames = {'calendar': date.today(), 
                 'days': 0, 
                 'plus': 0, 
@@ -267,6 +268,19 @@ if __name__ == '__main__':
     weeks = {6: 'domingo', 0: 'segunda-feira', 1: 'terça-feira', 
              2: 'quarta-feira', 3: 'quinta-feira', 4: 'sexta-feira', 
              5: 'sábado'}
-    configDf()
+    dfHoliday = readHoliday()
+    dfHoliday = dfHoliday.dropna()
+    dateOnly = dfHoliday['Data']
+    holOnly = dfHoliday['Feriado']
+    if 'dateonly' not in st.session_state:
+        st.session_state.dateonly = dateOnly
+    if 'holonly' not in st.session_state:
+        st.session_state.holonly = holOnly 
+    dateMin = date(1960, 1, 1)
+    dateMax = date(2100, 12, 31)
+    if 'acesso' not in st.session_state:
+        st.session_state['acesso'] = []
+    if 'files' not in st.session_state:
+        st.session_state['files'] = [] 
     iniFinally(0)
     main()
