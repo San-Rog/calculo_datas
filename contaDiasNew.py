@@ -223,7 +223,7 @@ def main():
 
 def defineLim(dateStr):
     dateMod = dateStr.split('/')
-    dateObj = date(dateMod[0], dateMod[1], dateMod[2])
+    dateObj = date(int(dateMod[0]), int(dateMod[1]), int(dateMod[2]))
     for index, row in dfHoliday.iterrows():
         dfHoliday.loc[index, '   #️⃣'] =  index + 1 
     return dateObj
