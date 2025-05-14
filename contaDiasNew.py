@@ -236,8 +236,12 @@ def configDf():
     dateOnly = dfHoliday['Data']
     nOnly = len(dateOnly)
     holOnly = dfHoliday['Feriado']
-    dateMin = defineLim(dateOnly[0])
-    dateMax = defineLim(dateOnly[nOnly - 1])
+    #dateMin = defineLim(dateOnly[0])
+    #dateMax = defineLim(dateOnly[nOnly - 1])
+    st.write(dateOnly[0])
+    dateMin = date(2001, 1, 1)
+    dateMax = date(2099, 12, 31)
+    #dateMin = date(
     if 'datemin' not in st.session_state: 
         st.session_state.datemin = dateOnly[0]
     if 'datemax' not in st.session_state:
