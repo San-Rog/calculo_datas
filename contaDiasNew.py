@@ -216,14 +216,18 @@ def main():
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
 
-def configDf():
+def defineLim():
+    listDate = []
     nOnly = len(dateOnly)
     dateMinStr = dateOnly[0]
-    dateMaxStre = dateOnly[nOnly-1]
-    dateMinSplit = [int(dat) for dat in list(reversed(dateMinStr.split('/')))]
-    st.write(dateMinSplit)
-    c = date(dateMinSplit[0], dateMinSplit[1], dateMinSplit[2])
-    st.write(c)
+    dateMaxStr = dateOnly[nOnly-1]
+    listDate.append(dateMinStr)
+    listDate.append)dateMaxStr)
+    for dateStr in [dateMinStr, dateMaxStr]:
+        dateSplit = [int(dat) for dat in list(reversed(dateStr.split('/')))]
+        dateObj = date(dateSplit[0], dateSplit[1], dateSplit[2])
+        listDate.append(dateObj)
+    st.write(listDate)
     
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
@@ -253,7 +257,7 @@ if __name__ == '__main__':
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
         st.session_state.holonly = holOnly
-    configDf()
+    defineLim()
     dateMin = date(1960, 1, 1)
     dateMax = date(2100, 12, 31)
     if 'acesso' not in st.session_state:
