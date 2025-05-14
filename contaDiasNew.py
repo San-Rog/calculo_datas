@@ -243,6 +243,7 @@ if __name__ == '__main__':
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
         st.session_state.holonly = holOnly 
+    st.write(dfHoliday['Data'][0])
     dateMin = date(1960, 1, 1)
     dateMax = date(2100, 12, 31)
     if 'acesso' not in st.session_state:
