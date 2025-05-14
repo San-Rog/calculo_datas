@@ -220,7 +220,7 @@ def configDf():
     nOnly = len(dateOnly)
     dateMinStr = dateOnly[0]
     dateMaxStre = dateOnly[nOnly-1]
-    dateMinSplit = [int(dat) for dat in list(reversed(dateMinStr.split('/')))]
+    dateMinSplit = ','.join([int(dat) for dat in list(reversed(dateMinStr.split('/')))])
     st.write(dateMinSplit)
     
     
