@@ -215,7 +215,7 @@ def main():
                           on_click=exibHoliday, help="Verifique os feriados dos últimos anos.")
         colClear.button(label='Limpeza', use_container_width=True, icon=":material/refresh:", 
                         on_click=zeraWidget, help="Limpe os dados constantes da tela, exceto a data inicial.")
-    with st.expander(label='Sobre esta aplicação', expanded=True, icon='📌'):
+    with st.expander(label='Sobre esta aplicação', expanded=False, icon='📌'):
         textHelp = """
         Esta aplicação permite calcular prazos em dias corridos ou dias úteis. Parte de data data e números de dias
         de interesse do usuário. No caso do período em dias corridos, entram sábados, domingos e feriados, desde que 
