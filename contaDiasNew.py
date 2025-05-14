@@ -191,7 +191,7 @@ def main():
         colCalendar, sldDate, colDays, sldDays = st.columns([2.8, 2.5, 2.8, 2.5], gap='medium', 
                                                             vertical_alignment="center")
         dateSel = colCalendar.date_input(label='Data inicial', value='today', key=listKeys[0], 
-                                         format="DD/MM/YYYY", on_change=changeDate, 
+                                         format="DD/MM/YYYY", on_change=changeDate, min_value=dateMin, max_value=dateMax,
                                          help="Digite ou selecione a data de início da contagem de prazo. Para incrementá-la, deslize o comando ao lado.")
         nSlDate = sldDate.slider(label='Incremento de data', min_value=0, max_value=6000, key=listKeys[5], 
                                  step=1, on_change=changeSlCalend, label_visibility="hidden")                         
