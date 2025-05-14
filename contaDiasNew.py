@@ -220,9 +220,10 @@ def configDf():
     nOnly = len(dateOnly)
     dateMinStr = dateOnly[0]
     dateMaxStre = dateOnly[nOnly-1]
-    dateMinSplit = ','.join([int(dat) for dat in list(reversed(dateMinStr.split('/')))])
+    dateMinSplit = [int(dat) for dat in list(reversed(dateMinStr.split('/')))]
     st.write(dateMinSplit)
-    
+    c = date(dateMinSplit[0], dateMinSplit[1], dateMinSplit[2])
+    st.write(c)
     
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
