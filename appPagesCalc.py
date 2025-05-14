@@ -30,5 +30,18 @@ def supplyState():
     
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
-    supplyState()                   
+    supplyState()    
+    import streamlit as st
+    st.markdown(
+        """
+        <script>
+        function triggerPrint() {
+            window.print();
+        }
+        </script>
+        <button onclick="triggerPrint()">Print this page</button>
+        """,
+        unsafe_allow_html=True,
+    )
+    
     main()
