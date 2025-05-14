@@ -254,17 +254,15 @@ if __name__ == '__main__':
     dfHoliday = dfHoliday.dropna()
     dateOnly = dfHoliday['Data']
     holOnly = dfHoliday['Feriado']
-    dateMinStr, dateMaxStr, dateMin, dateMax = defineLim()
-    st.write(dateMinStr)
-    st.write(dateMaxStr)
-    st.write(dateMin)
-    st.write(dateMax)
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
     if 'holonly' not in st.session_state:
         st.session_state.holonly = holOnly
-    #dateMin = date(1960, 1, 1)
-    #dateMax = date(2100, 12, 31)
+    dateMinStr, dateMaxStr, dateMin, dateMax = defineLim()
+    if 'dateminstr' not in st.session_state:
+        st.session_state.dateminstr = dateMinStr
+    if 'datemaxstr' st.session_state:
+        st.session_state.dateminstr = dateMaxStr
     if 'acesso' not in st.session_state:
         st.session_state['acesso'] = []
     if 'files' not in st.session_state:
