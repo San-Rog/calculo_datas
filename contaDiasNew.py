@@ -261,7 +261,7 @@ if __name__ == '__main__':
     dateMinStr, dateMaxStr, dateMin, dateMax = defineLim()
     if 'dateminstr' not in st.session_state:
         st.session_state.dateminstr = dateMinStr
-    if 'datemaxstr' st.session_state:
+    if 'datemaxstr' not in st.session_state:
         st.session_state.dateminstr = dateMaxStr
     if 'acesso' not in st.session_state:
         st.session_state['acesso'] = []
