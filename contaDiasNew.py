@@ -224,11 +224,11 @@ def defineLim():
     listDate.append(dateMinStr)
     listDate.append(dateMaxStr)
     st.write(listDate)
-    #for dateStr in [dateMinStr, dateMaxStr]:
-    #    dateSplit = [int(dat) for dat in list(reversed(dateStr.split('/')))]
-    #    dateObj = date(dateSplit[0], dateSplit[1], dateSplit[2])
-    #    listDate.append(dateObj)
-    #st.write(listDate)
+    for dateStr in [dateMinStr, dateMaxStr]:
+        dateSplit = [int(dat) for dat in list(reversed(dateStr.split('/')))]
+        dateObj = date(dateSplit[0], dateSplit[1], dateSplit[2])
+        listDate.append(dateObj)
+    st.write(listDate)
     
 if __name__ == '__main__':
     st.markdown("# Tela de entrada de dados 📆")
