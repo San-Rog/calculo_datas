@@ -363,6 +363,6 @@ if __name__ == '__main__':
     plur = 'corridos'
     symb = '📑'
     color = st.session_state.color
-    st.markdown(f"# Prazo em dias {plur} {symb}")
+    st.subheader(f"Prazo em dias {plur} {symb}")
     main()
         
