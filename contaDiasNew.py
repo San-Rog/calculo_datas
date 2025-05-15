@@ -246,7 +246,7 @@ def defineLim():
     return listDate
     
 if __name__ == '__main__':
-    st.markdown("# Tela de entrada de dados 📆")
+    st.subheader("Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
     global months, weeks
     global dateMin, dateMax
