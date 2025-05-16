@@ -229,7 +229,7 @@ def main():
         """
         wrapper = textwrap.TextWrapper(width=120)
         textExpander = wrapper.wrap(text=textHelp)
-        st.text(textExpande)
+        st.text(textExpander)
 
 def configDbHol():
     newCol = ' # '
