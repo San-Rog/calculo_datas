@@ -366,7 +366,7 @@ def main():
         chartData = graphicDf(title)
         st.bar_chart(chartData, y="frequência", x=field)    
         if strAlert != "":
-            st.markdown(f"strAlert)
+            st.markdown(strAlert)
         output = BytesIO()
     iniVars()
 
