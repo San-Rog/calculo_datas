@@ -157,7 +157,7 @@ def graphicDf(title):
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
-    return(chartData, valMax0
+    return(chartData, valMax)
     
 def toCsv():
     csv = df.to_csv(index=False).encode('ISO-8859-1')
