@@ -205,7 +205,7 @@ def main():
             st.markdown(f":control_knobs: **<font color={colorOpt}>Comandos</font>**", True)
             #st.markdown(f":control_knobs: **:blue[Comandos]**")
         colCal, colFiles, colInfo, colHoliday, colClear = st.columns(spec=5, gap='small', vertical_alignment='center')
-        colCal.button(label='Cálculo', use_container_width=True, icon="material:calculate:", 
+        colCal.button(label='Cálculo', use_container_width=True, icon=":material/calculate:", 
                       on_click=findCurFul, help="Realize a operação necessária à contagem de dias corridos e úteis.")
         colFiles.button(label='Arquivos', use_container_width=True, icon="💾", 
                         on_click=listFiles, help="Verifique os arquivos gravados durante esta sessão de uso do aplicativo.")
