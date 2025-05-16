@@ -351,7 +351,7 @@ def main():
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)
-        st.write(dfCount)
+        st.write(dfCount['frequência'].tolist())
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
         st.bar_chart(chartData, y="frequência", x=field)      
