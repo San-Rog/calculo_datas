@@ -144,6 +144,7 @@ def treatmentDf(title, field):
     dfTerm = dfTerm.reset_index()
     dfTerm = dfTerm.rename(columns={'index': field})
     dfTerm = dfTerm.rename(columns={'count': 'frequência'})
+    dfTerm['frequência'] = df['frequência'].apply(lambda x: '{:.2f}'.format(x))
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
