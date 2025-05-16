@@ -154,6 +154,8 @@ def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
     st.write('dfCount')
     st.write(dfCount)
+    values = dfCount['frequência']
+    st.write(values)
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
