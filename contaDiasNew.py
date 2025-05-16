@@ -209,7 +209,7 @@ def main():
                       on_click=findCurFul, help="Realize a operação necessária à contagem de dias corridos e úteis.")
         colFiles.button(label='Arquivos', use_container_width=True, icon=":file_folder:", 
                         on_click=listFiles, help="Verifique os arquivos gravados durante esta sessão de uso do aplicativo.")
-        colInfo.button(label='Usuário', use_container_width=True, icon=":triangular_flag_on_post:", 
+        colInfo.button(label='Usuário', use_container_width=True, icon=":material/calculate:", 
                         on_click=exibInfo, help="Verifique as informações registradas durante esta sessão de uso do aplicativo.")
         colHoliday.button(label='Feriados', use_container_width=True, icon=":material/calculate:", 
                           on_click=exibHoliday, help="Verifique os feriados dos últimos anos.")
