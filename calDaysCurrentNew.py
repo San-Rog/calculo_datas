@@ -350,11 +350,16 @@ def main():
             st.dataframe(data=df, hide_index=True, use_container_width=True)
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)  
-        dfCount = treatmentDf(title, field)        
+        dfCount = treatmentDf(title, field) 
+        dfCount['frequência'] = dfCount['frequência'].apply(lambda x: '{:.2f}'.format(x))
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
-        st.write(dfCount)
-        st.write(dfCount['frequência'].tolist())
+        try:
+            st.write(dfCount)
+            if max(dfCount['frequência'].tolist()) >= 1000:
+                yStr = "frequência no 
+        except:
+             pass
         st.bar_chart(chartData, y="frequência", x=field)      
         output = BytesIO()
     iniVars()
