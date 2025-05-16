@@ -7,6 +7,7 @@ import datetime
 from datetime import date
 import pandas as pd
 from datetime import timedelta
+import textwrap
 
 def checkHoliday(listDate, listHoli, date):
     dateStr =  date.strftime("%d/%m/%Y")
@@ -226,8 +227,9 @@ def main():
         Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam em planilha disponível 
         na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
-        import textwrap
-        st.text(textHelp)
+        wrapper = textwrap.TextWrapper(width=120)
+        textExpander = wrapper.wrap(text=textHelp)
+        st.text(textExpande)
 
 def configDbHol():
     newCol = ' # '
