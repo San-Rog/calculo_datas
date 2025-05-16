@@ -155,7 +155,8 @@ def graphicDf(title):
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
-    colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
+    link = 'www.tcu.jus.br'
+    colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**{link}", True)    
     return chartData
     
 def toCsv():
