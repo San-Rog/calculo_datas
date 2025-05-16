@@ -184,8 +184,8 @@ def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
     return dtf
 
-def textWrapper(textIni):
-    wrapper = textwrap.TextWrapper(width=120)
+def textWrapper(textIni, size):
+    wrapper = textwrap.TextWrapper(width=size)
     textWrapper = wrapper.fill(text=textIni)
     textSplit = [text.strip() for text in textWrapper.split(" ") if text not in [" ", "\n"]]
     textFinal = " ".join(textSplit)    
@@ -235,7 +235,7 @@ def main():
         expediente público ou privado. Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam 
         em planilha disponível na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
-        textExpander = textWrapper(textHelp)
+        textExpander = textWrapper(textHelp, 140)
         st.text(textExpander)
 
 def configDbHol():
