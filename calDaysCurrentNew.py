@@ -1,13 +1,4 @@
-import pickle
-import locale
-import pandas as pd
-import streamlit as st
-import datetime
-from datetime import date
-from datetime import timedelta
-from io import BytesIO
-from os import path
-import os
+
 import streamlit.components.v1 as components
 import datetime
 from datetime import date
@@ -152,8 +143,6 @@ def treatmentDf(title, field):
 
 def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
-    #valMax = max(dfCount['frequência'].tolist())
-    st.write(dfCount)
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
@@ -334,7 +323,7 @@ def main():
     dateNow = datetime.date.today()
     dayFirst = st.session_state['acesso'][0]
     nDays = st.session_state['acesso'][1]
-    arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+    arg = (dayFirst, nDays, 1, f'contagem em dias {plur}', 'Demonstrativo cronológico')
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
     #['dia do mês', 'dias da semana', 
@@ -355,7 +344,7 @@ def main():
         dfCount = treatmentDf(title, field)        
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
-        st.bar_chart(chartData, y='frequência', x=field)      
+        st.bar_chart(chartData, y="frequência", x=field)      
         output = BytesIO()
     iniVars()
 
@@ -363,8 +352,7 @@ if __name__ == '__main__':
     global timeDay
     global sing, plur, symb
     global color
-    timeDay = 0.5
-    sing = 'corrido'
+    timeDay = 0.5    sing = 'corrido'
     plur = 'corridos'
     symb = '📑'
     color = st.session_state.color
