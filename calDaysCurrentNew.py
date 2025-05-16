@@ -221,7 +221,7 @@ def iniVars():
               'clear': ['', "Limpa a área de transferência.", ":material/mop:"]
              }
     keys = list(labels.keys())
-    colorOpt = st.session_state.colorOpt
+    colorOpt = st.session_state.color
     with st.container(border=False):
         colOpt, = st.columns(spec=1, gap='small', vertical_alignment='center', border=False)
         st.markdown(f":point_right: **<font color={colorOpt}>Opções</font>**", True)
