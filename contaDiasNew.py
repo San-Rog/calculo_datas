@@ -235,7 +235,7 @@ def main():
         expediente público ou privado. Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam 
         em planilha disponível na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
-        textExpander = textWrapper(textHelp, 140)
+        textExpander = textWrapper(textHelp, 100)
         st.text(textExpander)
 
 def configDbHol():
