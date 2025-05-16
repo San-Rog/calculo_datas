@@ -93,6 +93,7 @@ def countCurUseFul(dateTuple):
                 if any ([weekNum == 5 or weekNum == 6]):
                     status = 'não conta'
                     obs = 'fim de semana'
+                    continue
                 else:
                     index = checkHoliday(listDate, listHoli, dateNew)
                     if index != '':    
