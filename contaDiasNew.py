@@ -226,6 +226,7 @@ def main():
         Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam em planilha disponível 
         na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
+        import textwrap
         st.text(textHelp)
 
 def configDbHol():
