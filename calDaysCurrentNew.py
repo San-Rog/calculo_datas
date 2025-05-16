@@ -107,6 +107,8 @@ def countCurUseFul(dateTuple):
                             obs = 'dia normal'
                         count += 1   
         if status == 'conta': 
+            if count == 0:
+                count += 1
             countStr = f'{str(count)}.°'
             if count == 1:
                 obs = 'início do prazo'
