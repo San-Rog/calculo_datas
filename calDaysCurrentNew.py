@@ -158,7 +158,7 @@ def graphicDf(title):
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
-    return(chartData, valMax)
+    return chartData
     
 def toCsv():
     csv = df.to_csv(index=False).encode('ISO-8859-1')
@@ -354,12 +354,8 @@ def main():
             st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)        
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
-        chartData, valMax = graphicDf(title)
-        if valMax >= 1000:
-            yStr = 'frequência (em milhares de unidades')
-        else:
-            yStr = 'frequência'
-        st.bar_chart(chartData, y=yStr, x=field)      
+        chartData = graphicDf(title)
+        st.bar_chart(chartData, y='frequência', x=field)      
         output = BytesIO()
     iniVars()
 
