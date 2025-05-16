@@ -207,7 +207,7 @@ def main():
         colCal, colFiles, colInfo, colHoliday, colClear = st.columns(spec=5, gap='small', vertical_alignment='center')
         colCal.button(label='Cálculo', use_container_width=True, icon=":material/calculate:", 
                       on_click=findCurFul, help="Realize a operação necessária à contagem de dias corridos e úteis.")
-        colFiles.button(label='Arquivos', use_container_width=True, icon=":material/calculate:", 
+        colFiles.button(label='Arquivos', use_container_width=True, icon="📁", 
                         on_click=listFiles, help="Verifique os arquivos gravados durante esta sessão de uso do aplicativo.")
         colInfo.button(label='Usuário', use_container_width=True, icon=":material/calculate:", 
                         on_click=exibInfo, help="Verifique as informações registradas durante esta sessão de uso do aplicativo.")
