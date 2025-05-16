@@ -142,7 +142,7 @@ def treatmentDf(title, field):
     df = pd.DataFrame(dateCurrUse)
     dfTerm = df[field].value_counts()
     dfTerm = dfTerm.reset_index()
-    dfTerm ['count'] = df['count'].apply(lambda x: '{:.2f}'.format(x))
+    dfTerm.style.format('{:.2f}')
     dfTerm = dfTerm.rename(columns={'index': field})
     dfTerm = dfTerm.rename(columns={'count': 'frequência'})
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
