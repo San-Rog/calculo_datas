@@ -1,102 +1,4 @@
-def countCurUseFul(dateTuple):
-    title = dateTuple[-1]
-    dateIni = dateTuple[0]
-    num = dateTuple[1]
-    mode = dateTuple[2]
-    expr = dateTuple[3]
-    dateIniStr = dateIni.strftime("%d/%m/%Y")
-    dateIniName = dateFullLang(dateIni, 0)
-    data_atual = datetime.datetime.today()
-    count = 0 
-    n = 0 
-    if 'dateonly' in st.session_state:
-        listDate = st.session_state.dateonly.tolist()
-    if 'holonly' in st.session_state:
-        listHoli = st.session_state.holonly.tolist()
-    while count < num:
-        dateNew = dateIni + datetime.timedelta(days=n)
-        weekNum = dateNew.weekday()
-        #weekName = dateNew.strftime("%A")
-        dateFormat = dateNew.strftime("%d/%m/%Y")
-        #dateName = dateNew.strftime("%#d de %B de %Y")
-        dateResp = dateFullLang(dateNew, 1)
-        dateName = dateResp[0]
-        weekName = dateResp[1]
-        if n == 0:
-            status = 'não conta'
-            obs = 'dia selecionado'
-        else: 
-            if mode == 0:
-                if count == num - 1: 
-                    if any ([weekNum == 5 or weekNum == 6]):
-                        status = 'não conta'
-                        obs = 'fim de semana'
-                    else:
-                        index = checkHoliday(listDate, listHoli, dateNew)
-                        if index != '':    
-                            status = 'não conta'
-                            obs = 'feriado nacional'
-                        else:
-                            status = 'conta'
-                            obs = ''
-                            count += 1
-                else:
-                    if any ([weekNum == 5 or weekNum == 6]):
-                        status = 'conta'
-                        obs = 'fim de semana'
-                    else:
-                        index = checkHoliday(listDate, listHoli, dateNew)
-                        if index != '':    
-                            status = 'conta'
-                            obs = 'feriado nacional'
-                        else:
-                            status = 'conta'
-                            obs = 'dia normal'
-                    count += 1
-            else:
-                if any ([weekNum == 5 or weekNum == 6]):
-                    status = 'não conta'
-                    obs = 'fim de semana'
-                else:
-                    index = checkHoliday(listDate, listHoli, dateNew)
-                    if index != '':    
-                        status = 'não conta'
-                        obs = 'feriado nacional'
-                    else:
-                        status = 'conta'
-                        if count == num - 1:
-                            obs = ''
-                        else:
-                            status = 'conta'
-                            obs = 'dia normal'
-                        count += 1   
-        if status == 'conta': 
-            countStr = f'{str(count)}.°'
-            if count == 1:
-                obs = 'início do prazo'
-            elif count == num:
-                obs = 'término do prazo'
-        else: 
-            countStr = ''        
-        infoCombo = [f'{dateFormat} ({dateName})', weekName, status, obs, countStr, n + 1]
-        for i, info in enumerate(infoCombo):
-            key = keyCurrent[i]
-            dateCurrUse[key].append(info)    
-        n += 1
-    dayFinal = dateCurrUse[keyCurrent[0]]
-    if len(dayFinal) == 0:
-        dateFinal = f'{dateIniStr} ({dateIniName})'
-    else:
-        dateFinal = dayFinal[-1]
-    nLanc = len(dateCurrUse[keyCurrent[0]])
-    st.markdown(f":page_with_curl: **<font color={color}>{title}</font>**", True)
-    colStart, colFinal, colCrit = st.columns(spec=3, gap='small', vertical_alignment='top', border=True)
-    colStart.markdown(f'**Data inicial**  : {dateIniStr} ({dateIniName})')
-    colFinal.markdown(f'**Data Final**  : {dateFinal}')
-    colCrit.markdown(f"**Critério**: {expr}")
-    colDays, colLanc = st.columns(spec=2, gap='small', vertical_alignment='top', border=True)
-    colDays.markdown(f'**Número de dias informados**: {num}')
-    colLanc.markdown(f'**Número de dias lançados**: {nLanc}')continueimport pickle
+import pickle
 import locale
 import pandas as pd
 import streamlit as st
@@ -191,7 +93,6 @@ def countCurUseFul(dateTuple):
                 if any ([weekNum == 5 or weekNum == 6]):
                     status = 'não conta'
                     obs = 'fim de semana'
-                    #st.write(weekNum)
                 else:
                     index = checkHoliday(listDate, listHoli, dateNew)
                     if index != '':    
