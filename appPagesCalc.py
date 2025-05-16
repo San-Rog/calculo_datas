@@ -2,6 +2,7 @@ import streamlit as st
 import datetime
 import time
 
+@st.cache_data
 def main():
     #Define the pages
     pages = {
