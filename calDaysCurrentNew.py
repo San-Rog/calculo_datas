@@ -361,7 +361,7 @@ def main():
                 yStr = "frequencia"
         except:
              pass
-        st.bar_chart(chartData, y="yStr, x=field)      
+        st.bar_chart(chartData, y=yStr, x=field)      
         output = BytesIO()
     iniVars()
 
