@@ -183,6 +183,12 @@ def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
     return dtf
 
+def textWrapper(textIni):
+    wrapper = textwrap.TextWrapper(width=120)
+    textList = wrapper.wrap(text=textIni)
+    textFinal = '\n'.join(textList)
+    return textFinal 
+
 def main():
     colorOpt = st.session_state.colorOpt
     with st.container(border=6):  
@@ -227,8 +233,7 @@ def main():
         Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam em planilha disponível 
         na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
-        wrapper = textwrap.TextWrapper(width=120)
-        textExpander = wrapper.wrap(text=textHelp)
+        textExpander = textWrapper(textHelp)
         st.text(textExpander)
 
 def configDbHol():
