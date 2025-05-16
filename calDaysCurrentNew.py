@@ -154,9 +154,10 @@ def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
-    colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
+    colEstat, colUrl = st.columns(spec=1, gap='small', vertical_alignment='top')
     link = 'www.tcu.gov.br'
-    colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**" + link, True)    
+    colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
+    colUrl.markdown(link, True)
     return chartData
     
 def toCsv():
