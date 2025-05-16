@@ -158,7 +158,7 @@ def graphicDf(title):
     link = 'https://en.wikipedia.org/wiki/Decimal_separator'
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
     st.write(dfCount['frequência'].tolist())
-    colUrl.markdown(f":material/emergency{link}", True)
+    colUrl.markdown(f"{:material/emergency}{link}", True)
     return chartData
     
 def toCsv():
