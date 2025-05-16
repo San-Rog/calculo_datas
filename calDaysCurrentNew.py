@@ -1,4 +1,13 @@
-
+import pickle
+import locale
+import pandas as pd
+import streamlit as st
+import datetime
+from datetime import date
+from datetime import timedelta
+from io import BytesIO
+from os import path
+import os
 import streamlit.components.v1 as components
 import datetime
 from datetime import date
@@ -221,7 +230,7 @@ def iniVars():
               'clear': ['', "Limpa a área de transferência.", ":material/mop:"]
              }
     keys = list(labels.keys())
-    colorOpt = st.session_state.color
+    colorOpt = st.session_state.colorOpt
     with st.container(border=False):
         colOpt, = st.columns(spec=1, gap='small', vertical_alignment='center', border=False)
         st.markdown(f":point_right: **<font color={colorOpt}>Opções</font>**", True)
@@ -352,7 +361,8 @@ if __name__ == '__main__':
     global timeDay
     global sing, plur, symb
     global color
-    timeDay = 0.5    sing = 'corrido'
+    timeDay = 0.5
+    sing = 'corrido'
     plur = 'corridos'
     symb = '📑'
     color = st.session_state.color
