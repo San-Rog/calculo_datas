@@ -356,7 +356,7 @@ def main():
             values = dfCount['frequência'].tolist()
             maxVal = max(values)
             if maxVal >= 1000:
-                yStr = 'frequência_por_mil'
+                yStr = "milhares"
         except:
             pass
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
