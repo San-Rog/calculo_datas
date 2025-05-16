@@ -351,7 +351,7 @@ def main():
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)
-       strAlert = ""
+        strAlert = ""
         try:
             values = dfCount['frequência'].tolist()
             maxVal = max(values)
