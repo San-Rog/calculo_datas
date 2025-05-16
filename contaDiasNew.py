@@ -183,7 +183,7 @@ def readHoliday():
     return dtf
 
 def main():
-    colorOpt = st.session_state.color
+    colorOpt = st.session_state.colorOpt
     with st.container(border=6):  
         colLacunose, = st.columns(1, gap='medium', vertical_alignment="center")
         with colLacunose:
