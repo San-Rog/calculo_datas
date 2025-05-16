@@ -154,7 +154,7 @@ def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
     valMax = max(dfCount['frequência'].tolist())
     if valMax >= 1000: 
-        dfCount = dfCount.rename(columns={'count': 'frequência (em milhares de unidade)'})
+        dfCount = dfCount.rename(columns={'count': 'frequência x 1000'})
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
