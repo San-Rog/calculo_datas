@@ -31,7 +31,7 @@ def findCurFul():
         colOne, colTwo = st.columns(spec=([3.5, 1]), gap="small", vertical_alignment="top", border=True)
         colOne.markdown('📁 Modifique a cor do título de tabelas e gráficos!')
         colorSel = colTwo.color_picker("Cor inicial", colorIni)
-        st.session_state.colorOpt = colorSel            
+        st.session_state.color = colorSel            
     config()
     time.sleep(timeDay*1.1)
     dateIni = st.session_state[listKeys[0]]
@@ -183,7 +183,7 @@ def readHoliday():
     return dtf
 
 def main():
-    colorOpt = st.session_state.colorOpt
+    colorOpt = st.session_state.color
     with st.container(border=6):  
         colLacunose, = st.columns(1, gap='medium', vertical_alignment="center")
         with colLacunose:
