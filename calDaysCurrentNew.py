@@ -82,7 +82,7 @@ def countCurUseFul(dateTuple):
                             status = 'não conta'
                         else: 
                             status = 'conta'
-                            cont += 1
+                            count += 1
                         obs = 'fim de semana'                    
                     else:
                         index = checkHoliday(listDate, listHoli, dateNew)
