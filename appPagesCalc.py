@@ -12,6 +12,7 @@ def main():
     pg = st.navigation(pages)
     pg.run()   
 
+@st.cache_data
 def supplyState():
     if 'color' not in st.session_state: 
         st.session_state.color = "#0059F9" 
