@@ -30,5 +30,6 @@ def supplyState():
     
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
+    st.set_page_config(page_title="Meu Primeiro App")
     supplyState()    
     main()
