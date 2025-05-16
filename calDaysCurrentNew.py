@@ -151,23 +151,13 @@ def treatmentDf(title, field):
     return dfTerm
 
 def graphicDf(title):
-    dfGraph = dfCount.copy() 
-    try:
-        dfGraph = dfGraph.rename(columns={'frequência_notável': 'frequência'})
-    except:
-        dfGraph = dfGraph.rename(columns={'frequência': 'frequência_notável'})
-    values = dfGraph['frequência'].tolist()
-    valMax = int(max(values))    
-    st.write(values)
-    st.write(dfCount)
-    if valMax >= 1000: 
-        dfGraph = dfGraph.rename(columns={'frequência': 'frequência_notável'})
-    chartData = pd.DataFrame(dfGraph)
+    chartData = pd.DataFrame(dfCount)
+    valMax = max(dfCount['frequência'].tolist())
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
-    return chartData
+    return(chartData, valMax0
     
 def toCsv():
     csv = df.to_csv(index=False).encode('ISO-8859-1')
@@ -363,8 +353,12 @@ def main():
             st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)        
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
-        chartData = graphicDf(title)
-        st.bar_chart(chartData, y="frequência", x=field)      
+        chartData, valMax = graphicDf(title)
+        if valMax >= 1000:
+            yStr = 'frequência (em milhares de unidades')
+        else:
+            yStr = 'frequência'
+        st.bar_chart(chartData, y=yStr, x=field)      
         output = BytesIO()
     iniVars()
 
