@@ -360,7 +360,9 @@ def main():
         try:
             st.write(dfCount)
             if max(dfCount['frequência'].tolist()) >= 1000:
-                yStr = "frequência 
+                yStr = "frequência"
+            else:
+                yStr = "frequencia"
         except:
              pass
         st.bar_chart(chartData, y="frequência", x=field)      
