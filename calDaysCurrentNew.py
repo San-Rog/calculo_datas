@@ -345,16 +345,14 @@ def main():
         dateMax = ""
     for f in [1, 2]: 
         field = keyCurrent[f]
-        if f == 1:
-            title = f"Tabela '{field} x frequência' no período da contagem"
-        else:
-            title = f"Gráfico '{field} x frequência' no período da contagem"
+        title = f"Tabela '{field} x frequência' no período da contagem"
         if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
+        title = f"Gráfico '{field} x frequência' no período da contagem"        
         chartData = graphicDf(title)
         st.bar_chart(chartData, y="frequência", x=field)    
         output = BytesIO()
