@@ -354,7 +354,7 @@ def main():
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
         st.write(dfCount)
-        st.write(dfcount['frequência'].tolist())
+        st.write(dfCount['frequência'].tolist())
         st.bar_chart(chartData, y="frequência", x=field)      
         output = BytesIO()
     iniVars()
