@@ -155,10 +155,15 @@ def graphicDf(title):
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, colUrl = st.columns(spec=([3.6, 2.8]), gap='small', vertical_alignment='top')
-    link = 'https://en.wikipedia.org/wiki/Decimal_separator'
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
-    st.write(dfCount['frequência'].tolist())
-    colUrl.markdown(f"🔗{link}", True)
+    values = dfCount['frequência'].tolist()
+    if len(values) > 0:
+        valMax = max(values)
+        if valMax >= 1000:
+            link = 'https://en.wikipedia.org/wiki/Decimal_separator'
+            colUrl.markdown(f"🔗{link}", True)
+        else:
+            colUrl.markdown("")
     return chartData
     
 def toCsv():
