@@ -179,6 +179,7 @@ def exibHoliday():
         st.write(f'{nData} feriado(s) - período de {dateAlpha} a {dateOmega}')
         st.dataframe(data=dfHoliday, use_container_width=True, hide_index=True) 
     holid()
+
 def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
     return dtf
@@ -187,7 +188,7 @@ def textWrapper(textIni):
     wrapper = textwrap.TextWrapper(width=120)
     textList = wrapper.wrap(text=textIni)
     textFinal = ""
-    for text in textFinal:
+    for text in textList:
         textFinal += text.replace('\n', '').strip()
     return textFinal
 
