@@ -155,9 +155,9 @@ def graphicDf(title):
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, colUrl = st.columns(spec=([3.7, 2.8]), gap='small', vertical_alignment='top')
-    link = 'www.tcu.gov.br'
+    link = 'https://en.wikipedia.org/wiki/Decimal_separator'
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
-    colUrl.markdown(f"{link}🔗", True)
+    colUrl.markdown(f"(🔗Sistema notacional americano {link})", True)
     return chartData
     
 def toCsv():
