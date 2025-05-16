@@ -186,10 +186,7 @@ def readHoliday():
 
 def textWrapper(textIni):
     wrapper = textwrap.TextWrapper(width=120)
-    textList = wrapper.wrap(text=textIni)
-    textFinal = ""
-    for text in textList:
-        textFinal += text.replace('\n', '').strip()
+    textFinal = wrapper.fill(text=textIni)
     return textFinal
 
 def main():
