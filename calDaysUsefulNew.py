@@ -154,8 +154,16 @@ def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
-    colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
+    colEstat, colUrl = st.columns(spec=([3.6, 2.8]), gap='small', vertical_alignment='top')
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
+    values = dfCount['frequência'].tolist()
+    if len(values) > 0:
+        valMax = max(values)
+        if valMax >= 1000:
+            link = 'https://en.wikipedia.org/wiki/Decimal_separator'
+            colUrl.markdown(f"🔗{link}", True)
+        else:
+            colUrl.markdown("")
     return chartData
     
 def toCsv():
@@ -332,7 +340,7 @@ def main():
     dateNow = datetime.date.today()
     dayFirst = st.session_state['acesso'][0]
     nDays = st.session_state['acesso'][1]
-    arg = (dayFirst, nDays, 1, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+    arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
     #['dia do mês', 'dias da semana', 
@@ -345,15 +353,16 @@ def main():
         dateMax = ""
     for f in [1, 2]: 
         field = keyCurrent[f]
-        title = f"Binômio '{field} x frequência' no período da contagem"
+        title = f"Tabela '{field} x frequência' no período da contagem"
         if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)  
-        dfCount = treatmentDf(title, field)        
+        dfCount = treatmentDf(title, field)
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
+        title = f"Gráfico '{field} x frequência' no período da contagem"        
         chartData = graphicDf(title)
-        st.bar_chart(chartData, y="frequência", x=field)      
+        st.bar_chart(chartData, y="frequência", x=field)    
         output = BytesIO()
     iniVars()
 
