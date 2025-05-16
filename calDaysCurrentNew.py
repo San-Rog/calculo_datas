@@ -151,15 +151,12 @@ def treatmentDf(title, field):
     return dfTerm
 
 def graphicDf(title):
-    try:
-        values = dfCount['frequência'].tolist()
-        valMax = int(max(values))    
-        st.write(values)
-        st.write(dfCount)
-        if valMax >= 1000: 
-            dfTerm = dfCount.rename(columns={'frequência': 'frequência_notável'})
-    except:
-        pass
+    values = dfCount['frequência'].tolist()
+    valMax = int(max(values))    
+    st.write(values)
+    st.write(dfCount)
+    if valMax >= 1000: 
+        dfCount = dfCount.rename(columns={'frequência': 'frequência_notável'})
     chartData = pd.DataFrame(dfCount)
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
