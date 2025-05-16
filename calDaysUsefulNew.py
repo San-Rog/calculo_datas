@@ -142,7 +142,6 @@ def treatmentDf(title, field):
     df = pd.DataFrame(dateCurrUse)
     dfTerm = df[field].value_counts()
     dfTerm = dfTerm.reset_index()
-    dfTerm.style.format('{:.2f}')
     dfTerm = dfTerm.rename(columns={'index': field})
     dfTerm = dfTerm.rename(columns={'count': 'frequência'})
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
@@ -153,7 +152,6 @@ def treatmentDf(title, field):
 
 def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
-    chartData.style.format('{:.2f}')
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
