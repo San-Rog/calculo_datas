@@ -154,11 +154,11 @@ def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
-    colEstat, colUrl = st.columns(spec=([3.4, 2.8]), gap='small', vertical_alignment='top')
+    colEstat, colUrl = st.columns(spec=([3.6, 2.8]), gap='small', vertical_alignment='top')
     link = 'https://en.wikipedia.org/wiki/Decimal_separator'
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
     st.write(dfCount['frequência'].tolist())
-    colUrl.markdown(f"{:material/emergency}{link}", True)
+    colUrl.markdown(f"🔗{link}", True)
     return chartData
     
 def toCsv():
