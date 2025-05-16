@@ -31,7 +31,7 @@ def findCurFul():
         colOne, colTwo = st.columns(spec=([3.5, 1]), gap="small", vertical_alignment="top", border=True)
         colOne.markdown('📁 Modifique a cor do título de tabelas e gráficos!')
         colorSel = colTwo.color_picker("Cor inicial", colorIni)
-        st.session_state.color = colorSel            
+        st.session_state.colorOpt = colorSel            
     config()
     time.sleep(timeDay*1.1)
     dateIni = st.session_state[listKeys[0]]
