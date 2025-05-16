@@ -153,6 +153,7 @@ def treatmentDf(title, field):
 def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
     valMax = max(dfCount['frequência'].tolist())
+    st.write(valMax)
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
