@@ -232,8 +232,8 @@ def main():
         nenhum deles esteja no início ou término da contagem. Já na contagem em dias úteis, sábados, domingos e feriados
         não entram, estejam no meio ou nas datas extremas (começo ou final) da contagem. Esta ferramenta não é um aplicativo 
         rigoroso ou oficial, especialmente porque não leva em consideração datas em que, por diferentes motivos, não houver 
-        expediente público ou privado. Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de 
-        que se baseiam em planilha disponível na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
+        expediente público ou privado. Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam 
+        em planilha disponível na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
         textExpander = textWrapper(textHelp)
         st.text(textExpander)
