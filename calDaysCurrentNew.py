@@ -353,14 +353,10 @@ def main():
         dfCount = treatmentDf(title, field)
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
-        try:
-            st.write(dfCount)
-            if max(dfCount['frequência'].tolist()) >= 1000:
-                yStr = "frequência (multiplicar o número após a vírgula por mil unidades)"
-            else:
-                yStr = "frequencia"
-        except:
-             pass
+        if max(dfCount['frequência'].tolist()) >= 1000:
+            yStr = "frequência (multiplicar o número após a vírgula por mil unidades)"
+        else:
+            yStr = "frequencia"
         st.bar_chart(chartData, y=yStr, x=field)      
         output = BytesIO()
     iniVars()
