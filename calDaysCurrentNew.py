@@ -14,6 +14,7 @@ from datetime import date
 from datetime import timedelta
 import time
 
+@st.cache_data
 def dateFullLang(date, mode):
     dayStr = date.day
     monthNum = date.month
@@ -27,13 +28,15 @@ def dateFullLang(date, mode):
     else:
         return (dateFull, weekStr)
 
+@st.cache_data
 def checkHoliday(listDate, listHoli, date):
     dateStr =  date.strftime("%d/%m/%Y")
     try:
         return listDate.index(dateStr)
     except:
         return ""
-    
+
+@st.cache_data
 def countCurUseFul(dateTuple):
     title = dateTuple[-1]
     dateIni = dateTuple[0]
@@ -134,6 +137,7 @@ def countCurUseFul(dateTuple):
     colDays.markdown(f'**Número de dias informados**: {num}')
     colLanc.markdown(f'**Número de dias lançados**: {nLanc}')
 
+@st.cache_data
 def treatmentDf(title, field):
     df = pd.DataFrame(dateCurrUse)
     dfTerm = df[field].value_counts()
@@ -145,7 +149,8 @@ def treatmentDf(title, field):
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEstat.markdown(f":page_facing_up: **<font color={color}>{title}</font>**", True)
     return dfTerm
-    
+
+@st.cache_data
 def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
@@ -154,15 +159,17 @@ def graphicDf(title):
     colEstat.markdown(f":bar_chart: **<font color={color}>{title}</font>**", True)    
     return chartData
     
-# Function to convert DataFrame to Excel file in memory
+@st.cache_data
 def toCsv():
     csv = df.to_csv(index=False).encode('ISO-8859-1')
     return csv
 
+@st.cache_data
 def toPickle():
     pkl = pickle.dumps(df)
     return pkl
 
+@st.cache_data
 def toHtml():
     htmlText = df.to_html(index=False)
     htmlText += dfCount.to_html(index=False)
@@ -185,22 +192,26 @@ def toHtml():
     """    
     htmlText += f"<body>{hmtlPlus}</body>"
     return htmlText
-    
+
+@st.cache_data
 def toTxt():
     txt = df.to_string(index=False).encode('ISO-8859-1') 
     txt += dfCount.to_string(index=False).encode('ISO-8859-1')
     return txt
- 
+
+@st.cache_data
 def toJson():
     json = df.to_json()
     json += dfCount.to_json()
     return json
-    
+
+@st.cache_data
 def toTex():
     tex = df.to_latex()
     tex += dfCount.to_latex()
     return tex
 
+@st.cache_data
 def toInClip(mode):
     if mode == 0:
         txt = df.to_string(index=False).encode('ISO-8859-1') 
@@ -214,7 +225,8 @@ def toInClip(mode):
     </script>
     """
     components.html(jsHtml)
-    
+
+@st.cache_data
 def iniVars():
     prefix = f'dfTable_{plur}'
     labels = {'csv':[f'{prefix}.csv', "Download das tabelas para o formato 'csv'.", ":material/download:"], 
