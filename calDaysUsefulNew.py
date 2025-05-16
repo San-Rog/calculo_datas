@@ -153,6 +153,7 @@ def treatmentDf(title, field):
 
 def graphicDf(title):
     chartData = pd.DataFrame(dfCount)
+    dfCount.style.format('{:.2f}')
     colEmpty, = st.columns(spec=1, gap='small', vertical_alignment='top')
     colEmpty.text('')
     colEstat, = st.columns(spec=1, gap='small', vertical_alignment='top')
