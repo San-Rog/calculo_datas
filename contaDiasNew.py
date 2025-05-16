@@ -186,8 +186,11 @@ def readHoliday():
 
 def textWrapper(textIni):
     wrapper = textwrap.TextWrapper(width=120)
-    textFinal = wrapper.fill(text=textIni)
+    textWrapper = wrapper.fill(text=textIni)
+    textSplit = [text.strip() for text in textWrapper.split(" ") if text not in [" ", "\n"]]
+    textFinal = " ".join(textSplit)    
     return textFinal
+    
 
 def main():
     colorOpt = st.session_state.colorOpt
