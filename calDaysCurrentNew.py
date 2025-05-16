@@ -351,23 +351,9 @@ def main():
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)
-        strAlert = ""
-        try:
-            values = dfCount['frequência'].tolist()
-            maxVal = max(values)
-            if maxVal >= 1000:
-                strAlert = """
-                As cifras lançadas no eixo vertical (y) seguem o padrão numérico-notacional do sistema americano: a vírgula 
-                (e não o ponto) separa as casas dos milhares e seus múltiplos; o ponto, a parte decimal do número.
-                """
-        except:
-            pass
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         chartData = graphicDf(title)
         st.bar_chart(chartData, y="frequência", x=field)    
-        colUnique, = st.columns(1)
-        if strAlert != "":
-            colUnique.text(strAlert)
         output = BytesIO()
     iniVars()
 
