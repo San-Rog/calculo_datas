@@ -88,7 +88,7 @@ def countCurUseFul(dateTuple):
                         else:
                             status = 'conta'
                             obs = 'dia normal'
-                            count += 1
+                        count += 1
             else:
                 if any ([weekNum == 5 or weekNum == 6]):
                     status = 'não conta'
