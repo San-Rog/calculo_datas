@@ -155,7 +155,7 @@ def graphicDf(title):
     try:
         dfGraph = dfGraph.rename(columns={'frequência_notável': 'frequência'})
     except:
-        pass
+        dfGraph = dfGraph.rename(columns={'frequência': 'frequência_notável'})
     values = dfGraph['frequência'].tolist()
     valMax = int(max(values))    
     st.write(values)
