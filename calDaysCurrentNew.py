@@ -30,7 +30,7 @@ def dateFullLang(date, mode):
 def checkHoliday(listDate, listHoli, date):
     dateStr =  date.strftime("%d/%m/%Y")
     try:
-        return index(dateStr)
+        return listDate.index(dateStr)
     except:
         return ""
 
