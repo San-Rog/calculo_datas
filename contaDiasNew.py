@@ -248,7 +248,7 @@ def main():
         with open('configuration.css') as f:
             css = f.read()
         st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
-        st.text(textExpander)
+        #st.text(textExpander)
 
 def configDbHol():
     newCol = ' # '
