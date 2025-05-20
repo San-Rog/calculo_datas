@@ -250,6 +250,7 @@ def main():
                     content: url(https://i.imgur.com/pIZPHar.jpg) !important;
                     padding-top: 5px !important;
                     padding-left: 7px !important;
+                    text-align: center;
                     }</style>""", unsafe_allow_html=True)
 def configDbHol():
     newCol = ' # '
