@@ -360,8 +360,8 @@ def main():
             st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
+        title = f"Gráfico '{field} x frequência' no período da contagem"        
         with st.container(border=True):
-            title = f"Gráfico '{field} x frequência' no período da contagem"        
             chartData = graphicDf(title)
             st.bar_chart(chartData, y="frequência", x=field)    
         output = BytesIO()
