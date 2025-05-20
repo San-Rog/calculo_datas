@@ -73,8 +73,9 @@ def countCurUseFul(dateTuple):
                             st.write(listHoli)
                             st.write('index')
                             st.write(index)
+                            st.text(type(index))
                             status = 'não conta'
-                            obs = f'{listHoli[index]} (feriado nacional)'
+                            obs = 'feriado nacional'
                         else:
                             status = 'conta'
                             obs = ''
