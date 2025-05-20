@@ -101,10 +101,7 @@ def changeDays():
     nDays = st.session_state[listKeys[2]]
     nPlus = st.session_state[listKeys[1]]
     del st.session_state[listKeys[2]]
-    nSum = nPlus + nDays
-    if nSum <= 0:
-        nSum = incMin
-    st.session_state[listKeys[1]] = nSum
+    st.session_state[listKeys[1]] = nPlus + nDays
     
 def changeDate():
     valCal = st.session_state[listKeys[0]]
@@ -217,7 +214,7 @@ def main():
                                      mova o botão deslizante para a direita; se quiser decrementá-lo, pressione o símbolo '-' ou 
                                      mova o botão deslizante para a esquerda.
                                      """)  
-        nPlus = sldDays.slider(label='Incremento de dias', min_value=incMin, max_value=incMax, value=0,
+        nPlus = sldDays.slider(label='Incremento de dias', min_value=incMin-incMin, max_value=incMax*2, 
                                key=listKeys[2], step=1, on_change=changeDays, label_visibility="hidden") 
         colHollow, = st.columns(1, gap='medium', vertical_alignment="center")
         with colHollow:
