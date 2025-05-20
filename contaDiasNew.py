@@ -202,13 +202,17 @@ def main():
                                                             vertical_alignment="center")
         dateSel = colCalendar.date_input(label='Data inicial', value='today', key=listKeys[0], 
                                          format="DD/MM/YYYY", on_change=changeDate, min_value=dateMin, max_value=dateMax,
-                                         help="Digite ou selecione a data de início da contagem de prazo. Se quiser incrementá-la, 
-                                         deslize o comando adjacente para a direita; se quiser decrementá-la, deslize-o para a esquerda.")
+                                         help="""
+                                         Digite ou selecione a data de início da contagem de prazo. Se quiser incrementá-la, 
+                                         deslize o comando adjacente para a direita; se quiser decrementá-la, deslize-o para a esquerda.
+                                         """)
         nSlDate = sldDate.slider(label='Incremento de data', min_value=incMin, max_value=incMax, value=0, 
                                  key=listKeys[5], step=1, on_change=changeSlCalend, label_visibility="hidden")                         
         nDays = colDays.number_input(label='Número de dias', step=1, key=listKeys[1], 
-                                     help="Digite ou selecione a data de início da contagem de prazo. Se quiser incrementá-la, 
-                                     deslize o comando adjacente para a direita; se quiser decrementá-la, deslize-o para a esquerda.")  
+                                     help="""
+                                     Digite ou selecione a data de início da contagem de prazo. Se quiser incrementá-la, 
+                                     deslize o comando adjacente para a direita; se quiser decrementá-la, deslize-o para a esquerda.
+                                     """)  
         nPlus = sldDays.slider(label='Incremento de dias', min_value=incMin, max_value=incMax, value=0,
                                key=listKeys[2], step=1, on_change=changeDays, label_visibility="hidden") 
         colHollow, = st.columns(1, gap='medium', vertical_alignment="center")
