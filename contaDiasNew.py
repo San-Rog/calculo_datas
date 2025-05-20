@@ -244,7 +244,7 @@ def main():
         """
         #textExpander = textWrapper(textHelp, 120)
         #Eis as novidades
-        st.markdown(f"<p>{textHelp}</p>", unsafe_allow_html=True)
+        st.markdown(f"<<p class="expand">>{textHelp}</p>", unsafe_allow_html=True)
         with open('configuration.css') as f:
             css = f.read()
         st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
