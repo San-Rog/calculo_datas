@@ -29,3 +29,7 @@ p.expand {
 	background-color: #F0FFF0;
 	color: black; 
 }
+
+.stTextInput input[aria-label="Entrada de dados B"] {
+    text-align: center;
+}
