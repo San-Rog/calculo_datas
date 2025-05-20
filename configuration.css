@@ -13,7 +13,7 @@ p.expand {
 }
 
 .element-container:nth-of-type(1) button:hover {
-	background-color: #FF4500;
+	background-color: #FFA500;
 	color: white;
 }
 
