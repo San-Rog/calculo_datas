@@ -247,9 +247,9 @@ def main():
             css = f.read()
         st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
         st.markdown("""<style> [data-testid="stDateInput"] [data-baseweb="input"]:before {
+                    content: url(https://i.imgur.com/pIZPHar.jpg);
                     padding-top: 5px;
                     padding-left: 18px;
-                    text-align: right;
                     margin: 12px 10px 10px 12px;
                     }</style>""", unsafe_allow_html=True)
 def configDbHol():
