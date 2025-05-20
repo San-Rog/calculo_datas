@@ -72,7 +72,7 @@ def countCurUseFul(dateTuple):
                         st.write(listHoli)
                         st.write('index')
                         st.write(index)
-                        st.write(type(index))
+                        st.text(type(index))
                         #st.write(listHoli[index])
                         if index != '':    
                             status = 'não conta'
