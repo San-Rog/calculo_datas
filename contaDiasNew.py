@@ -203,11 +203,11 @@ def main():
         dateSel = colCalendar.date_input(label='Data inicial', value='today', key=listKeys[0], 
                                          format="DD/MM/YYYY", on_change=changeDate, min_value=dateMin, max_value=dateMax,
                                          help="Digite ou selecione a data de início da contagem de prazo. Para incrementá-la, deslize o comando ao lado.")
-        nSlDate = sldDate.slider(label='Incremento de data', min_value=0, max_value=6000, key=listKeys[5], 
+        nSlDate = sldDate.slider(label='Incremento de data', min_value=incMin, max_value=incMax, value=0, key=listKeys[5], 
                                  step=1, on_change=changeSlCalend, label_visibility="hidden")                         
         nDays = colDays.number_input(label='Número de dias', step=1, key=listKeys[1], 
                                      help="Digite ou incremente/decremente o número de dias da contagem. Para incrementá-lo, deslize o comando ao lado.")  
-        nPlus = sldDays.slider(label='Incremento de dias', min_value=0, max_value=6000, 
+        nPlus = sldDays.slider(label='Incremento de dias', min_value=incMin, max_value=incMax, value=0, 
                                key=listKeys[2], step=1, on_change=changeDays, label_visibility="hidden") 
         colHollow, = st.columns(1, gap='medium', vertical_alignment="center")
         with colHollow:
@@ -261,7 +261,8 @@ if __name__ == '__main__':
     global months, weeks
     global dateMin, dateMax
     global dfHoliday
-    global dateOnly, holOnly
+    global dateOnly, holOnly, 
+    global incMin, incMax
     keyNames = {'calendar': date.today(), 
                 'days': 0, 
                 'plus': 0, 
@@ -279,6 +280,7 @@ if __name__ == '__main__':
     dfHoliday = dfHoliday.dropna()
     dateOnly = dfHoliday['Data']
     holOnly = dfHoliday['Feriado']
+    incMin, incMax = (-3000, 3000)
     configDbHol()
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
