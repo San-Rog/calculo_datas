@@ -30,6 +30,6 @@ p.expand {
 	color: black; 
 }
 
-.stTextInput input[aria-label="Entrada de dados B"] {
+.stNumberInput input[aria-label="Número de dias"] {
     text-align: center;
 }
