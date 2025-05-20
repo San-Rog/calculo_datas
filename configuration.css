@@ -7,18 +7,21 @@ p.expand {
 
 .element-container:nth-of-type(1) button{
 	font-size: 17px;
-	height: 2.6em;
+	font-weight: bold;
+	height: 3.2em;
 	background-color: #F0FFF0;
-	color: black; 
+	color: black;
+	border: 1px solid black; 
 }
 
 .element-container:nth-of-type(1) button:hover {
-	background-color: #FFA500;
+	background-color: lightgreen;
 	color: white;
+	font-weight: bold;
 }
 
 .element-container:nth-of-type(1) button:active {
-	background-color: #FF0000;
+	background-color: red;
 	color: white;
 	text-decoration-line: underline;
 }
@@ -26,4 +29,5 @@ p.expand {
 .element-container:nth-of-type(1) button:not(:hover) {
 	background-color: #F0FFF0;
 	color: black;
+	border: 1px solid black; 
 }
