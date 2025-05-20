@@ -204,14 +204,15 @@ def main():
                                          format="DD/MM/YYYY", on_change=changeDate, min_value=dateMin, max_value=dateMax,
                                          help="""
                                          Digite ou selecione a data de início da contagem de prazo. Se quiser incrementá-la, 
-                                         deslize o comando adjacente para a direita; se quiser decrementá-la, deslize-o para a esquerda.
+                                         mova o botão de deslizamento para a direita; se quiser decrementá-la, mova-o para a esquerda.
                                          """)
         nSlDate = sldDate.slider(label='Incremento de data', min_value=incMin, max_value=incMax, value=0, 
                                  key=listKeys[5], step=1, on_change=changeSlCalend, label_visibility="hidden")                         
         nDays = colDays.number_input(label='Número de dias', step=1, key=listKeys[1], 
                                      help="""
-                                     Digite ou selecione a data de início da contagem de prazo. Se quiser incrementá-la, 
-                                     deslize o comando adjacente para a direita; se quiser decrementá-la, deslize-o para a esquerda.
+                                     Digite o número de dias da contagem. Se quiser incrementá-lo, pressione o símbolo '+' ou 
+                                     mova o botão deslizante para a direita; se quiser decrementá-lo, pressione o símbolo '-' ou 
+                                     mova o botão deslizante para a esquerda.
                                      """)  
         nPlus = sldDays.slider(label='Incremento de dias', min_value=incMin, max_value=incMax, value=0,
                                key=listKeys[2], step=1, on_change=changeDays, label_visibility="hidden") 
