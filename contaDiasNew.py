@@ -101,9 +101,10 @@ def changeDays():
     nDays = st.session_state[listKeys[2]]
     nPlus = st.session_state[listKeys[1]]
     del st.session_state[listKeys[2]]
-    st.write(nPlus)
-    st.write(nDays)
-    st.session_state[listKeys[1]] = nPlus + nDays
+    nSum = nPlus + nDays
+    if nSum <= 0:
+        nSum = incMin
+    st.session_state[listKeys[1]] = nSum
     
 def changeDate():
     valCal = st.session_state[listKeys[0]]
