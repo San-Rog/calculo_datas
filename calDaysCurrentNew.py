@@ -69,6 +69,7 @@ def countCurUseFul(dateTuple):
                         obs = 'fim de semana'
                     else:
                         index = checkHoliday(listDate, listHoli, dateNew)
+                        st.write(listHoli)
                         if index != '':    
                             status = 'não conta'
                             obs = f'{listHoli[index]} (feriado nacional)'
