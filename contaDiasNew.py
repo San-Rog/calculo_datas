@@ -280,7 +280,7 @@ if __name__ == '__main__':
     dfHoliday = dfHoliday.dropna()
     dateOnly = dfHoliday['Data']
     holOnly = dfHoliday['Feriado']
-    incMin, incMax = (-3000, 3000)
+    incMin, incMax = (-3000.00, 3000.00)
     st.write(incMin)
     st.write(incMax)
     configDbHol()
