@@ -340,7 +340,7 @@ def main():
     dateNow = datetime.date.today()
     dayFirst = st.session_state['acesso'][0]
     nDays = st.session_state['acesso'][1]
-    arg = (dayFirst, nDays, 1, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+    arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
     #['dia do mês', 'dias da semana', 
@@ -365,6 +365,9 @@ def main():
         with st.container(border=True):
             st.bar_chart(chartData, y="frequência", x=field)    
         output = BytesIO()
+    with open('configuration.css') as f:
+        css = f.read()
+    st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
     iniVars()
 
 if __name__ == '__main__':
