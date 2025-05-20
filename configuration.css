@@ -33,3 +33,7 @@ p.expand {
 .stNumberInput input[aria-label="Número de dias"] {
     text-align: center;
 }
+
+.stDateInput input[aria-label="Número de dias"] {
+    text-align: center;
+}
