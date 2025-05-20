@@ -242,14 +242,15 @@ def main():
         expediente público ou privado. Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam 
         em planilha disponível na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
-        #textExpander = textWrapper(textHelp, 120)
-        #Eis as novidades
         st.markdown(f"<p class='expand'>{textHelp}</p>", unsafe_allow_html=True)
         with open('configuration.css') as f:
             css = f.read()
         st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
-        #st.text(textExpander)
-
+        st.markdown("""<style> [data-testid="stDateInput"] [data-baseweb="input"]:before {
+                    content: url(https://i.imgur.com/pIZPHar.jpg) !important;
+                    padding-top: 5px !important;
+                    padding-left: 7px !important;
+                    }</style>""", unsafe_allow_html=True)
 def configDbHol():
     newCol = ' # '
     dfHoliday[newCol] = [row + 1 for row in range(len(dfHoliday))]  
