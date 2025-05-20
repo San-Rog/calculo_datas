@@ -247,10 +247,10 @@ def main():
             css = f.read()
         st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
         st.markdown("""<style> [data-testid="stDateInput"] [data-baseweb="input"]:before {
-                    content: url(https://i.imgur.com/pIZPHar.jpg) !important;
-                    padding-top: 5px !important;
-                    padding-left: 7px !important;
-                    text-align: center;
+                    content: url(https://i.imgur.com/pIZPHar.jpg);
+                    padding-top: 5px;
+                    padding-left: 7px;
+                    text-align: right;
                     }</style>""", unsafe_allow_html=True)
 def configDbHol():
     newCol = ' # '
