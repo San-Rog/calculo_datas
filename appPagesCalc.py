@@ -13,6 +13,8 @@ def main():
     pg.run()   
 
 def supplyState():
+    for key in st.session_state.keys():
+        del st.session_state[key]    
     if 'color' not in st.session_state: 
         st.session_state.color = "#0059F9" 
     if 'colorOpt' not in st.session_state:
