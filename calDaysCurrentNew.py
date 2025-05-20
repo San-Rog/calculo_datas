@@ -30,7 +30,7 @@ def dateFullLang(date, mode):
 def checkHoliday(listDate, listHoli, date):
     dateStr =  date.strftime("%d/%m/%Y")
     try:
-        return listDate.index(dateStr)
+        return index(dateStr)
     except:
         return ""
 
@@ -73,9 +73,8 @@ def countCurUseFul(dateTuple):
                             st.write(listHoli)
                             st.write('index')
                             st.write(index)
-                            st.text(type(index))
                             status = 'não conta'
-                            obs = 'feriado nacional'
+                            obs = f'{listHoli[index]} (feriado nacional)'
                         else:
                             status = 'conta'
                             obs = ''
