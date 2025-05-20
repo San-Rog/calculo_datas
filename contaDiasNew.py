@@ -281,6 +281,8 @@ if __name__ == '__main__':
     dateOnly = dfHoliday['Data']
     holOnly = dfHoliday['Feriado']
     incMin, incMax = (-3000, 3000)
+    st.write(incMin)
+    st.write(incMax)
     configDbHol()
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
