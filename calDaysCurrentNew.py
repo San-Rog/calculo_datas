@@ -362,7 +362,7 @@ def main():
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         title = f"Gráfico '{field} x frequência' no período da contagem"        
         with st.container(border=True):
-            chartData = graphicDf(title)
+            chartData = graphicDf('')
             st.bar_chart(chartData, y="frequência", x=field)    
         output = BytesIO()
     iniVars()
