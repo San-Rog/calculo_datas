@@ -13,12 +13,12 @@ p.expand {
 }
 
 .element-container:nth-of-type(1) button:hover {
-	background-color: lightgreen;
+	background-color: #FF4500;
 	color: white;
 }
 
 .element-container:nth-of-type(1) button:active {
-	background-color: red;
+	background-color: #FF0000;
 	color: white;
 	text-decoration-line: underline;
 }
