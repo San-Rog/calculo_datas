@@ -2,7 +2,7 @@ p.expand {
   text-align: justify;
   font-size: 17px;
   color: #00008B;
-  background-color: rgb(255, 242, 255);
+  background-color: #f7f6f1;
 }
 
 .element-container:nth-of-type(1) button{
