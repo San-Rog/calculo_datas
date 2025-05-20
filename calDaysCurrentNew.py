@@ -340,7 +340,7 @@ def main():
     dateNow = datetime.date.today()
     dayFirst = st.session_state['acesso'][0]
     nDays = st.session_state['acesso'][1]
-    arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+    arg = (dayFirst, nDays, 1, f'contagem em dias {plur}', 'Demonstrativo cronológico')
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
     #['dia do mês', 'dias da semana', 
@@ -360,11 +360,9 @@ def main():
             st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
-        colGraph, = st.columns(spec=1, gap='small', vertical_alignment='top')
-        colGraph.write(f"Gráfico '{field} x frequência' no período da contagem")        
-        with st.container(border=True):
-            chartData = graphicDf('')
-            st.bar_chart(chartData, y="frequência", x=field)    
+        title = f"Gráfico '{field} x frequência' no período da contagem"        
+        chartData = graphicDf(title)
+        st.bar_chart(chartData, y="frequência", x=field)    
         output = BytesIO()
     iniVars()
 
