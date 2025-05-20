@@ -243,6 +243,7 @@ def main():
         em planilha disponível na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
         textExpander = textWrapper(textHelp, 120)
+        #Eis as novidades
         st.text(textExpander)
 
 def configDbHol():
