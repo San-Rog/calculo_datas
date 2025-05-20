@@ -251,6 +251,7 @@ def main():
                     padding-top: 5px;
                     padding-left: 18px;
                     text-align: right;
+                    margin: 12px 10px 10px 12px;
                     }</style>""", unsafe_allow_html=True)
 def configDbHol():
     newCol = ' # '
