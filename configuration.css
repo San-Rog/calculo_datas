@@ -34,6 +34,6 @@ p.expand {
     text-align: center;
 }
 
-.stDateInput input[aria-label="Número de dias"] {
+.stDateInput input[aria-label="Data inicial"] {
     text-align: center;
 }
