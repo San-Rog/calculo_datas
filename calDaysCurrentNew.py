@@ -138,6 +138,9 @@ def countCurUseFul(dateTuple):
     colDays.markdown(f'**Número de dias informados**: {num}')
     colLanc.markdown(f'**Número de dias lançados**: {nLanc}')
 
+def drawTable(): 
+    st.write(dateCurrUse)
+    
 def treatmentDf(title, field):
     df = pd.DataFrame(dateCurrUse)
     dfTerm = df[field].value_counts()
@@ -353,7 +356,7 @@ def main():
     for f in [1, 2]: 
         if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
-            #incluir 
+            drawTable() 
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)
         field = keyCurrent[f]
