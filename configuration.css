@@ -51,6 +51,6 @@ tr:hover {
 	background-color: yellow;
 }
 
-td {
-	font-size: 15px;	
+td, tr {
+	font-size: 14px;	
 }
