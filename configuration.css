@@ -41,7 +41,7 @@ table{
 }
 
 th {
-	background: rgb(60, 179, 113);
+	background: lightgreen;
 	color: white;
 	font-style: normal;
 	font-size: 15px;
@@ -49,7 +49,7 @@ th {
 }
 
 tr:hover {
-	background-color: rgb(255, 174, 0);
+	background-color: rgb(255, 174,;
 }
 
 td, tr {
