@@ -389,8 +389,6 @@ def main():
         if f == 1:
         #if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
-            colDraw, = st.columns(1)
-            colDraw.write(' ')
             st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
             drawTable()   
             if nDays != 0:
