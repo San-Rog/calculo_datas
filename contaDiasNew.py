@@ -102,7 +102,7 @@ def valiDate(data):
     try:
         newDate = datetime.datetime.strptime(data, '%Y-%d-%m')
         return True
-    except ValueError:
+    except:
         return False
     
 def changeDays():
