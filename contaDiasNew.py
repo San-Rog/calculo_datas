@@ -134,6 +134,8 @@ def changeSlCalend():
     nDays = st.session_state[listKeys[5]]
     dateCalend = st.session_state[listKeys[0]] 
     newDate = dateCalend + timedelta(days=nDays)
+    st.write(dateCalend)
+    st.write(newDate)
     if newDate < dateMin: 
         newDate = dateMin
     if newDate > dateMax:
