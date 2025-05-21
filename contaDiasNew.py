@@ -161,7 +161,7 @@ def listFiles():
         pass
 
 def exibInfo():
-    info[infoKeys[6]] += 1
+    info[infokeys[6]] += 1
     @st.dialog(' ')
     def config():
         info = st.session_state.info
