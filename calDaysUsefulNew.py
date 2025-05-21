@@ -131,12 +131,12 @@ def countCurUseFul(dateTuple):
     nLanc = len(dateCurrUse[keyCurrent[0]])
     st.markdown(f":page_with_curl: **<font color={color}>{title} (dataframe)</font>**", True)
     colStart, colFinal, colCrit = st.columns(spec=3, gap='small', vertical_alignment='top', border=True)
-    colStart.markdown(f'**Data inicial**  : {dateIniStr} ({dateIniName})')
-    colFinal.markdown(f'**Data Final**  : {dateFinal}')
-    colCrit.markdown(f"**Critério**: {expr}")
+    colStart.markdown(f'**Data inicial**  : {dateIniStr} ({dateIniName})', unsafe_allow_html=True)
+    colFinal.markdown(f'**Data Final**  : {dateFinal}', unsafe_allow_html=True)
+    colCrit.markdown(f"**Critério**: {expr}", unsafe_allow_html=True)
     colDays, colLanc = st.columns(spec=2, gap='small', vertical_alignment='top', border=True)
-    colDays.markdown(f'**Número de dias informados**: {num}')
-    colLanc.markdown(f'**Número de dias lançados**: {nLanc}')
+    colDays.markdown(f'**Número de dias informados**: {num}', unsafe_allow_html=True)
+    colLanc.markdown(f'**Número de dias lançados**: {nLanc}', unsafe_allow_html=True)
 
 def zipList(elemTable):
     keys = list(elemTable.keys())
