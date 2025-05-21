@@ -27,8 +27,7 @@ def findCurFul():
     listData = st.session_state.dateonly.tolist()
     listHoli = st.session_state.holonly.tolist()
     colorIni = st.session_state.color
-    st.write(info[infoKeys[4]])
-    #**************
+    info[infoKeys[4]] += 1
     @st.dialog(' ')
     def config():
         colOne, colTwo = st.columns(spec=([3.5, 1]), gap="small", vertical_alignment="top", border=True)
@@ -142,6 +141,7 @@ def changeSlCalend():
     del st.session_state[listKeys[5]]
     
 def listFiles():
+    info[infokeys[5]] += 1
     try:
         @st.dialog(' ')
         def lista(files):
