@@ -104,6 +104,13 @@ def changeDays():
     nPlus = st.session_state[listKeys[1]]
     del st.session_state[listKeys[2]]
     st.session_state[listKeys[1]] = nPlus + nDays
+
+def dateValidate(date):
+    try:
+        datetime.strptime(data, '%Y-%d-%m')
+        return True
+    except ValueError:
+        return False
     
 def changeDate():
     valCal = st.session_state[listKeys[0]]
@@ -113,6 +120,7 @@ def changeDate():
     if valCal is None: 
         st.session_state[listKeys[0]] = date.today()
     else:
+        st.write(dateValidate(valCal))
         try:
             st.session_state[listKeys[0]] = valCal
         except:
