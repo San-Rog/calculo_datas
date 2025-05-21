@@ -32,6 +32,7 @@ def supplyState():
                                 'holidays': 0, 
                                 'clear': 0}
     st.session_state.info['conta'] += 1
+    st.write(now)
     
 if __name__ == '__main__':
     st.set_page_config(layout="wide")
