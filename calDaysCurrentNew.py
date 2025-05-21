@@ -366,6 +366,7 @@ def main():
     keyCurrent = ['dia do mês', 'dia da semana', 
                   'condição', 'nota', '#', 'contador']
     dateCurrUse = {key:[] for key in keyCurrent}
+    dateControl = dateCurrUse.copy()
     months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
               7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
     weeks = {6: 'domingo', 0: 'segunda-feira', 1: 'terça-feira', 
@@ -379,7 +380,7 @@ def main():
     df = pd.DataFrame(dateCurrUse)
     st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
     st.write(dateCurrUse)
-    if len(dateCurrUse) > 0:
+    if dateControl != dateCurrUse:
         drawTable() 
     #['dia do mês', 'dias da semana', 
     #'condição', 'obs', 'sequencial', 'contador geral']
