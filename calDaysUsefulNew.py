@@ -129,7 +129,7 @@ def countCurUseFul(dateTuple):
     else:
         dateFinal = dayFinal[-1]
     nLanc = len(dateCurrUse[keyCurrent[0]])
-    st.markdown(f":page_with_curl: **<font color={color}>{title}</font>**", True)
+    st.markdown(f":page_with_curl: **<font color={color}>{title} (dataframe)</font>**", True)
     colStart, colFinal, colCrit = st.columns(spec=3, gap='small', vertical_alignment='top', border=True)
     colStart.markdown(f'**Data inicial**  : {dateIniStr} ({dateIniName})')
     colFinal.markdown(f'**Data Final**  : {dateFinal}')
@@ -138,6 +138,41 @@ def countCurUseFul(dateTuple):
     colDays.markdown(f'**Número de dias informados**: {num}')
     colLanc.markdown(f'**Número de dias lançados**: {nLanc}')
 
+def zipList(elemTable):
+    keys = list(elemTable.keys())
+    values = list(elemTable.values())
+    nValues = len(values)
+    merge = "zip("
+    for v, value in enumerate(values):
+        if v != (nValues - 1): 
+            merge += f'{value},'
+        else:
+            merge += f'{value}'
+    merge += ")"
+    resMerge = list(eval(merge))
+    return resMerge
+
+def drawTable(): 
+    #st.write(dateCurrUse)
+    elemTable = dateCurrUse.copy()
+    htmlTable = "<table>\n"
+    #Criação do cabeçalho
+    keys = list(elemTable.keys())
+    htmlTable += "<tr>"
+    for k, key in enumerate(keys):
+        htmlTable += f"\n<th>{key}</th>"
+    htmlTable += "\n</tr>"
+    #Preenchimento do corpo da tabela 
+    tupValues = zipList(elemTable)    
+    for tup in tupValues:
+        htmlTable += "\n<tr>"
+        for tp in tup: 
+            htmlTable += f"\n<td>{tp}</td>"
+        htmlTable += "\n</tr>"
+    htmlTable += "\n</table>"
+    #st.text(htmlTable)
+    st.markdown(htmlTable, unsafe_allow_html=True)
+    
 def treatmentDf(title, field):
     df = pd.DataFrame(dateCurrUse)
     dfTerm = df[field].value_counts()
@@ -243,7 +278,6 @@ def iniVars():
         colOpt, = st.columns(spec=1, gap='small', vertical_alignment='center', border=False)
         st.markdown(f":point_right: **<font color={colorOpt}>Opções</font>**", True)
         #st.markdown(f":point_right: {color}[opções]**")
-        #Csv
         colCsv, colPkl, colHtml, colString = st.columns(spec=4, gap='small', vertical_alignment='center', border=False)
         colJson, colLatex, colClip, colClear = st.columns(spec=4, gap='small', vertical_alignment='top', border=False)
         if colCsv.download_button(
@@ -352,12 +386,16 @@ def main():
         dateMin = ""
         dateMax = ""
     for f in [1, 2]: 
+        if f == 1:
+        #if all([f == 1, nDays != 0]):
+            st.dataframe(data=df, hide_index=True, use_container_width=True)
+            st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
+            drawTable()   
+            if nDays != 0:
+                textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
+                st.markdown(textIni, unsafe_allow_html=True)
         field = keyCurrent[f]
         title = f"Tabela '{field} x frequência' no período da contagem"
-        if all([f == 1, nDays != 0]):
-            st.dataframe(data=df, hide_index=True, use_container_width=True)
-            textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
-            st.markdown(textIni, unsafe_allow_html=True)  
         dfCount = treatmentDf(title, field)
         st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
         title = f"Gráfico '{field} x frequência' no período da contagem"        
