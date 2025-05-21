@@ -28,7 +28,9 @@ def supplyState():
                                 'tempusIni' : time.time(), 
                                 'calc': 0, 
                                 'files': 0, 
-                                'holidays': 0}
+                                'acccess': 0, 
+                                'holidays': 0, 
+                                'clear': 0}
     st.session_state.info['conta'] += 1
     
 if __name__ == '__main__':
