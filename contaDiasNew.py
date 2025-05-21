@@ -175,7 +175,7 @@ def exibInfo():
         st.markdown(f'🔴 **Número de acessos a módulos/submódulos do app**: {info[infoKeys[0]]}')
         st.markdown(f'📅 **Data de início da sessão**: {dateFullLang(info[infoKeys[1]])}')
         st.markdown(f'⏳ **Tempo de uso deste app**: {tempus} segundo(s).')
-        st.markdown(f"📐 **Clique(s) no botão 'cálculo'**: {calcK}.")
+        st.markdown(f"📐 **Clique(s) no botão :red[Cálculo]**: {calcK}.")
         st.markdown(f"👉 **Clique(s) no botão 'Arquivos'**: {fileK}.")
         st.markdown(f"👓 **Clique(s) no botão 'Acesso'**: {accessK}.")
         st.markdown(f"#️⃣ **Clique(s) no botão 'Feriados'**: {holidayK}.")
