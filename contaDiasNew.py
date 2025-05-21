@@ -162,11 +162,9 @@ def exibInfo():
     def config():
         info = st.session_state.info
         infoKeys = list(info.keys())
-        st.write(infoKeys)
-        st.write(info)
         tempus = time.time() - info[infoKeys[3]]
-        st.markdown(f'**🔴 Número de acessos a módulos/submódulos do app**: {info[infoKeys[0]]}')
-        st.markdown(f'**📅 Data de início da sessão**: {dateFullLang(info[infoKeys[1]])}')
+        st.markdown(f'🔴 **Número de acessos a módulos/submódulos do app**: {info[infoKeys[0]]}')
+        st.markdown(f'📅 **Data de início da sessão**: {dateFullLang(info[infoKeys[1]])}')
         st.markdown(f'⏳ **Tempo de uso deste app**: {tempus} segundo(s).')
     config()
 
