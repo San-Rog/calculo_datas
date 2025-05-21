@@ -44,9 +44,13 @@ th{
 	background: rgb(120, 120, 120);
 	color: white;
 	font-style: normal;
-	font-size: 13px;
+	font-size: 15px;
 }
 
 tr:hover {
 	background-color: yellow;
+}
+
+td {
+	font-size: 15px;	
 }
