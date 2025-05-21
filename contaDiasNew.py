@@ -277,6 +277,7 @@ if __name__ == '__main__':
     global dfHoliday
     global dateOnly, holOnly
     global incMin, incMax
+    global info, infoKeys
     keyNames = {'calendar': date.today(), 
                 'days': 0, 
                 'plus': 0, 
@@ -295,6 +296,8 @@ if __name__ == '__main__':
     dateOnly = dfHoliday['Data']
     holOnly = dfHoliday['Feriado']
     incMin, incMax = (-3000, 3000)
+    info = st.session_state.info
+    infoKeys = list(info.keys())
     configDbHol()
     if 'dateonly' not in st.session_state:
         st.session_state.dateonly = dateOnly
