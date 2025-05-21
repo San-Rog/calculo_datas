@@ -107,7 +107,7 @@ def changeDays():
     
 def changeDate():
     valCal = st.session_state[listKeys[0]]
-    #del st.session_state[listKeys[0]]
+    del st.session_state[listKeys[0]]
     if valCal is None: 
         st.session_state[listKeys[0]] = date.today()
     else:
