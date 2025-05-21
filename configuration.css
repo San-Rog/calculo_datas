@@ -40,11 +40,12 @@ table{
 	vertical-align: middle;
 }
 
-th{
+th {
 	background: rgb(120, 120, 120);
 	color: white;
 	font-style: normal;
 	font-size: 15px;
+	text-align: center;
 }
 
 tr:hover {
