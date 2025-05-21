@@ -99,7 +99,8 @@ def iniFinally(mode):
                                   st.session_state.days]
 
 def valiDate(data):
-    newDate = datetime.datetime.strptime(data, '%Y-%d-%m')
+    newDate = datetime.datetime.strptime(data, '%d-%m-%Y')
+    st.write(newDate)
     #return True
     
 def changeDays():
