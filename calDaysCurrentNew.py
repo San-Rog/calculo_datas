@@ -378,7 +378,7 @@ def main():
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
     st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
-    st.write(dateCurruse)
+    st.write(dateCurrUse)
     if len(dateCurrUse) > 0:
         drawTable() 
     #['dia do mês', 'dias da semana', 
