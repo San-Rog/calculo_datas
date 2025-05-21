@@ -175,11 +175,11 @@ def exibInfo():
         st.markdown(f'🔴 **Número de acessos a módulos/submódulos do app**: {info[infoKeys[0]]}')
         st.markdown(f'📅 **Data de início da sessão**: {dateFullLang(info[infoKeys[1]])}')
         st.markdown(f'⏳ **Tempo de uso deste app**: {tempus} segundo(s).')
-        st.markdown(f"📐 **Clique(s) no botão :red[Cálculo]**: {calcK}.")
-        st.markdown(f"👉 **Clique(s) no botão 'Arquivos'**: {fileK}.")
-        st.markdown(f"👓 **Clique(s) no botão 'Acesso'**: {accessK}.")
-        st.markdown(f"#️⃣ **Clique(s) no botão 'Feriados'**: {holidayK}.")
-        st.markdown(f"📕 **Clique(s) no botão 'Limpeza'**: {clearK}.")
+        st.markdown(f"📐 **Clique(s) no botão :blue[Cálculo]**: {calcK}.")
+        st.markdown(f"👉 **Clique(s) no botão :blue[Arquivos]**: {fileK}.")
+        st.markdown(f"👓 **Clique(s) no botão :blue[Acesso]**: {accessK}.")
+        st.markdown(f"#️⃣ **Clique(s) no botão :blue[Feriados]**: {holidayK}.")
+        st.markdown(f"📕 **Clique(s) no botão :blue[Limpeza]**: {clearK}.")
     config()
 
 def exibHoliday():
