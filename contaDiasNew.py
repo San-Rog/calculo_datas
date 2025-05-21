@@ -97,6 +97,13 @@ def iniFinally(mode):
         pass
     st.session_state['acesso'] = [st.session_state.calendar, 
                                   st.session_state.days]
+
+def valiDate(data):
+    try:
+        datetime.datetime.strptime(data, '%Y-%d-%m')
+        return True
+    except ValueError:
+        return False
     
 def changeDays():
     time.sleep(timeDay)
@@ -111,6 +118,7 @@ def changeDate():
     if valCal is None: 
         st.session_state[listKeys[0]] = date.today()
     else:
+        st.write(valiDate(valCal))            
         try:
             st.session_state[listKeys[0]] = valCal
         except:
