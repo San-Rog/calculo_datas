@@ -213,7 +213,7 @@ def main():
             st.markdown(f":memo: **<font color={colorOpt}>Dados</font>**", True)
         colCalendar, sldDate, colDays, sldDays = st.columns([2.8, 2.5, 2.8, 2.5], gap='medium', 
                                                             vertical_alignment="center")
-        dateSel = colCalendar.date_input(label='Data inicial', value=keyNames[listKeys[0]], key=listKeys[0], 
+        dateSel = colCalendar.date_input(label='Data inicial', value='today', key=listKeys[0], 
                                          format="DD/MM/YYYY", on_change=changeDate, min_value=dateMin, max_value=dateMax,
                                          help="""
                                          Digite ou selecione a data de início da contagem de prazo. Se quiser incrementá-la, 
