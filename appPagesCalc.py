@@ -19,7 +19,6 @@ def supplyState():
         st.session_state.colorOpt = '#A22845'
     if 'info' not in st.session_state: 
         now = datetime.datetime.now()
-        st.write(now)
         hour = now.hour
         minutes = now.minute
         second = now.second
