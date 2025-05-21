@@ -107,6 +107,8 @@ def changeDays():
     
 def changeDate():
     valCal = st.session_state[listKeys[0]]
+    st.write('valCal')
+    st.write(valCal)
     del st.session_state[listKeys[0]]
     if valCal is None: 
         st.session_state[listKeys[0]] = date.today()
@@ -134,8 +136,6 @@ def changeSlCalend():
     nDays = st.session_state[listKeys[5]]
     dateCalend = st.session_state[listKeys[0]] 
     newDate = dateCalend + timedelta(days=nDays)
-    st.write(dateCalend)
-    st.write(newDate)
     if newDate < dateMin: 
         newDate = dateMin
     if newDate > dateMax:
