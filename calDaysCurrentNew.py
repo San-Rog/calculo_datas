@@ -392,8 +392,9 @@ def main():
             colDraw, = st.columns(1)
             colDraw.write(' ')
             st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
-            drawTable()    
-            textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
+            drawTable()   
+            if nDays != 0:
+                textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)
         field = keyCurrent[f]
         title = f"Tabela '{field} x frequência' no período da contagem"
