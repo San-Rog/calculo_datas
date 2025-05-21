@@ -138,6 +138,20 @@ def countCurUseFul(dateTuple):
     colDays.markdown(f'**Número de dias informados**: {num}')
     colLanc.markdown(f'**Número de dias lançados**: {nLanc}')
 
+def zipList(elemTable):
+    keys = list(elemTable.keys())
+    values = list(elemTable.values())
+    nValues = len(values)
+    merge = "zip("
+    for v, value in enumerate(values):
+        if v != (nValues - 1): 
+            merge += f'{value},'
+        else:
+            merge += f'{value}'
+    merge += ")"
+    resMerge = list(eval(merge))
+    return resMerge
+
 def drawTable(): 
     #st.write(dateCurrUse)
     elemTable = dateCurrUse.copy()
