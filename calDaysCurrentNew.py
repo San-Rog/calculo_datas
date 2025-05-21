@@ -388,6 +388,7 @@ def main():
     for f in [1, 2]: 
         if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
+            st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
             drawTable() 
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)
