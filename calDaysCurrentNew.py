@@ -379,8 +379,6 @@ def main():
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
     st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
-    if dateControl != dateCurrUse:
-        drawTable() 
     #['dia do mês', 'dias da semana', 
     #'condição', 'obs', 'sequencial', 'contador geral']
     try:
@@ -392,6 +390,8 @@ def main():
     for f in [1, 2]: 
         if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
+            if dateControl != dateCurrUse:
+                drawTable()    
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)
         field = keyCurrent[f]
