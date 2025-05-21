@@ -366,7 +366,6 @@ def main():
     keyCurrent = ['dia do mês', 'dia da semana', 
                   'condição', 'nota', '#', 'contador']
     dateCurrUse = {key:[] for key in keyCurrent}
-    dateControl = dateCurrUse.copy()
     months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
               7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
     weeks = {6: 'domingo', 0: 'segunda-feira', 1: 'terça-feira', 
@@ -378,7 +377,6 @@ def main():
     arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
     countCurUseFul(arg)
     df = pd.DataFrame(dateCurrUse)
-    st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
     #['dia do mês', 'dias da semana', 
     #'condição', 'obs', 'sequencial', 'contador geral']
     try:
@@ -390,8 +388,8 @@ def main():
     for f in [1, 2]: 
         if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
-            if dateControl != dateCurrUse:
-                drawTable()    
+            st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
+            drawTable()    
             textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
             st.markdown(textIni, unsafe_allow_html=True)
         field = keyCurrent[f]
