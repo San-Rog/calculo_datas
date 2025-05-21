@@ -386,7 +386,8 @@ def main():
         dateMin = ""
         dateMax = ""
     for f in [1, 2]: 
-        if all([f == 1, nDays != 0]):
+        if f == 1:
+        #if all([f == 1, nDays != 0]):
             st.dataframe(data=df, hide_index=True, use_container_width=True)
             st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
             drawTable()    
