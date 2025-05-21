@@ -167,9 +167,19 @@ def exibInfo():
         info = st.session_state.info
         infoKeys = list(info.keys())
         tempus = time.time() - info[infoKeys[3]]
+        calcK = info[infoKeys[4]]
+        fileK = info[infoKeys[5]]
+        accessK = info[infoKeys[6]]
+        holidayK = info[infoKeys[7]]
+        clearK = info[infoKeys[8]] 
         st.markdown(f'🔴 **Número de acessos a módulos/submódulos do app**: {info[infoKeys[0]]}')
         st.markdown(f'📅 **Data de início da sessão**: {dateFullLang(info[infoKeys[1]])}')
         st.markdown(f'⏳ **Tempo de uso deste app**: {tempus} segundo(s).')
+        st.markdown(f'📐 **Clique(s) no botão 'cálculo'**: {calcK}.')
+        st.markdown(f'👉 **Clique(s) no botão 'Arquivos'**: {fileK}.')
+        st.markdown(f'👓 **Clique(s) no botão 'Acesso'**: {accessK}.')
+        st.markdown(f'#️⃣ **Clique(s) no botão 'Feriados'**: {holidayK}.')
+        st.markdown(f'📕 **Clique(s) no botão 'Limpeza'**: {clearK}.')
     config()
 
 def exibHoliday():
