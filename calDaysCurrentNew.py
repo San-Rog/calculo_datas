@@ -160,7 +160,7 @@ def drawTable():
     keys = list(elemTable.keys())
     htmlTable += "<tr>"
     for k, key in enumerate(keys):
-        htmlTable += f"\n<th>{key}</th>"
+        htmlTable += f"\n<td>{key}</td>"
     htmlTable += "\n</tr>"
     #Preenchimento do corpo da tabela 
     tupValues = zipList(elemTable)    
