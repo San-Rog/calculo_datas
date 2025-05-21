@@ -161,7 +161,7 @@ def listFiles():
         pass
 
 def exibInfo():
-    info[infokeys[6]] += 1
+    info[infoKeys[6]] += 1
     @st.dialog(' ')
     def config():
         info = st.session_state.info
@@ -194,7 +194,6 @@ def textWrapper(textIni, size):
     textSplit = [text.strip() for text in textWrapper.split(" ") if text not in [" ", "\n"]]
     textFinal = " ".join(textSplit)    
     return textFinal
-    
 
 def main():
     colorOpt = st.session_state.colorOpt
