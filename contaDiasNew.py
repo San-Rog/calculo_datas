@@ -27,7 +27,7 @@ def findCurFul():
     listData = st.session_state.dateonly.tolist()
     listHoli = st.session_state.holonly.tolist()
     colorIni = st.session_state.color
-    info[infoKeys[4]] += 1
+    st.write(info[infoKeys[4]])
     #**************
     @st.dialog(' ')
     def config():
