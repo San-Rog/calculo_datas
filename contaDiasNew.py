@@ -99,9 +99,13 @@ def iniFinally(mode):
                                   st.session_state.days]
 
 def valiDate(data):
-    newDate = data.strftime("%d/%m/%Y")
-    #newDate = datetime.datetime.strptime(data, '%d-%m-%Y')
-    st.write(newDate)
+    try:
+        newDate = data.strftime("%d/%m/%Y")
+        #newDate = datetime.datetime.strptime(data, '%d-%m-%Y')
+        return False
+    except:
+        return False
+        st.write(newDate)
     #return True
     
 def changeDays():
@@ -113,7 +117,7 @@ def changeDays():
     
 def changeDate():
     valCal = st.session_state[listKeys[0]]
-    del st.session_state[listKeys[0]]
+    #del st.session_state[listKeys[0]]
     if valCal is None: 
         st.session_state[listKeys[0]] = date.today()
     else:
