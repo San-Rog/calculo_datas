@@ -139,7 +139,25 @@ def countCurUseFul(dateTuple):
     colLanc.markdown(f'**Número de dias lançados**: {nLanc}')
 
 def drawTable(): 
-    st.write(dateCurrUse)
+    #st.write(dateCurrUse)
+    elemTable = dateCurrUse.copy()
+    htmlTable = "<table>\n"
+    #Criação do cabeçalho
+    keys = list(elemTable.keys())
+    htmlTable += "<tr>"
+    for k, key in enumerate(keys):
+        htmlTable += f"\n<th>{key}</th>"
+    htmlTable += "\n</tr>"
+    #Preenchimento do corpo da tabela 
+    tupValues = zipList(elemTable)    
+    for tup in tupValues:
+        htmlTable += "\n<tr>"
+        for tp in tup: 
+            htmlTable += f"\n<td>{tp}</td>"
+        htmlTable += "\n</tr>"
+    htmlTable += "\n</table>"
+    #st.text(htmlTable)
+    st.markdown(htmlTable, unsafe_allow_html=True)
     
 def treatmentDf(title, field):
     df = pd.DataFrame(dateCurrUse)
