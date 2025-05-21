@@ -395,7 +395,7 @@ def main():
             drawTable()   
             if nDays != 0:
                 textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
-            st.markdown(textIni, unsafe_allow_html=True)
+                st.markdown(textIni, unsafe_allow_html=True)
         field = keyCurrent[f]
         title = f"Tabela '{field} x frequência' no período da contagem"
         dfCount = treatmentDf(title, field)
