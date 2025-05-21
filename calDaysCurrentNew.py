@@ -129,7 +129,7 @@ def countCurUseFul(dateTuple):
     else:
         dateFinal = dayFinal[-1]
     nLanc = len(dateCurrUse[keyCurrent[0]])
-    st.markdown(f":page_with_curl: **<font color={color}>{title}</font>**", True)
+    st.markdown(f":page_with_curl: **<font color={color}>{title} (dataframe)</font>**", True)
     colStart, colFinal, colCrit = st.columns(spec=3, gap='small', vertical_alignment='top', border=True)
     colStart.markdown(f'**Data inicial**  : {dateIniStr} ({dateIniName})')
     colFinal.markdown(f'**Data Final**  : {dateFinal}')
@@ -243,7 +243,6 @@ def iniVars():
         colOpt, = st.columns(spec=1, gap='small', vertical_alignment='center', border=False)
         st.markdown(f":point_right: **<font color={colorOpt}>Opções</font>**", True)
         #st.markdown(f":point_right: {color}[opções]**")
-        #Csv
         colCsv, colPkl, colHtml, colString = st.columns(spec=4, gap='small', vertical_alignment='center', border=False)
         colJson, colLatex, colClip, colClear = st.columns(spec=4, gap='small', vertical_alignment='top', border=False)
         if colCsv.download_button(
