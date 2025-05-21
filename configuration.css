@@ -33,3 +33,19 @@ p.expand {
 .stNumberInput input[aria-label="Número de dias"] {
     text-align: center;
 }
+
+table{
+	width: 100%;
+	text-align: center;
+	vertical-align: middle;
+}
+
+th{
+	background: red;
+	color: white;
+	font-style: normal;
+}
+
+tr:hover {
+	background-color: yellow;
+}
