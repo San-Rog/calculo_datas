@@ -25,7 +25,10 @@ def supplyState():
         st.session_state.info = {'conta': 0, 
                                 'dateIni': now, 
                                 'hourIni': f'{hour}h{minutes}min{second}s', 
-                                'tempusIni' : time.time()}
+                                'tempusIni' : time.time(), 
+                                'calc': 0, 
+                                'files': 0, 
+                                'holidays': 0}
     st.session_state.info['conta'] += 1
     
 if __name__ == '__main__':
