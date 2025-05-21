@@ -73,6 +73,7 @@ def findCurFul():
     st.session_state[listKeys[1]] = num        
         
 def zeraWidget():
+    info[infoKeys[8]] += 1
     iniFinally(1)
     
 def iniFinally(mode):
@@ -141,7 +142,7 @@ def changeSlCalend():
     del st.session_state[listKeys[5]]
     
 def listFiles():
-    info[infokeys[5]] += 1
+    info[infoKeys[5]] += 1
     try:
         @st.dialog(' ')
         def lista(files):
@@ -160,6 +161,7 @@ def listFiles():
         pass
 
 def exibInfo():
+    info[infoKeys[6]] += 1
     @st.dialog(' ')
     def config():
         info = st.session_state.info
@@ -171,6 +173,7 @@ def exibInfo():
     config()
 
 def exibHoliday():
+    info[infoKeys[7]] += 1
     dateOnly = st.session_state.dateonly
     nData = len(dateOnly) 
     dateAlpha = st.session_state.dateminstr
