@@ -100,7 +100,7 @@ def iniFinally(mode):
 
 def valiDate(data):
     try:
-        datetime.datetime.strptime(data, '%Y-%d-%m')
+        newDate = datetime.datetime.strptime(data, '%Y-%d-%m')
         return True
     except ValueError:
         return False
