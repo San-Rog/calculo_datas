@@ -376,7 +376,7 @@ def main():
         dateNow = datetime.date.today()
         dayFirst = st.session_state['acesso'][0]
         nDays = st.session_state['acesso'][1]
-        arg = (dayFirst, nDays, 0, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+        arg = (dayFirst, nDays, mode, f'contagem em dias {plur}', 'Demonstrativo cronológico')
         countCurUseFul(arg)
         df = pd.DataFrame(dateCurrUse)
         #['dia do mês', 'dias da semana', 
