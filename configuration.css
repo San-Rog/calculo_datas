@@ -48,7 +48,7 @@ th {
 	background: lightgreen;
 	color: white;
 	font-style: normal;
-	font-size: 15px;
+	font-size: 13px;
 	text-align: center;
 }
 
@@ -57,5 +57,5 @@ tr:hover {
 }
 
 td, tr {
-	font-size: 14px;	
+	font-size: 13px;	
 }
