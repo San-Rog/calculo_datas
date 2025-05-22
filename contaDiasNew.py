@@ -139,7 +139,7 @@ def changeSlCalend():
     if newDate > dateMax:
         newDate = dateMax
     st.session_state[listKeys[0]] = newDate
-    del st.session_state[listKeys[5]]
+    #del st.session_state[listKeys[5]]
     
 def listFiles():
     info[infoKeys[5]] += 1
