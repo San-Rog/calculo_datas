@@ -418,6 +418,6 @@ if __name__ == '__main__':
     symb = '📑'
     color = st.session_state.color
     st.subheader(f"Prazo em dias {plur} {symb}")
-    wiht st.spinner(""):
+    with st.spinner("Aguarde enquanto se montam as tabelas, quadros e gráficos...", show_time=True):
         main()
         
