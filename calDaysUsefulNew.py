@@ -419,7 +419,7 @@ if __name__ == '__main__':
     sing = 'útil'
     plur = 'úteis'
     mode = 1
-    symb = '📑'
+    symb = '📙'
     color = st.session_state.color
     main()
         
