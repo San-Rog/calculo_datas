@@ -5,6 +5,10 @@ p.expand {
   background-color: #f7f6f1;
 }
 
+::selection {
+  background: yellow;
+}
+
 .element-container:nth-of-type(1) button{
 	font-size: 17px;
 	font-weight: bold;
