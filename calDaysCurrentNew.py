@@ -418,6 +418,6 @@ if __name__ == '__main__':
     symb = '📑'
     color = st.session_state.color
     st.subheader(f"Prazo em dias {plur} {symb}")
-    st.spinner("")
-    main()
+    wiht st.spinner(""):
+        main()
         
