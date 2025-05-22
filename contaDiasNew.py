@@ -24,54 +24,53 @@ def dateFullLang(date):
     return dateFull
 
 def findCurFul():
-    with st.spinner("Wait for it...", show_time=True):
-        listData = st.session_state.dateonly.tolist()
-        listHoli = st.session_state.holonly.tolist()
-        colorIni = st.session_state.color
-        info[infoKeys[4]] += 1
-        @st.dialog(' ')
-        def config():
-            colOne, colTwo = st.columns(spec=([3.5, 1]), gap="small", vertical_alignment="top", border=True)
-            colOne.markdown('📁 Modifique a cor do título de tabelas e gráficos!')
-            colorSel = colTwo.color_picker("Cor inicial", colorIni)
-            st.session_state.color = colorSel            
-        config()
-        time.sleep(timeDay*1.1)
-        dateIni = st.session_state[listKeys[0]]
-        num = int(st.session_state[listKeys[1]])
-        val = checkDate(dateIni, num)
-        if not val:
-            return
-        for mode in [0, 1]:
-            daySeq = []
-            count = 0 
-            n = 0 
-            while count < num:
-                dateNew = dateIni + datetime.timedelta(days=n)
-                weekNum = dateNew.weekday()
-                if n == 0:
-                    pass
-                else: 
-                    if mode == 0:
-                        if count == num - 1:
-                            index = checkHoliday(listData, listHoli, dateNew)
-                            if any ([weekNum == 5, weekNum == 6, index != '']):
-                                pass
-                            else:
-                                count += 1
-                        else:
-                            count += 1
-                    else:
+    listData = st.session_state.dateonly.tolist()
+    listHoli = st.session_state.holonly.tolist()
+    colorIni = st.session_state.color
+    info[infoKeys[4]] += 1
+    @st.dialog(' ')
+    def config():
+        colOne, colTwo = st.columns(spec=([3.5, 1]), gap="small", vertical_alignment="top", border=True)
+        colOne.markdown('📁 Modifique a cor do título de tabelas e gráficos!')
+        colorSel = colTwo.color_picker("Cor inicial", colorIni)
+        st.session_state.color = colorSel            
+    config()
+    time.sleep(timeDay*1.1)
+    dateIni = st.session_state[listKeys[0]]
+    num = int(st.session_state[listKeys[1]])
+    val = checkDate(dateIni, num)
+    if not val:
+        return
+    for mode in [0, 1]:
+        daySeq = []
+        count = 0 
+        n = 0 
+        while count < num:
+            dateNew = dateIni + datetime.timedelta(days=n)
+            weekNum = dateNew.weekday()
+            if n == 0:
+                pass
+            else: 
+                if mode == 0:
+                    if count == num - 1:
                         index = checkHoliday(listData, listHoli, dateNew)
                         if any ([weekNum == 5, weekNum == 6, index != '']):
                             pass
                         else:
                             count += 1
-                daySeq.append(dateNew)    
-                n += 1
-            dateFinal = max(daySeq)
-            dateStr = dateFullLang(dateFinal)
-        st.session_state[listKeys[1]] = num        
+                    else:
+                        count += 1
+                else:
+                    index = checkHoliday(listData, listHoli, dateNew)
+                    if any ([weekNum == 5, weekNum == 6, index != '']):
+                        pass
+                    else:
+                        count += 1
+            daySeq.append(dateNew)    
+            n += 1
+        dateFinal = max(daySeq)
+        dateStr = dateFullLang(dateFinal)
+    st.session_state[listKeys[1]] = num        
         
 def zeraWidget():
     info[infoKeys[8]] += 1
