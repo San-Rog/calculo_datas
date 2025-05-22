@@ -359,7 +359,7 @@ def iniVars():
             toInClip(1)
 
 def main():
-    with st.spinner("Wait for it...", show_time=True):
+    with st.spinner("", show_time=False):
         global output, dirRoot
         global keyCurrent, keyUseFul
         global dateCurrUse, df, dfCount 
