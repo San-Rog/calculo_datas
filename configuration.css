@@ -52,10 +52,10 @@ th {
 	text-align: center;
 }
 
-tr:hover {
-	background-color: rgb(255, 174,;
-}
-
 td, tr {
 	font-size: 13px;	
+}
+
+tr:hover {
+	background-color: red;
 }
