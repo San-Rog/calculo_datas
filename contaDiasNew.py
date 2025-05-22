@@ -294,8 +294,7 @@ if __name__ == '__main__':
                 'days': 0, 
                 'plus': 0, 
                 'current': "", 
-                'useful': "", 
-                'sldata': 0}
+                'useful': ""}
     listKeys = list(keyNames.keys())
     timeDay = float(0.50)    
     months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
