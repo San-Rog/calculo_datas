@@ -415,5 +415,11 @@ if __name__ == '__main__':
     global sing, plur, symb
     global color, mode
     timeDay = 0.5
-    
+    timeDay = 0.5
+    sing = 'útil'
+    plur = 'úteis'
+    mode = 1
+    symb = '📑'
+    color = st.session_state.color
+    main()
         
