@@ -102,8 +102,12 @@ def changeDays():
     time.sleep(timeDay)
     nDays = st.session_state[listKeys[2]]
     nPlus = st.session_state[listKeys[1]]
+    nSum = nPlus + nDays
     del st.session_state[listKeys[2]]
-    st.session_state[listKeys[1]] = nPlus + nDays
+    if nSum > 3*incMax:
+        st.session_state[listKeys[1]] = 3*incMax
+    else:
+        st.session_state[listKeys[1]] = nSum
     
 def changeDate():
     valCal = st.session_state[listKeys[0]]
