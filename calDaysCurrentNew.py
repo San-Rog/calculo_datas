@@ -360,6 +360,7 @@ def iniVars():
 
 def main():
     with st.spinner("Aguarde enquanto se constroem tabelas, quadros e gráficos...", show_time=True):
+        st.subheader(f"Prazo em dias {plur} {symb}")
         global output, dirRoot
         global keyCurrent, keyUseFul
         global dateCurrUse, df, dfCount 
@@ -418,6 +419,5 @@ if __name__ == '__main__':
     plur = 'corridos'
     symb = '📑'
     color = st.session_state.color
-    st.subheader(f"Prazo em dias {plur} {symb}")
     main()
         
