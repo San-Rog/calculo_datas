@@ -226,7 +226,7 @@ def main():
                                      Digite o número de dias da contagem. Se quiser incrementá-lo, pressione o símbolo '+' ou 
                                      mova o botão deslizante para a direita; se quiser decrementá-lo, pressione o símbolo '-'.
                                      """)  
-        nPlus = sldDays.slider(label='Incremento de dias', min_value=incMin-incMin, max_value=incMax*3, 
+        nPlus = sldDays.slider(label='Incremento de dias', min_value=incMin-incMin, max_value=incMax, 
                                key=listKeys[2], step=1, on_change=changeDays, label_visibility="hidden") 
         colHollow, = st.columns(1, gap='medium', vertical_alignment="center")
         with colHollow:
