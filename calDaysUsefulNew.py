@@ -359,64 +359,61 @@ def iniVars():
             toInClip(1)
 
 def main():
-    global output, dirRoot
-    global keyCurrent, keyUseFul
-    global dateCurrUse, df, dfCount 
-    global months, weeks
-    keyCurrent = ['dia do mês', 'dia da semana', 
-                  'condição', 'nota', '#', 'contador']
-    dateCurrUse = {key:[] for key in keyCurrent}
-    months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
-              7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
-    weeks = {6: 'domingo', 0: 'segunda-feira', 1: 'terça-feira', 
-             2: 'quarta-feira', 3: 'quinta-feira', 4: 'sexta-feira', 
-             5: 'sábado'}
-    dateNow = datetime.date.today()
-    dayFirst = st.session_state['acesso'][0]
-    nDays = st.session_state['acesso'][1]
-    arg = (dayFirst, nDays, 1, f'contagem em dias {plur}', 'Demonstrativo cronológico')
-    countCurUseFul(arg)
-    df = pd.DataFrame(dateCurrUse)
-    #['dia do mês', 'dias da semana', 
-    #'condição', 'obs', 'sequencial', 'contador geral']
-    try:
-        dateMin = st.session_state.dateminstr
-        dateMax = st.session_state.datemaxstr  
-    except: 
-        dateMin = ""
-        dateMax = ""
-    for f in [1, 2]: 
-        if f == 1:
-        #if all([f == 1, nDays != 0]):
-            st.dataframe(data=df, hide_index=True, use_container_width=True)
-            st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
-            drawTable()   
-            if nDays != 0:
-                textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
-                st.markdown(textIni, unsafe_allow_html=True)
-        field = keyCurrent[f]
-        title = f"Tabela '{field} x frequência' no período da contagem"
-        dfCount = treatmentDf(title, field)
-        st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
-        title = f"Gráfico '{field} x frequência' no período da contagem"        
-        chartData = graphicDf(title)
-        with st.container(border=True):
-            st.bar_chart(chartData, y="frequência", x=field)    
-        output = BytesIO()
-    with open('configuration.css') as f:
-        css = f.read()
-    st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
-    iniVars()
+    with st.spinner("Aguarde enquanto se constroem tabelas, quadros e gráficos...", show_time=True):
+        st.subheader(f"Prazo em dias {plur} {symb}")
+        global output, dirRoot
+        global keyCurrent, keyUseFul
+        global dateCurrUse, df, dfCount 
+        global months, weeks
+        keyCurrent = ['dia do mês', 'dia da semana', 
+                      'condição', 'nota', '#', 'contador']
+        dateCurrUse = {key:[] for key in keyCurrent}
+        months = {1: 'janeiro', 2: 'fevereiro', 3: 'março', 4: 'abril', 5:'maio', 6: 'junho', 
+                  7: 'julho', 8: 'agosto', 9: 'setembro', 10: 'outubro', 11: 'novembro', 12: 'dezembro'}
+        weeks = {6: 'domingo', 0: 'segunda-feira', 1: 'terça-feira', 
+                 2: 'quarta-feira', 3: 'quinta-feira', 4: 'sexta-feira', 
+                 5: 'sábado'}
+        dateNow = datetime.date.today()
+        dayFirst = st.session_state['acesso'][0]
+        nDays = st.session_state['acesso'][1]
+        arg = (dayFirst, nDays, mode, f'contagem em dias {plur}', 'Demonstrativo cronológico')
+        countCurUseFul(arg)
+        df = pd.DataFrame(dateCurrUse)
+        #['dia do mês', 'dias da semana', 
+        #'condição', 'obs', 'sequencial', 'contador geral']
+        try:
+            dateMin = st.session_state.dateminstr
+            dateMax = st.session_state.datemaxstr  
+        except: 
+            dateMin = ""
+            dateMax = ""
+        for f in [1, 2]: 
+            if f == 1:
+            #if all([f == 1, nDays != 0]):
+                st.dataframe(data=df, hide_index=True, use_container_width=True)
+                st.markdown(f":page_with_curl: **<font color={color}>{arg[-1]} (matriz expandida)</font>**", True)
+                drawTable()   
+                if nDays != 0:
+                    textIni = f"✳️ Os feriados nacionais são os catalogados para o período de {dateMin} a {dateMax}!"
+                    st.markdown(textIni, unsafe_allow_html=True)
+            field = keyCurrent[f]
+            title = f"Tabela '{field} x frequência' no período da contagem"
+            dfCount = treatmentDf(title, field)
+            st.dataframe(data=dfCount, hide_index=True, use_container_width=True)
+            title = f"Gráfico '{field} x frequência' no período da contagem"        
+            chartData = graphicDf(title)
+            with st.container(border=True):
+                st.bar_chart(chartData, y="frequência", x=field)    
+            output = BytesIO()
+        with open('configuration.css') as f:
+            css = f.read()
+        st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
+        iniVars()
 
 if __name__ == '__main__':
     global timeDay
     global sing, plur, symb
-    global color
+    global color, mode
     timeDay = 0.5
-    sing = 'útil'
-    plur = 'úteis'
-    symb = '📙'
-    color = st.session_state.color
-    st.subheader(f"Prazo em dias {plur} {symb}")
-    main()
+    
         
