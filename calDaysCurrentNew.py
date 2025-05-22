@@ -413,10 +413,11 @@ def main():
 if __name__ == '__main__':
     global timeDay
     global sing, plur, symb
-    global color
+    global color, mode
     timeDay = 0.5
     sing = 'corrido'
     plur = 'corridos'
+    mode = 0
     symb = '📑'
     color = st.session_state.color
     main()
