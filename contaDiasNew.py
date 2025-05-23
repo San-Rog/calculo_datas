@@ -255,10 +255,7 @@ def main():
         expediente público ou privado. Mesmo em relação aos feriados nacionais, chama-se a atenção para o fato de que se baseiam 
         em planilha disponível na internet e copiada em 13 de maio de 2025 pelo desenvolvedor.                      
         """
-        st.markdown(f"<p class='expand'>{textHelp}</p>", unsafe_allow_html=True)
-        with open('configuration.css') as f:
-            css = f.read()
-        st.markdown(f'<style>{css}</style>', unsafe_allow_html=True) 
+        st.markdown(f'<style>{bytesCss}</style>', unsafe_allow_html=True) 
         st.markdown("""<style> [data-testid="stDateInput"] [data-baseweb="input"]:before {
                     content: "";
                     padding-top: 5px;
@@ -284,19 +281,6 @@ def defineLim():
     return listDate
     
 if __name__ == '__main__':
-    textOne = "Alô, amigo!<br>Tudo bem com você?"
-    hmtl=f"""
-    <div class="dropdown">
-    <span>"Tela de entrada de dados 📆"</span>
-    <div class="dropdown-content">
-    <p>{textOne}</p>
-    </div>
-    """
-    st.markdown(hmtl, unsafe_allow_html=True)
-    with open(r'C:\Users\ACER\Desktop\streamlit\newConfigTwo.css') as f:
-        css = f.read()
-    st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
-    #st.subheader("Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
     global months, weeks
     global dateMin, dateMax
@@ -304,6 +288,7 @@ if __name__ == '__main__':
     global dateOnly, holOnly
     global incMin, incMax
     global info, infoKeys
+    global fileCss, bytesCss
     keyNames = {'calendar': date.today(), 
                 'days': 0, 
                 'plus': 0, 
@@ -338,5 +323,19 @@ if __name__ == '__main__':
         st.session_state['acesso'] = []
     if 'files' not in st.session_state:
         st.session_state['files'] = [] 
+    fileCss = 'configuration.css'
+    textOne = "Alô, amigo!<br>Tudo bem com você?"
+    hmtl=f"""
+    <div class="dropdown">
+    <span>"Tela de entrada de dados 📆"</span>
+    <div class="dropdown-content">
+    <p>{textOne}</p>
+    </div>
+    """
+    st.markdown(hmtl, unsafe_allow_html=True)
+    with open(fileCss) as f:
+        bytesCss = f.read()
+    st.markdown(f'<style>{bytesCss}</style>', unsafe_allow_html=True)
+    #st.subheader("Tela de entrada de dados 📆")
     iniFinally(0)
     main()
