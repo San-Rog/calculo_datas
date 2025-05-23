@@ -291,7 +291,6 @@ if __name__ == '__main__':
     <div class="dropdown-content">
     <p>{textOne}</p>
     </div>
-    </div>
     """
     st.markdown(hmtl, unsafe_allow_html=True)
     with open(r'C:\Users\ACER\Desktop\streamlit\newConfigTwo.css') as f:
