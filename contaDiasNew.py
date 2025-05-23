@@ -71,13 +71,11 @@ def findCurFul():
         dateFinal = max(daySeq)
         dateStr = dateFullLang(dateFinal)
     st.session_state[listKeys[1]] = num        
-
-@st.cache_data
+        
 def zeraWidget():
     info[infoKeys[8]] += 1
     iniFinally(1)
-
-@st.cache_data
+    
 def iniFinally(mode):
     if mode == 0:
         for key in listKeys:
@@ -107,8 +105,7 @@ def changeDays():
     nSum = nPlus + nDays
     del st.session_state[listKeys[2]]
     st.session_state[listKeys[1]] = nSum
-
-@st.cache_data
+    
 def changeDate():
     valCal = st.session_state[listKeys[0]]
     del st.session_state[listKeys[0]]
@@ -119,8 +116,7 @@ def changeDate():
             st.session_state[listKeys[0]] = valCal
         except:
             st.session_state[listKeys[0]] = date.today()
-
-@st.cache_data
+            
 def checkDate(dateSel, nDays):
     time.sleep(timeDay*1.1)    
     if nDays <= 0:
@@ -145,8 +141,7 @@ def changeSlCalend():
         newDate = dateMax
     st.session_state[listKeys[0]] = newDate
     #del st.session_state[listKeys[5]]
-
-@st.cache_data
+    
 def listFiles():
     info[infoKeys[5]] += 1
     try:
@@ -166,7 +161,6 @@ def listFiles():
     except:
         pass
 
-@st.cache_data
 def exibInfo():
     info[infoKeys[6]] += 1
     @st.dialog(' ')
@@ -285,12 +279,10 @@ def main():
                     margin: 12px 10px 10px 12px;
                     }</style>""", unsafe_allow_html=True)
 
-@st.cache_data
 def configDbHol():
     newCol = ' # '
     dfHoliday[newCol] = [row + 1 for row in range(len(dfHoliday))]  
-
-@st.cache_data
+        
 def defineLim():
     listDate = []
     nOnly = len(dateOnly)
