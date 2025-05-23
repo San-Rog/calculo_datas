@@ -206,6 +206,22 @@ def textWrapper(textIni, size):
     textFinal = " ".join(textSplit)    
     return textFinal
 
+def hmtlCss():
+    pass
+    #textOne = "Alô, amigo!<br>Tudo bem com você?"
+    #textIni = 'Tela de entrada de dados 📆'
+    #hmtl=f"""
+    #<div class="dropdown">
+    #<span>{textIni}</span>
+    #<div class="dropdown-content">
+    #<p>{textOne}</p>
+    #</div>
+    #"""
+    #st.markdown(hmtl, unsafe_allow_html=True)
+    #with open(fileCss) as f:
+    #    bytesCss = f.read()
+    #st.markdown(f'<style>{bytesCss}</style>', unsafe_allow_html=True)    
+
 def main():
     colorOpt = st.session_state.colorOpt
     with st.container(border=6):  
@@ -324,19 +340,6 @@ if __name__ == '__main__':
     if 'files' not in st.session_state:
         st.session_state['files'] = [] 
     fileCss = 'configuration.css'
-    textOne = "Alô, amigo!<br>Tudo bem com você?"
-    textIni = 'Tela de entrada de dados 📆'
-    hmtl=f"""
-    <div class="dropdown">
-    <span>{textIni}</span>
-    <div class="dropdown-content">
-    <p>{textOne}</p>
-    </div>
-    """
-    st.markdown(hmtl, unsafe_allow_html=True)
-    with open(fileCss) as f:
-        bytesCss = f.read()
-    st.markdown(f'<style>{bytesCss}</style>', unsafe_allow_html=True)
-    #st.subheader("Tela de entrada de dados 📆")
+    st.subheader("Tela de entrada de dados 📆")
     iniFinally(0)
     main()
