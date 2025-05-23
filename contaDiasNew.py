@@ -325,9 +325,10 @@ if __name__ == '__main__':
         st.session_state['files'] = [] 
     fileCss = 'configuration.css'
     textOne = "Alô, amigo!<br>Tudo bem com você?"
+    textIni = 'Tela de entrada de dados 📆'
     hmtl=f"""
     <div class="dropdown">
-    <span>"Tela de entrada de dados 📆"</span>
+    <span>}textIni}</span>
     <div class="dropdown-content">
     <p>{textOne}</p>
     </div>
