@@ -9,6 +9,7 @@ import pandas as pd
 from datetime import timedelta
 import textwrap
 
+@st.cache_data
 def checkHoliday(listDate, listHoli, date):
     dateStr =  date.strftime("%d/%m/%Y")
     try:
@@ -16,6 +17,7 @@ def checkHoliday(listDate, listHoli, date):
     except:
         return ""
 
+@st.cache_data
 def dateFullLang(date):
     dateStr = date.strftime("%d/%m/%Y")
     weekNum = date.weekday()
@@ -71,11 +73,13 @@ def findCurFul():
         dateFinal = max(daySeq)
         dateStr = dateFullLang(dateFinal)
     st.session_state[listKeys[1]] = num        
-        
+
+@st.cache_data
 def zeraWidget():
     info[infoKeys[8]] += 1
     iniFinally(1)
-    
+
+@st.cache_data
 def iniFinally(mode):
     if mode == 0:
         for key in listKeys:
@@ -98,6 +102,7 @@ def iniFinally(mode):
     st.session_state['acesso'] = [st.session_state.calendar, 
                                   st.session_state.days]
 
+@st.cache_data
 def changeDays():
     time.sleep(timeDay)
     nDays = st.session_state[listKeys[2]]
@@ -105,7 +110,8 @@ def changeDays():
     nSum = nPlus + nDays
     del st.session_state[listKeys[2]]
     st.session_state[listKeys[1]] = nSum
-    
+
+@st.cache_data
 def changeDate():
     valCal = st.session_state[listKeys[0]]
     del st.session_state[listKeys[0]]
@@ -116,7 +122,8 @@ def changeDate():
             st.session_state[listKeys[0]] = valCal
         except:
             st.session_state[listKeys[0]] = date.today()
-            
+
+@st.cache_data
 def checkDate(dateSel, nDays):
     time.sleep(timeDay*1.1)    
     if nDays <= 0:
@@ -130,6 +137,7 @@ def checkDate(dateSel, nDays):
     time.sleep(0.2)
     return endor
 
+@st.cache_data
 def changeSlCalend():
     time.sleep(timeDay)
     nDays = st.session_state[listKeys[5]]
@@ -141,7 +149,8 @@ def changeSlCalend():
         newDate = dateMax
     st.session_state[listKeys[0]] = newDate
     #del st.session_state[listKeys[5]]
-    
+
+@st.cache_data
 def listFiles():
     info[infoKeys[5]] += 1
     try:
@@ -161,6 +170,7 @@ def listFiles():
     except:
         pass
 
+@st.cache_data
 def exibInfo():
     info[infoKeys[6]] += 1
     @st.dialog(' ')
@@ -183,6 +193,7 @@ def exibInfo():
         st.markdown(f"📕 **Clique(s) no botão :blue[Limpeza]**: {clearK}.")
     config()
 
+@st.cache_data
 def exibHoliday():
     info[infoKeys[7]] += 1
     dateOnly = st.session_state.dateonly
@@ -195,10 +206,12 @@ def exibHoliday():
         st.dataframe(data=dfHoliday, use_container_width=True, hide_index=True) 
     holid()
 
+@st.cache_data
 def readHoliday():
     dtf = pd.read_csv('feriadosNacionais.csv')
     return dtf
 
+@st.cache_data
 def textWrapper(textIni, size):
     wrapper = textwrap.TextWrapper(width=size)
     textWrapper = wrapper.fill(text=textIni)
@@ -206,6 +219,7 @@ def textWrapper(textIni, size):
     textFinal = " ".join(textSplit)    
     return textFinal
 
+@st.cache_data
 def hmtlCss():
     pass
     #textOne = "Alô, amigo!<br>Tudo bem com você?"
@@ -279,11 +293,12 @@ def main():
                     margin: 12px 10px 10px 12px;
                     }</style>""", unsafe_allow_html=True)
 
+@st.cache_data
 def configDbHol():
     newCol = ' # '
     dfHoliday[newCol] = [row + 1 for row in range(len(dfHoliday))]  
 
-@st.cache_resource
+@st.cache_data
 def defineLim():
     listDate = []
     nOnly = len(dateOnly)
