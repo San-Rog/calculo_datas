@@ -328,7 +328,7 @@ if __name__ == '__main__':
     textIni = 'Tela de entrada de dados 📆'
     hmtl=f"""
     <div class="dropdown">
-    <span>}textIni}</span>
+    <span>{textIni}</span>
     <div class="dropdown-content">
     <p>{textOne}</p>
     </div>
