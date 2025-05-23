@@ -282,7 +282,8 @@ def main():
 def configDbHol():
     newCol = ' # '
     dfHoliday[newCol] = [row + 1 for row in range(len(dfHoliday))]  
-        
+
+@st.cache_resource
 def defineLim():
     listDate = []
     nOnly = len(dateOnly)
