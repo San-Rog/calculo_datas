@@ -340,6 +340,8 @@ if __name__ == '__main__':
     if 'files' not in st.session_state:
         st.session_state['files'] = [] 
     fileCss = 'configuration.css'
+    with open(fileCss) as f:
+        bytesCss = f.read()
     st.subheader("Tela de entrada de dados 📆")
     iniFinally(0)
     main()
