@@ -265,6 +265,7 @@ def main():
                     padding-left: 18px;
                     margin: 12px 10px 10px 12px;
                     }</style>""", unsafe_allow_html=True)
+
 def configDbHol():
     newCol = ' # '
     dfHoliday[newCol] = [row + 1 for row in range(len(dfHoliday))]  
@@ -283,7 +284,20 @@ def defineLim():
     return listDate
     
 if __name__ == '__main__':
-    st.subheader("Tela de entrada de dados 📆")
+    textOne = "Alô, amigo!<br>Tudo bem com você?"
+    hmtl=f"""
+    <div class="dropdown">
+    <span>"Tela de entrada de dados 📆"</span>
+    <div class="dropdown-content">
+    <p>{textOne}</p>
+    </div>
+    </div>
+    """
+    st.markdown(hmtl, unsafe_allow_html=True)
+    with open(r'C:\Users\ACER\Desktop\streamlit\newConfigTwo.css') as f:
+        css = f.read()
+    st.markdown(f'<style>{css}</style>', unsafe_allow_html=True)
+    #st.subheader("Tela de entrada de dados 📆")
     global dictKeys, listKeys, timeDay
     global months, weeks
     global dateMin, dateMax
