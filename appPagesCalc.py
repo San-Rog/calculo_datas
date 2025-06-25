@@ -34,6 +34,6 @@ def supplyState():
     st.session_state.info['conta'] += 1
     
 if __name__ == '__main__':
-    #st.set_page_config(layout="wide")
+    st.set_page_config(layout="wide")
     supplyState()    
     main()
