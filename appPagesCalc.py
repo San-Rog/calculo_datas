@@ -6,8 +6,8 @@ def main():
     #Define the pages
     pages = {
     "Opções": [st.Page("contaDiasNew.py", title="Tela de entrada de datas", icon="📆"), 
-              st.Page("calDaysCurrentNew.py", title="Tabelas/gráficos dias corridos", icon="📑"), 
-              st.Page("calDaysUsefulNew.py", title="Tabelas/gráficos dias úteis", icon="📙")]   
+              st.Page("calDaysCurrentNew.py", title="Tela de dias corridos", icon="📑"), 
+              st.Page("calDaysUsefulNew.py", title="Tela de dias úteis", icon="📙")]   
     }
     pg = st.navigation(pages)
     pg.run()   
